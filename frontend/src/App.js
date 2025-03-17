@@ -195,14 +195,6 @@ function App() {
           transition={{ duration: 0.8 }}
           className="text-center mb-10"
         >
-          <h1 className="text-3xl md:text-4xl font-extrabold" style={{ color: primaryColor }}>
-            
-          </h1>
-          <p className="mt-3 text-lg text-gray-600">
-            {hideProviderDropdown
-              ? `Schedule an appointment with ${selectedProviderName}`
-              : ''}
-          </p>
         </motion.div>
 
         <motion.div
