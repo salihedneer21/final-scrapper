@@ -19,7 +19,7 @@ const CONFIG = {
     
     // Add these MongoDB configuration settings
     mongodb: {
-        uri: process.env.MONGO_URI || 'mongodb+srv://salihedneer21:JoAcqvXHoCFr5C3U@cluster0.qubhv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+        uri: process.env.MONGO_URI || 'mongodb+srv://hayim:b7ygfCTUCQeuysw7@cluster0.obhkx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
     },
     resultsDir: './results', // Directory where the appointments.json file is stored
     appointmentsFile: 'appointments.json', // Name of the appointments file

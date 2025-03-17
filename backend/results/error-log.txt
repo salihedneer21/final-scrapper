@@ -2421,3 +2421,29 @@ ProtocolError: Protocol error (Page.navigate): Unexpected Status 502 (no_peers_c
     at CdpPage.goto (/Users/salihedneer/Desktop/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
     at AppointmentScraper.navigateWithRetry (/Users/salihedneer/Desktop/scraper/backend/scrapper.js:143:20)
 
+[2025-03-17T18:24:52.059Z] Failed to initialize page: Network.enable timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+ProtocolError: Network.enable timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+    at <instance_members_initializer> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:101:14)
+    at new Callback (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:105:16)
+    at CallbackRegistry.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:23:26)
+    at Connection._rawSend (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Connection.js:99:26)
+    at CdpCDPSession.send (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:73:33)
+    at NetworkManager.addClient (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/NetworkManager.js:62:20)
+    at FrameManager.initialize (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:174:38)
+    at #initialize (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Page.js:291:36)
+    at CdpPage._create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Page.js:103:31)
+    at /Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Target.js:205:42
+
+[2025-03-17T18:24:52.164Z] Error processing clinician (ID: 533692, Name: Moshe Delerb, Social Worker): Network.enable timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+ProtocolError: Network.enable timed out. Increase the 'protocolTimeout' setting in launch/connect calls for a higher timeout if needed.
+    at <instance_members_initializer> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:101:14)
+    at new Callback (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:105:16)
+    at CallbackRegistry.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:23:26)
+    at Connection._rawSend (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Connection.js:99:26)
+    at CdpCDPSession.send (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:73:33)
+    at NetworkManager.addClient (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/NetworkManager.js:62:20)
+    at FrameManager.initialize (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/FrameManager.js:174:38)
+    at #initialize (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Page.js:291:36)
+    at CdpPage._create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Page.js:103:31)
+    at /Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Target.js:205:42
+
