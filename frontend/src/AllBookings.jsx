@@ -38,7 +38,7 @@ function AllBookings() {
       const queryParams = new URLSearchParams();
       if (filters.status) queryParams.append('status', filters.status);
       
-      const response = await fetch(`https://kiasoftwares.com/api/allbookings?${queryParams}`);
+      const response = await fetch(`https://automate.crowncounseling.com/api/allbookings?${queryParams}`);
       if (!response.ok) throw new Error('Network response was not ok');
       
       const data = await response.json();
@@ -86,7 +86,7 @@ function AllBookings() {
     const matchingSlots = dailySlots.filter(slot => slot.time === time);
     
     Promise.all(matchingSlots.map(slot => 
-      fetch(`https://kiasoftwares.com/api/slots/${slot.id}`)
+      fetch(`https://automate.crowncounseling.com/api/slots/${slot.id}`)
         .then(response => {
           if (!response.ok) throw new Error('Failed to fetch slot details');
           return response.json();

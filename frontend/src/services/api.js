@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://kiasoftwares.com/api';
+const API_BASE_URL = 'https://automate.crowncounseling.com/api';
 
 export const submitAppointmentForm = async (formData, href) => {
   try {

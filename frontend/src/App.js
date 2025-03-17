@@ -30,7 +30,7 @@ function App() {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await fetch('https://kiasoftwares.com/api/doctors');
+        const response = await fetch('https://automate.crowncounseling.com/api/doctors');
         const data = await response.json();
         setDoctors(data);
 
@@ -88,7 +88,7 @@ function App() {
       const fetchSlots = async () => {
         try {
           const response = await fetch(
-            `https://kiasoftwares.com/api/doctors/${selectedProvider}/slots`
+            `https://automate.crowncounseling.com/api/doctors/${selectedProvider}/slots`
           );
           const data = await response.json();
           setSlots(data);

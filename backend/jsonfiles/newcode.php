@@ -7,7 +7,7 @@
 
 function crown_counseling_booking_shortcode() {
     return '<iframe 
-        src="https://kiasoftwares.com" 
+        src="https://automate.crowncounseling.com" 
         width="100%" 
         height="800px" 
         style="border: none; max-width: 100%; margin: 0 auto;"
@@ -1129,7 +1129,7 @@ function crown_counseling_iframe_shortcode($atts) {
     // If a clinician ID is found, show the iframe; otherwise, show the second form
     if (!empty($clinician_id)) {
         // Return the iframe with the clinician ID
-        return '<iframe style="border: none;" src="https://kiasoftwares.com/clinician/' . esc_attr($clinician_id) . '" width="100%" height="400px"></iframe>';
+        return '<iframe style="border: none;" src="https://automate.crowncounseling.com/clinician/' . esc_attr($clinician_id) . '" width="100%" height="400px"></iframe>';
     } else {
         // Return the second form when no clinician ID is found
         return '<style>.show-iframe{display:none !important}</style>
