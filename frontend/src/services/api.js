@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://54.211.44.117:7777/api';
+const API_BASE_URL = 'http://localhost:7777/api';
 
 export const submitAppointmentForm = async (formData, href) => {
   try {
