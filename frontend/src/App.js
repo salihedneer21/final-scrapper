@@ -196,12 +196,12 @@ function App() {
           className="text-center mb-10"
         >
           <h1 className="text-3xl md:text-4xl font-extrabold" style={{ color: primaryColor }}>
-            Crown Counseling LLC
+            
           </h1>
           <p className="mt-3 text-lg text-gray-600">
             {hideProviderDropdown
               ? `Schedule an appointment with ${selectedProviderName}`
-              : 'Select your preferred provider and appointment time'}
+              : ''}
           </p>
         </motion.div>
 
