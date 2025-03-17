@@ -34,23 +34,31 @@ function App() {
         const data = await response.json();
         setDoctors(data);
 
-        // Check if we have a clinician name in the URL
+        // Check if we have a clinician parameter in the URL
         if (clinicianName) {
-          const decodedName = decodeURIComponent(clinicianName).trim();
-          const normalizedName = decodedName.replace(/\s+/g, '').toLowerCase();
-
-          // Find matching provider by searchableName (case insensitive)
-          const matchedProvider = data.find(
-            (doctor) =>
-              doctor.searchableName &&
-              doctor.searchableName.toLowerCase() === normalizedName
+          // First check if it's a clinician ID
+          const matchedById = data.find(
+            doctor => doctor.clinicianId === clinicianName
           );
 
-          if (matchedProvider) {
-            // Automatically select the provider
-            handleProviderChange(matchedProvider.clinicianId, matchedProvider.cleanName);
-            // Hide the dropdown since we're auto-selecting
+          if (matchedById) {
+            // If it's an ID match, use it directly
+            handleProviderChange(matchedById.clinicianId, matchedById.cleanName);
             setHideProviderDropdown(true);
+          } else {
+            // If not an ID, try matching by name
+            const decodedName = decodeURIComponent(clinicianName).trim();
+            const normalizedName = decodedName.replace(/\s+/g, '').toLowerCase();
+
+            const matchedByName = data.find(
+              doctor => doctor.searchableName && 
+              doctor.searchableName.toLowerCase() === normalizedName
+            );
+
+            if (matchedByName) {
+              handleProviderChange(matchedByName.clinicianId, matchedByName.cleanName);
+              setHideProviderDropdown(true);
+            }
           }
         }
 
