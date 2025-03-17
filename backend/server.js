@@ -77,23 +77,23 @@ const cronJob = cron.schedule('0 */4 * * *', async () => {
  });
 
 // New cron job to process unknown appointments every 20 minutes
-// const processUnknownCronJob = cron.schedule('*/20 * * * *', async () => {
-//   try {
-//     log('Running scheduled job to process unknown appointments', 'info');
+const processUnknownCronJob = cron.schedule('*/20 * * * *', async () => {
+  try {
+    log('Running scheduled job to process unknown appointments', 'info');
     
-//     // Call the processUnknownAppointments function directly
-//     const results = await formSubmitter.processUnknownAppointments();
+    // Call the processUnknownAppointments function directly
+    const results = await formSubmitter.processUnknownAppointments();
     
-//     // Log the results
-//     if (results.error) {
-//       log(`Error in processing unknown appointments: ${results.error}`, 'error');
-//     } else {
-//       log(`Successfully processed unknown appointments. Success: ${results.success}, Failed: ${results.failed}, Total: ${results.total}`, 'success');
-//     }
-//   } catch (error) {
-//     log(`Exception in appointment processing job: ${error.message}`, 'error');
-//   }
-// });
+    // Log the results
+    if (results.error) {
+      log(`Error in processing unknown appointments: ${results.error}`, 'error');
+    } else {
+      log(`Successfully processed unknown appointments. Success: ${results.success}, Failed: ${results.failed}, Total: ${results.total}`, 'success');
+    }
+  } catch (error) {
+    log(`Exception in appointment processing job: ${error.message}`, 'error');
+  }
+});
 
 // Manually trigger scraper endpoint (for testing)
 app.post('/api/run', async (req, res) => {
