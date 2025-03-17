@@ -38,7 +38,7 @@ function AllBookings() {
       const queryParams = new URLSearchParams();
       if (filters.status) queryParams.append('status', filters.status);
       
-      const response = await fetch(`http://localhost:7777/api/allbookings?${queryParams}`);
+      const response = await fetch(`http://54.211.44.117:7777/api/allbookings?${queryParams}`);
       if (!response.ok) throw new Error('Network response was not ok');
       
       const data = await response.json();
@@ -86,7 +86,7 @@ function AllBookings() {
     const matchingSlots = dailySlots.filter(slot => slot.time === time);
     
     Promise.all(matchingSlots.map(slot => 
-      fetch(`http://localhost:7777/api/slots/${slot.id}`)
+      fetch(`http://54.211.44.117:7777/api/slots/${slot.id}`)
         .then(response => {
           if (!response.ok) throw new Error('Failed to fetch slot details');
           return response.json();
