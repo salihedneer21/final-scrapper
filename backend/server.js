@@ -15,7 +15,7 @@ const cors = require('cors'); // Add this line
 
 // Initialize express app
 const app = express();
-const PORT = process.env.PORT || 3004;
+const PORT = process.env.PORT || 7777;
 
 
 // Helper function for formatted logging
