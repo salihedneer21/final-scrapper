@@ -1,0 +1,25 @@
+{
+  "name": "therapy-portal-scraper",
+  "version": "1.0.0",
+  "description": "Therapy portal scraper",
+  "main": "main.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node server.js",
+    "locations": "node locationScraper.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "googleapis": "^146.0.0",
+    "mongoose": "^8.12.1",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.3",
+    "nodemon": "^3.1.9",
+    "p-queue": "^8.1.0",
+    "puppeteer-core": "^24.4.0"
+  }
+}
