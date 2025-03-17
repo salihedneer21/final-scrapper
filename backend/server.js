@@ -38,8 +38,6 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files from the React build folder
-app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 
 // Add this line after your middleware setup
@@ -105,12 +103,6 @@ app.post('/api/run', async (req, res) => {
   }
 });
 
-
-
-// For all other routes, serve the React app
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-});
 
 
 
