@@ -45,7 +45,7 @@ const SHEET_HEADERS = [
   'DocumentURLs'
 ];
 
-const spreadsheetId = '1lD5psMNBqOtGgvH0CJhCkZFEaLoR8xUMtCWssHbKpY8';
+const spreadsheetId = '15p2BJh0PAWtuuTwHE30lY4q0ULiLf7xgA13sC62GMsE';
 const range = 'Sheet1';
 
 async function appendToGoogleSheet(data) {
@@ -406,7 +406,7 @@ async function uploadToDrive(file) {
     },
     requestBody: {
       name: file.originalname,
-      parents: ['15J3XaGhp2K2m4VMUMmMlbmYzn7KHTB1m'], // Replace with your folder ID
+      parents: ['1VFNjXkQ_3QBG6K1wUgF5JXt7jPl0TnQg'], // Replace with your folder ID
     },
     fields: 'id,webViewLink',
   });
