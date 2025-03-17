@@ -54,3 +54,6 @@ lib-cov
 *.swo
 .temp
 .cachebackend/jsonfiles/credentials.json
+
+
+backend/jsonfiles/credentials.json
