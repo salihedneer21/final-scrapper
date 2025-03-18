@@ -20,6 +20,7 @@ function App() {
   const [slots, setSlots] = useState([]);
   const [errorMessage, setErrorMessage] = useState('');
   const [hideProviderDropdown, setHideProviderDropdown] = useState(false);
+  const [view, setView] = useState('calendar'); // possible values: 'calendar', 'timeSlots'
 
   // Get clinician name from URL parameter
   const { clinicianName } = useParams();
@@ -113,6 +114,7 @@ function App() {
       setErrorMessage('No available slots for this date. Please select another date.');
     } else {
       setErrorMessage('');
+      setView('timeSlots'); // Switch to time slots view
     }
 
     setSelectedDate(date);
@@ -165,6 +167,14 @@ function App() {
     }
   };
 
+  // Add new function to go back to calendar
+  const handleBackToCalendar = () => {
+    setView('calendar');
+    setSelectedDate(null);
+    setTimeSlots([]);
+    setErrorMessage('');
+  };
+
   // Loading state
   if (loading) {
     return (
@@ -184,24 +194,16 @@ function App() {
         />
       </div>
     );
-  }
+  } 
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-10"
-        >
-        </motion.div>
-
+      <div className="w-full mx-auto px-2 sm:px-4 lg:px-6 pt-4 pb-8">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="bg-white rounded-lg shadow-xl overflow-hidden max-w-3xl mx-auto"
+          className="bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-2xl mx-auto"
         >
           {isSubmitting && submissionComplete ? (
             <div className="p-8">
@@ -254,17 +256,17 @@ function App() {
               <p className="text-gray-600 text-center">Processing your appointment request...</p>
             </div>
           ) : (
-            <div className="p-4 md:p-8">
+            <div className="p-3 md:p-6">
               {!showAppointmentForm ? (
                 <>
                   {!hideProviderDropdown && (
                     <>
-                      <h2 className="text-lg md:text-xl font-semibold mb-4 md:mb-6">
+                      <h2 className="text-base md:text-lg font-semibold mb-3 md:mb-4">
                         Choose which provider you'd like to see
                       </h2>
 
-                      <div className="mb-6 md:mb-8">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <div className="mb-4 md:mb-6">
+                        <label className="block text-sm font-medium text-gray-700 mb-1">
                           Select Provider
                         </label>
 
@@ -283,42 +285,68 @@ function App() {
                   {selectedProvider && (
                     <motion.div
                       key={selectedProvider}
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
                       transition={{ duration: 0.5 }}
-                      className="space-y-6"
+                      className="space-y-4"
                     >
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-base md:text-lg font-medium">Select a date</h3>
-                      </div>
-
-                      <Calendar
-                        currentWeekStart={currentWeekStart}
-                        setCurrentWeekStart={setCurrentWeekStart}
-                        selectedDate={selectedDate}
-                        handleDateSelect={handleDateSelect}
-                        primaryColor={primaryColor}
-                        slots={slots}
-                      />
-
-                      {selectedDate && (
+                      {view === 'calendar' ? (
+                        <>
+                          <div>
+                            <h3 className="text-sm md:text-base font-medium">Select a date</h3>
+                          </div>
+                          <Calendar
+                            currentWeekStart={currentWeekStart}
+                            setCurrentWeekStart={setCurrentWeekStart}
+                            selectedDate={selectedDate}
+                            handleDateSelect={handleDateSelect}
+                            primaryColor={primaryColor}
+                            slots={slots}
+                          />
+                        </>
+                      ) : (
                         <motion.div
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           transition={{ duration: 0.5 }}
                         >
-                          <h3 className="text-base md:text-lg font-medium mb-3 md:mb-4">
-                            Available time slots
+                          <div className="flex items-center mb-4">
+                            <button
+                              onClick={handleBackToCalendar}
+                              className="flex items-center text-gray-600 hover:text-gray-800"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-5 w-5 mr-1"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                              >
+                                <path
+                                  fillRule="evenodd"
+                                  d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                                  clipRule="evenodd"
+                                />
+                              </svg>
+                              Back to Calendar
+                            </button>
+                          </div>
+
+                          <h3 className="text-sm md:text-base font-medium mb-2">
+                            Available times for {selectedDate?.toLocaleDateString('en-US', {
+                              weekday: 'long',
+                              month: 'long',
+                              day: 'numeric'
+                            })}
                           </h3>
 
                           {errorMessage && (
-                            <div className="mb-4 p-3 bg-red-50 border-l-4 border-red-400 text-red-700 text-sm">
+                            <div className="mb-3 p-2 bg-red-50 border-l-4 border-red-400 text-red-700 text-xs">
                               {errorMessage}
                             </div>
                           )}
 
                           {timeSlots.length > 0 ? (
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-3">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 md:gap-2">
                               {timeSlots.map((slot, idx) => {
                                 const now = new Date();
                                 const slotDate = new Date(slot.isoDate);
@@ -332,7 +360,7 @@ function App() {
                                     whileHover={{ scale: isWithin24Hours ? 1 : 1.03 }}
                                     whileTap={{ scale: isWithin24Hours ? 1 : 0.97 }}
                                     onClick={() => handleTimeSlotSelect(slot)}
-                                    className={`py-1 md:py-2 px-2 md:px-4 border rounded-md text-xs md:text-sm focus:outline-none relative ${
+                                    className={`py-1 px-1.5 md:px-2 border rounded text-xs md:text-sm relative ${
                                       isWithin24Hours
                                         ? 'border-orange-300 cursor-not-allowed'
                                         : 'border-gray-300 hover:border-transparent hover:text-white'
@@ -360,7 +388,7 @@ function App() {
                                       }
                                     }}
                                   >
-                                    <div className="flex items-center justify-center">
+                                    <div className="flex items-center justify-center space-x-1">
                                       {slot.location === 'Telehealth' && (
                                         <svg
                                           xmlns="http://www.w3.org/2000/svg"
@@ -373,7 +401,7 @@ function App() {
                                         </svg>
                                       )}
                                       <span>{slot.time}</span>
-                                      <span className="ml-1 text-xs opacity-75">(60 mins)</span>
+                                      <span className="text-[10px] opacity-75">(60m)</span>
                                     </div>
 
                                     {isWithin24Hours && (
@@ -386,7 +414,7 @@ function App() {
                               })}
                             </div>
                           ) : (
-                            <div className="text-center text-gray-500 py-4">
+                            <div className="text-center text-gray-500 py-3 text-sm">
                               All slots are booked for this date. Please select another date.
                             </div>
                           )}
