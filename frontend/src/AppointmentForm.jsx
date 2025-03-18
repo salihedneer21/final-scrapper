@@ -20,6 +20,15 @@ const insuranceOptions = [
   { name: 'Other', averageCopay: 'N/A', zeroCopayPercentage: 'N/A' }
 ];
 
+const formatDateOfBirth = (date) => {
+  if (!date) return '';
+  const d = new Date(date);
+  const month = (d.getMonth() + 1).toString().padStart(2, '0');
+  const day = d.getDate().toString().padStart(2, '0');
+  const year = d.getFullYear();
+  return `${month}/${day}/${year}`;
+};
+
 const AppointmentForm = ({
   selectedProviderName,
   selectedDate,
@@ -45,18 +54,444 @@ const AppointmentForm = ({
   const [reason, setReason] = useState('');
   const [message, setMessage] = useState('');
   const [formErrors, setFormErrors] = useState({});
-  const [selectedFiles, setSelectedFiles] = useState([]);
-  const [uploadProgress, setUploadProgress] = useState({});
   const [frontCardFile, setFrontCardFile] = useState(null);
   const [backCardFile, setBackCardFile] = useState(null);
+  const [currentStep, setCurrentStep] = useState(0);
 
-  useEffect(() => {
-    return () => {
-      // Cleanup uploaded files when component unmounts
-      setSelectedFiles([]);
-      setUploadProgress({});
-    };
-  }, []);
+  const steps = [
+    { label: 'Personal Information', fields: ['firstName', 'middleName', 'lastName', 'dateOfBirth'] },
+    { label: 'Contact Details', fields: ['email', 'phone'] },
+    { label: 'Insurance Information', fields: ['insurance', 'memberId', 'frontCardFile', 'backCardFile'] },
+    { label: 'Medical Information', fields: ['previousTherapy', 'takingMedication', 'mentalDiagnosis', 'reason'] }
+  ];
+
+  const handleNext = () => {
+    if (currentStep < steps.length - 1) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
+
+  const handleBack = () => {
+    if (currentStep > 0) {
+      setCurrentStep(currentStep - 1);
+    }
+  };
+
+  const renderField = (field) => {
+    switch (field) {
+      case 'firstName':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              First Name
+              <span className="text-red-500 ml-1">*</span>
+            </label>
+            <input
+              type="text"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.firstName ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              }`}
+            />
+            {formErrors.firstName && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-1 text-sm text-red-600"
+              >
+                {formErrors.firstName}
+              </motion.p>
+            )}
+          </div>
+        );
+      case 'middleName':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Middle Name
+            </label>
+            <input
+              type="text"
+              value={middleName}
+              onChange={(e) => setMiddleName(e.target.value)}
+              className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-2 focus:ring-opacity-50"
+            />
+          </div>
+        );
+      case 'lastName':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Last Name
+              <span className="text-red-500 ml-1">*</span>
+            </label>
+            <input
+              type="text"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.lastName ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              }`}
+            />
+            {formErrors.lastName && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-1 text-sm text-red-600"
+              >
+                {formErrors.lastName}
+              </motion.p>
+            )}
+          </div>
+        );
+      case 'dateOfBirth':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Date of Birth
+              <span className="text-red-500 ml-1">*</span>
+            </label>
+            <DatePicker
+              selected={dateOfBirth ? new Date(dateOfBirth) : null}
+              onChange={(date) => setDateOfBirth(date)}
+              dateFormat="MM/dd/yyyy"
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
+              maxDate={new Date()}
+              minDate={new Date(1900, 0, 1)}
+              yearDropdownItemNumber={100}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.dateOfBirth ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              }`}
+              placeholderText="MM/DD/YYYY"
+            />
+            {formErrors.dateOfBirth && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-1 text-sm text-red-600"
+              >
+                {formErrors.dateOfBirth}
+              </motion.p>
+            )}
+          </div>
+        );
+      case 'email':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Email Address
+              <span className="text-red-500 ml-1">*</span>
+            </label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.email ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              }`}
+            />
+            {formErrors.email && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-1 text-sm text-red-600"
+              >
+                {formErrors.email}
+              </motion.p>
+            )}
+          </div>
+        );
+      case 'phone':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Phone Number
+              <span className="text-red-500 ml-1">*</span>
+            </label>
+            <input
+              type="tel"
+              value={phone}
+              onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.phone ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              }`}
+            />
+            {formErrors.phone && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-1 text-sm text-red-600"
+              >
+                {formErrors.phone}
+              </motion.p>
+            )}
+          </div>
+        );
+      case 'insurance':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Insurance Provider
+            </label>
+            <select
+              value={insurance}
+              onChange={(e) => setInsurance(e.target.value)}
+              className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-2 focus:ring-opacity-50"
+            >
+              {insuranceOptions.map((option, index) => (
+                <option key={index} value={option.name}>{option.name}</option>
+              ))}
+            </select>
+            {insurance && insurance !== 'Any Insurance Provider' && (
+              <div className="mt-3">
+                <div className="bg-emerald-50 border border-emerald-100 rounded-lg p-5">
+                  <div className="text-emerald-800 text-lg font-medium mb-3">
+                    Insurance Details
+                  </div>
+                  <div className="flex justify-between mb-4">
+                    <div>
+                      <div className="text-gray-700 text-base">
+                        Average Copay: <span className="font-medium">{insuranceOptions.find(ins => ins.name === insurance)?.averageCopay || '0'}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-gray-700 text-base">
+                        Percentage with $0 Copay: <span className="font-medium">{insuranceOptions.find(ins => ins.name === insurance)?.zeroCopayPercentage || '0%'}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-gray-600 text-sm">
+                    For a personalized estimate, verify your insurance when you book a session.
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      case 'memberId':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Insurance Member ID
+            </label>
+            <input
+              type="text"
+              value={memberId}
+              onChange={(e) => setMemberId(e.target.value)}
+              className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-2 focus:ring-opacity-50"
+              placeholder="Enter your member ID (optional)"
+            />
+          </div>
+        );
+      case 'frontCardFile':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Insurance Card - Front Side
+            </label>
+            <div className="flex items-center justify-center w-full">
+              <label className="flex flex-col w-full h-32 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50">
+                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                  <svg className="w-8 h-8 mb-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                  </svg>
+                  <p className="mb-2 text-sm text-gray-500">
+                    <span className="font-semibold">Click to upload</span> or drag and drop
+                  </p>
+                  <p className="text-xs text-gray-500">Upload the front of your insurance card (optional)</p>
+                </div>
+                <input
+                  type="file"
+                  className="hidden"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  onChange={(e) => handleFileChange(e, 'front')}
+                />
+              </label>
+            </div>
+            {frontCardFile && (
+              <div className="mt-4">
+                <div className="flex items-center justify-between text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                  <span>{frontCardFile.name}</span>
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveFile('front')}
+                    className="text-red-500 hover:text-red-700"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      case 'backCardFile':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Insurance Card - Back Side
+            </label>
+            <div className="flex items-center justify-center w-full">
+              <label className="flex flex-col w-full h-32 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50">
+                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                  <svg className="w-8 h-8 mb-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                  </svg>
+                  <p className="mb-2 text-sm text-gray-500">
+                    <span className="font-semibold">Click to upload</span> or drag and drop
+                  </p>
+                  <p className="text-xs text-gray-500">Upload the back of your insurance card (optional)</p>
+                </div>
+                <input
+                  type="file"
+                  className="hidden"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  onChange={(e) => handleFileChange(e, 'back')}
+                />
+              </label>
+            </div>
+            {backCardFile && (
+              <div className="mt-4">
+                <div className="flex items-center justify-between text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                  <span>{backCardFile.name}</span>
+                  <button
+                    type="button"
+                    onClick={() => handleRemoveFile('back')}
+                    className="text-red-500 hover:text-red-700"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      case 'previousTherapy':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Previous Therapy?
+              <span className="text-red-500 ml-1">*</span>
+            </label>
+            <select
+              value={previousTherapy}
+              onChange={(e) => setPreviousTherapy(e.target.value)}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.previousTherapy ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              }`}
+            >
+              <option value="">Please select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            {formErrors.previousTherapy && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-1 text-sm text-red-600"
+              >
+                {formErrors.previousTherapy}
+              </motion.p>
+            )}
+          </div>
+        );
+      case 'takingMedication':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Taking Medication?
+              <span className="text-red-500 ml-1">*</span>
+            </label>
+            <select
+              value={takingMedication}
+              onChange={(e) => setTakingMedication(e.target.value)}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.takingMedication ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              }`}
+            >
+              <option value="">Please select</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            {formErrors.takingMedication && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-1 text-sm text-red-600"
+              >
+                {formErrors.takingMedication}
+              </motion.p>
+            )}
+          </div>
+        );
+      case 'mentalDiagnosis':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              If yes, what are they
+            </label>
+            <input
+              type="text"
+              value={mentalDiagnosis}
+              onChange={(e) => setMentalDiagnosis(e.target.value)}
+              className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-2 focus:ring-opacity-50"
+              placeholder="Medication (Optional)"
+            />
+          </div>
+        );
+      case 'reason':
+        return (
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              What brings you to therapy?
+              <span className="text-red-500 ml-1">*</span>
+            </label>
+            <textarea
+              value={reason}
+              onChange={(e) => {
+                setReason(e.target.value);
+                setMessage(e.target.value);
+              }}
+              rows={3}
+              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.reason ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              }`}
+            />
+            {formErrors.reason && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="mt-1 text-sm text-red-600"
+              >
+                {formErrors.reason}
+              </motion.p>
+            )}
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  const handleFileChange = (e, side) => {
+    const file = e.target.files[0];
+    if (side === 'front') {
+      setFrontCardFile(file);
+    } else if (side === 'back') {
+      setBackCardFile(file);
+    }
+    e.target.value = '';
+  };
+
+  const handleRemoveFile = (side) => {
+    if (side === 'front') {
+      setFrontCardFile(null);
+    } else if (side === 'back') {
+      setBackCardFile(null);
+    }
+  };
 
   const isValidPhoneNumber = (phone) => {
     const phoneRegex = /^\(\d{3}\)\s\d{3}-\d{4}$/;
@@ -74,15 +509,6 @@ const AppointmentForm = ({
       }
     }
     return value.slice(0, 14); // Limit total length including formatting
-  };
-
-  const formatDateOfBirth = (value) => {
-    const cleaned = ('' + value).replace(/\D/g, '');
-    const match = cleaned.match(/^(\d{2})(\d{2})(\d{4})$/);
-    if (match) {
-      return `${match[1]}/${match[2]}/${match[3]}`;
-    }
-    return value;
   };
 
   const validateForm = () => {
@@ -134,20 +560,15 @@ const AppointmentForm = ({
           'taking-medication': takingMedication,
           'mental-diagnosis': mentalDiagnosis,
           'reason': reason,
-          // message will be stored in MongoDB but not in spreadsheet
-          'message': reason, // Use the same text as reason
+          'message': reason,
           'selectedProviderName': selectedProviderName,
           'selectedDate': selectedDate?.toISOString().split('T')[0],
           'selectedTimeSlot': selectedTimeSlot
         };
 
-        // Create FormData for file upload
         const formData = new FormData();
-        
-        // Append the form fields as a JSON string
         formData.append('formData', JSON.stringify(formFields));
 
-        // Add both files together under the 'files' field
         if (frontCardFile) {
           formData.append('files', frontCardFile);
         }
@@ -160,11 +581,9 @@ const AppointmentForm = ({
           throw new Error('Missing appointment request URL');
         }
 
-        // Submit form with files
         const response = await submitAppointmentForm(formData, href);
         
         if (response.success) {
-          // Add fileUrls to the response data
           await handleSubmitAppointment(e, {
             ...response,
             fileUrls: response.fileUrls || []
@@ -183,228 +602,6 @@ const AppointmentForm = ({
       }
     }
   };
-
-  const handleInsuranceChange = (value) => {
-    setInsurance(value);
-  };
-
-  const handleFileChange = (e, side) => {
-    const file = e.target.files[0];
-    if (side === 'front') {
-      setFrontCardFile(file);
-    } else if (side === 'back') {
-      setBackCardFile(file);
-    }
-    e.target.value = '';
-  };
-
-  const handleRemoveFile = (side) => {
-    if (side === 'front') {
-      setFrontCardFile(null);
-    } else if (side === 'back') {
-      setBackCardFile(null);
-    }
-  };
-
-  const selectedInsurance = insuranceOptions.find(ins => ins.name === insurance);
-
-  const formSections = [
-    {
-      title: "Personal Information",
-      fields: [
-        {
-          label: "First Name",
-          required: true,
-          value: firstName,
-          onChange: setFirstName,
-          type: "text",
-          error: formErrors.firstName,
-          colSpan: 1
-        },
-        {
-          label: "Middle Name",
-          required: false,
-          value: middleName,
-          onChange: setMiddleName,
-          type: "text",
-          colSpan: 1
-        },
-        {
-          label: "Last Name",
-          required: true,
-          value: lastName,
-          onChange: setLastName,
-          type: "text",
-          error: formErrors.lastName,
-          colSpan: 1
-        },
-        {
-          label: "Date of Birth",
-          required: true,
-          value: dateOfBirth,
-          onChange: (date) => setDateOfBirth(date),
-          type: "datepicker",
-          error: formErrors.dateOfBirth,
-          colSpan: 1,
-          maxDate: new Date(),
-          minDate: new Date(1900, 0, 1),
-          yearRange: 100,
-        }
-      ]
-    },
-    {
-      title: "Contact Details",
-      fields: [
-        {
-          label: "Email Address",
-          required: true,
-          value: email,
-          onChange: setEmail,
-          type: "email",
-          error: formErrors.email,
-          colSpan: 1
-        },
-        {
-          label: "Phone Number",
-          required: true,
-          value: phone,
-          onChange: (value) => setPhone(formatPhoneNumber(value)),
-          type: "tel",
-          error: formErrors.phone,
-          colSpan: 1
-        }
-      ]
-    },
-    {
-      title: "Medical Information",
-      fields: [
-        {
-          label: "Insurance Provider",
-          required: false, // Changed to false
-          value: insurance,
-          onChange: handleInsuranceChange,
-          type: "select",
-          options: insuranceOptions.map(ins => ({ 
-            value: ins.name, 
-            label: ins.name
-          })),
-          error: formErrors.insurance,
-          colSpan: 2,
-          customContent: insurance && insurance !== 'Any Insurance Provider' && (
-            <div className="mt-3">
-              <div className="bg-emerald-50 border border-emerald-100 rounded-lg p-5">
-                <div className="text-emerald-800 text-lg font-medium mb-3">
-                  Insurance Details
-                </div>
-                <div className="flex justify-between mb-4">
-                  <div>
-                    <div className="text-gray-700 text-base">
-                      Average Copay: <span className="font-medium">{insuranceOptions.find(ins => ins.name === insurance)?.averageCopay || '0'}</span>
-                    </div>
-                  </div>
-                  <div>
-                    <div className="text-gray-700 text-base">
-                      Percentage with $0 Copay: <span className="font-medium">{insuranceOptions.find(ins => ins.name === insurance)?.zeroCopayPercentage || '0%'}</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-gray-600 text-sm">
-                  For a personalized estimate, verify your insurance when you book a session.
-                </div>
-              </div>
-            </div>
-          )
-        },
-        {
-          label: "Insurance Member ID",
-          required: false,
-          value: memberId,
-          onChange: setMemberId,
-          type: "text",
-          error: formErrors.memberId,
-          colSpan: 2, // Full width for member ID
-          placeholder: "Enter your member ID (optional)"
-        },
-        {
-          label: "Insurance Card - Front Side",
-          description: "Upload the front of your insurance card (optional)",
-          required: false,
-          type: "file",
-          accept: ".pdf,.jpg,.jpeg,.png",
-          multiple: false,
-          onChange: (e) => handleFileChange(e, 'front'),
-          value: frontCardFile,
-          side: 'front',
-          error: formErrors.frontFile,
-          colSpan: 1
-        },
-        {
-          label: "Insurance Card - Back Side",
-          description: "Upload the back of your insurance card (optional)",
-          required: false,
-          type: "file",
-          accept: ".pdf,.jpg,.jpeg,.png",
-          multiple: false,
-          onChange: (e) => handleFileChange(e, 'back'),
-          value: backCardFile,
-          side: 'back',
-          error: formErrors.backFile,
-          colSpan: 1
-        },
-        {
-          label: "Previous Therapy?",
-          required: true,
-          value: previousTherapy,
-          onChange: setPreviousTherapy,
-          type: "select",
-          options: [
-            { value: "", label: "Please select" },
-            { value: "yes", label: "Yes" },
-            { value: "no", label: "No" }
-          ],
-          error: formErrors.previousTherapy,
-          colSpan: 1 // Half width
-        },
-        {
-          label: "Taking Medication?",
-          required: true,
-          value: takingMedication,
-          onChange: setTakingMedication,
-          type: "select",
-          options: [
-            { value: "", label: "Please select" },
-            { value: "yes", label: "Yes" },
-            { value: "no", label: "No" }
-          ],
-          error: formErrors.takingMedication,
-          colSpan: 1 // Half width
-        },
-        {
-          label: "If yes, what are they",
-          required: false,
-          value: mentalDiagnosis,
-          onChange: setMentalDiagnosis,
-          type: "text",
-          error: formErrors.mentalDiagnosis,
-          colSpan: 2, // Full width for medication list
-          placeholder: "Medication (Optional)"
-        },
-        {
-          label: "What brings you to therapy?",
-          required: true,
-          value: reason,
-          onChange: (value) => {
-            setReason(value);
-            setMessage(value);
-          },
-          type: "textarea",
-          rows: 3,
-          error: formErrors.reason,
-          colSpan: 2 // Full width for reason
-        }
-      ]
-    }
-  ];
 
   return (
     <motion.div
@@ -429,184 +626,81 @@ const AppointmentForm = ({
       </motion.div>
 
       <form onSubmit={handleSubmit} className="space-y-8">
-        {formSections.map((section, sectionIndex) => (
-          <React.Fragment key={`section-${sectionIndex}`}>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * (sectionIndex + 1) }}
-              className="bg-gray-50 p-6 rounded-lg"
-            >
-              <h3 className="text-xl font-semibold mb-4 pb-2 border-b border-gray-200">{section.title}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {section.fields.map((field, fieldIndex) => (
-                  <div key={`field-${sectionIndex}-${fieldIndex}`} className={`${field.colSpan === 2 ? 'md:col-span-2' : ''}`}>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                      {field.label}
-                      {field.required && <span className="text-red-500 ml-1">*</span>}
-                    </label>
-
-                    {field.type === 'textarea' ? (
-                      <textarea
-                        value={field.value}
-                        onChange={(e) => field.onChange(e.target.value)}
-                        rows={field.rows || 3}
-                        className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                          field.error ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
-                        }`}
-                        style={{ focusRing: `${primaryColor}40` }}
-                      />
-                    ) : field.type === 'select' ? (
-                      <div>
-                        <select
-                          value={field.value}
-                          onChange={(e) => field.onChange(e.target.value)}
-                          className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                            field.error ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
-                          }`}
-                          style={{ focusRing: `${primaryColor}40` }}
-                        >
-                          {field.options.map((option, optionIndex) => (
-                            <option key={`option-${optionIndex}`} value={option.value}>{option.label}</option>
-                          ))}
-                        </select>
-                        {field.customContent}
-                      </div>
-                    ) : field.type === 'file' ? (
-                      <div className="w-full">
-                        <div className="flex items-center justify-center w-full">
-                          <label className="flex flex-col w-full h-32 border-2 border-dashed rounded-lg cursor-pointer hover:bg-gray-50">
-                            <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                              <svg className="w-8 h-8 mb-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                              </svg>
-                              <p className="mb-2 text-sm text-gray-500">
-                                <span className="font-semibold">Click to upload</span> or drag and drop
-                              </p>
-                              <p className="text-xs text-gray-500">{field.description}</p>
-                            </div>
-                            <input
-                              type="file"
-                              className="hidden"
-                              accept={field.accept}
-                              onChange={field.onChange}
-                            />
-                          </label>
-                        </div>
-                        {field.value && (
-                          <div className="mt-4">
-                            <div className="flex items-center justify-between text-sm text-gray-600 bg-gray-50 p-2 rounded">
-                              <span>{field.value.name}</span>
-                              <button
-                                type="button"
-                                onClick={() => handleRemoveFile(field.side)}
-                                className="text-red-500 hover:text-red-700"
-                              >
-                                Remove
-                              </button>
-                            </div>
-                          </div>
-                        )}
-                      </div>
-                    ) : field.type === 'datepicker' ? (
-                      <DatePicker
-                        selected={field.value ? new Date(field.value) : null}
-                        onChange={field.onChange}
-                        dateFormat="MM/dd/yyyy"
-                        showMonthDropdown
-                        showYearDropdown
-                        dropdownMode="select"
-                        maxDate={field.maxDate}
-                        minDate={field.minDate}
-                        yearDropdownItemNumber={field.yearRange}
-                        className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                          field.error ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
-                        }`}
-                        placeholderText="MM/DD/YYYY"
-                      />
-                    ) : (
-                      <input
-                        type={field.type}
-                        value={field.value}
-                        onChange={(e) => field.onChange(e.target.value)}
-                        className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                          field.error ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
-                        }`}
-                        style={{ focusRing: `${primaryColor}40` }}
-                        placeholder={field.placeholder || ''}
-                      />
-                    )}
-
-                    {field.error && (
-                      <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="mt-1 text-sm text-red-600"
-                      >
-                        {field.error}
-                      </motion.p>
-                    )}
-                  </div>
-                ))}
+        <div className="flex justify-between items-center mb-6">
+          <div className="flex items-center space-x-4">
+            {steps.map((step, index) => (
+              <div key={index} className="flex items-center">
+                <div
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    currentStep === index ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
+                  }`}
+                >
+                  {index + 1}
+                </div>
+                <div className={`ml-2 text-sm font-medium ${
+                  currentStep === index ? 'text-blue-500' : 'text-gray-500'
+                }`}>
+                  {step.label}
+                </div>
               </div>
-            </motion.div>
-            
-            {/* Add the note after Contact Details section */}
-            {section.title === "Contact Details" && (
-              <div className="text-sm text-gray-600 mb-6 text-center italic">
-                You can add insurance information later, but it will be required before finalizing the appointment*
-              </div>
-            )}
-          </React.Fragment>
-        ))}
+            ))}
+          </div>
+        </div>
 
-        {formErrors.submit && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-red-600 text-sm mb-4"
-          >
-            {formErrors.submit}
-          </motion.div>
-        )}
+        <div className="bg-gray-50 p-6 rounded-lg">
+          {steps[currentStep].fields.map((field, index) => (
+            <div key={index} className="mb-6">
+              {renderField(field)}
+            </div>
+          ))}
+        </div>
 
-        <motion.div
-          className="flex flex-col sm:flex-row sm:justify-between pt-6 gap-4"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6 }}
-        >
+        <div className="flex justify-between pt-6 gap-4">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="button"
-            onClick={handleCancelAppointment}
+            onClick={handleBack}
+            disabled={currentStep === 0}
             className="px-5 py-2.5 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none font-medium"
           >
             Back
           </motion.button>
 
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            type="submit"
-            disabled={isSubmitting || localSubmitting}
-            className="px-6 py-2.5 text-white rounded-md focus:outline-none transition-colors font-medium flex items-center justify-center"
-            style={{ backgroundColor: primaryColor }}
-          >
-            {(isSubmitting || localSubmitting) ? (
-              <>
-                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Submitting...
-              </>
-            ) : (
-              'Submit Appointment Request'
-            )}
-          </motion.button>
-        </motion.div>
+          {currentStep < steps.length - 1 ? (
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="button"
+              onClick={handleNext}
+              className="px-6 py-2.5 text-white rounded-md focus:outline-none transition-colors font-medium flex items-center justify-center"
+              style={{ backgroundColor: primaryColor }}
+            >
+              Next
+            </motion.button>
+          ) : (
+            <motion.button
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              type="submit"
+              disabled={isSubmitting || localSubmitting}
+              className="px-6 py-2.5 text-white rounded-md focus:outline-none transition-colors font-medium flex items-center justify-center"
+              style={{ backgroundColor: primaryColor }}
+            >
+              {(isSubmitting || localSubmitting) ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Submitting...
+                </>
+              ) : (
+                'Submit Appointment Request'
+              )}
+            </motion.button>
+          )}
+        </div>
 
         <div className="text-center text-sm text-gray-500 pt-4">
           Fields marked with <span className="text-red-500">*</span> are required
@@ -645,7 +739,6 @@ class AppointmentFormErrorBoundary extends React.Component {
   }
 }
 
-// Wrap the form:
 export default function AppointmentFormWithErrorBoundary(props) {
   return (
     <AppointmentFormErrorBoundary>
