@@ -58,11 +58,17 @@ const AppointmentForm = ({
   const [backCardFile, setBackCardFile] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
 
+  // Updated steps for 9-step form
   const steps = [
-    { label: 'Personal Information', fields: ['firstName', 'middleName', 'lastName', 'dateOfBirth'] },
-    { label: 'Contact Details', fields: ['email', 'phone'] },
-    { label: 'Insurance Information', fields: ['insurance', 'memberId', 'frontCardFile', 'backCardFile'] },
-    { label: 'Medical Information', fields: ['previousTherapy', 'takingMedication', 'mentalDiagnosis', 'reason'] }
+    { label: 'Name', fields: ['firstName', 'lastName'] },
+    { label: 'Date of Birth', fields: ['dateOfBirth'] },
+    { label: 'Contact', fields: ['email', 'phone'] },
+    { label: 'Insurance Provider', fields: ['insurance'] },
+    { label: 'Member ID', fields: ['memberId'] },
+    { label: 'Insurance Front', fields: ['frontCardFile'] },
+    { label: 'Insurance Back', fields: ['backCardFile'] },
+    { label: 'Medical History', fields: ['previousTherapy', 'takingMedication', 'mentalDiagnosis'] },
+    { label: 'Reason', fields: ['reason'] }
   ];
 
   const handleNext = () => {
@@ -608,16 +614,16 @@ const AppointmentForm = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto"
+      className="bg-white rounded-lg shadow-lg p-4 sm:p-8 max-w-4xl mx-auto"
     >
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="mb-8 text-center"
+        className="mb-6 sm:mb-8 text-center"
       >
-        <h2 className="text-3xl font-bold mb-2" style={{ color: primaryColor }}>Complete Your Appointment Request</h2>
-        <div className="bg-gray-100 inline-block px-4 py-2 rounded-full text-gray-700">
+        <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: primaryColor }}>Complete Your Appointment Request</h2>
+        <div className="bg-gray-100 inline-block px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base text-gray-700">
           <span className="font-medium">{selectedProviderName}</span> • {' '}
           <span>{selectedDate?.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span> • {' '}
           <span>{selectedTimeSlot?.time}</span> • {' '}
@@ -625,44 +631,46 @@ const AppointmentForm = ({
         </div>
       </motion.div>
 
-      <form onSubmit={handleSubmit} className="space-y-8">
-        <div className="flex justify-between items-center mb-6">
-          <div className="flex items-center space-x-4">
-            {steps.map((step, index) => (
-              <div key={index} className="flex items-center">
-                <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                    currentStep === index ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700'
-                  }`}
-                >
-                  {index + 1}
-                </div>
-                <div className={`ml-2 text-sm font-medium ${
-                  currentStep === index ? 'text-blue-500' : 'text-gray-500'
-                }`}>
-                  {step.label}
-                </div>
-              </div>
-            ))}
+      <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+        <div className="mb-4 sm:mb-6">
+          {/* Simplified step indicator for all screen sizes */}
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-sm sm:text-base font-medium text-gray-700">
+              Step {currentStep + 1} of {steps.length}
+            </span>
+            <span className="text-sm sm:text-base font-medium" style={{ color: primaryColor }}>
+              {steps[currentStep].label}
+            </span>
+          </div>
+          
+          {/* Progress bar */}
+          <div className="w-full bg-gray-200 rounded-full h-2.5">
+            <div 
+              className="h-2.5 rounded-full transition-all duration-300"
+              style={{ 
+                width: `${((currentStep + 1) / steps.length) * 100}%`,
+                backgroundColor: primaryColor
+              }}
+            ></div>
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg">
+        <div className="bg-gray-50 p-4 sm:p-6 rounded-lg">
           {steps[currentStep].fields.map((field, index) => (
-            <div key={index} className="mb-6">
+            <div key={index} className="mb-5">
               {renderField(field)}
             </div>
           ))}
         </div>
 
-        <div className="flex justify-between pt-6 gap-4">
+        <div className="flex justify-between pt-4 sm:pt-6 gap-3 sm:gap-4">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             type="button"
             onClick={handleBack}
             disabled={currentStep === 0}
-            className="px-5 py-2.5 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none font-medium"
+            className="px-4 sm:px-5 py-2 sm:py-2.5 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none font-medium text-sm sm:text-base flex-1 sm:flex-none"
           >
             Back
           </motion.button>
@@ -673,7 +681,7 @@ const AppointmentForm = ({
               whileTap={{ scale: 0.98 }}
               type="button"
               onClick={handleNext}
-              className="px-6 py-2.5 text-white rounded-md focus:outline-none transition-colors font-medium flex items-center justify-center"
+              className="px-4 sm:px-6 py-2 sm:py-2.5 text-white rounded-md focus:outline-none transition-colors font-medium text-sm sm:text-base flex items-center justify-center flex-1 sm:flex-none"
               style={{ backgroundColor: primaryColor }}
             >
               Next
@@ -684,7 +692,7 @@ const AppointmentForm = ({
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={isSubmitting || localSubmitting}
-              className="px-6 py-2.5 text-white rounded-md focus:outline-none transition-colors font-medium flex items-center justify-center"
+              className="px-4 sm:px-6 py-2 sm:py-2.5 text-white rounded-md focus:outline-none transition-colors font-medium text-sm sm:text-base flex items-center justify-center flex-1 sm:flex-none"
               style={{ backgroundColor: primaryColor }}
             >
               {(isSubmitting || localSubmitting) ? (
@@ -696,13 +704,13 @@ const AppointmentForm = ({
                   Submitting...
                 </>
               ) : (
-                'Submit Appointment Request'
+                'Submit Request'
               )}
             </motion.button>
           )}
         </div>
 
-        <div className="text-center text-sm text-gray-500 pt-4">
+        <div className="text-center text-xs sm:text-sm text-gray-500 pt-2 sm:pt-4">
           Fields marked with <span className="text-red-500">*</span> are required
         </div>
       </form>

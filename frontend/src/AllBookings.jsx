@@ -180,7 +180,7 @@ function AllBookings() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center ">
         <div className="text-center">
           <motion.div
             animate={{ rotate: 360 }}
@@ -196,7 +196,7 @@ function AllBookings() {
 
   if (showAppointmentForm && selectedBooking) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
+      <div className="min-h-screen  py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <AppointmentForm 
             selectedProviderName={selectedBooking.providerName}
@@ -213,7 +213,7 @@ function AllBookings() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         {isSubmitting && submissionComplete ? (
           <motion.div
