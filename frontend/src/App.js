@@ -178,7 +178,7 @@ function App() {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center">
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -197,13 +197,13 @@ function App() {
   } 
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       <div className="w-full mx-auto px-2 sm:px-4 lg:px-6 pt-4 pb-8">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="bg-white rounded-lg shadow-xl overflow-hidden w-full max-w-2xl mx-auto"
+          className="bg-white rounded-lg overflow-hidden w-full max-w-2xl mx-auto"
         >
           {isSubmitting && submissionComplete ? (
             <div className="p-8">

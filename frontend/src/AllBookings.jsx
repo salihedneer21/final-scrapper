@@ -180,7 +180,7 @@ function AllBookings() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex items-center justify-center ">
         <div className="text-center">
           <motion.div
             animate={{ rotate: 360 }}
@@ -196,7 +196,7 @@ function AllBookings() {
 
   if (showAppointmentForm && selectedBooking) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
+      <div className="min-h-screen  py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <AppointmentForm 
             selectedProviderName={selectedBooking.providerName}
@@ -213,13 +213,13 @@ function AllBookings() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen ">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
         {isSubmitting && submissionComplete ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-white rounded-lg shadow-lg p-8"
+            className="bg-white rounded-lg p-8"
           >
             <div className="flex flex-col items-center">
               <div className="mb-6 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
@@ -262,7 +262,7 @@ function AllBookings() {
             </div>
           </motion.div>
         ) : isSubmitting ? (
-          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center justify-center min-h-[300px]">
+          <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center min-h-[300px]">
             <div
               className="w-16 h-16 border-4 border-t-4 border-gray-200 rounded-full mb-4 animate-spin"
               style={{ borderTopColor: primaryColor }}
