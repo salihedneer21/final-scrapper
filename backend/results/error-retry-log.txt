@@ -115,3 +115,27 @@ Error: Protocol error: Connection closed.
     at async ErrorRetryScraper.processClinician (/Users/salihedneer/Desktop/scraper/backend/errorRetry.js:205:7)
     at async ErrorRetryScraper.run (/Users/salihedneer/Desktop/scraper/backend/errorRetry.js:373:9)
 
+[2025-03-19T14:30:44.418Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-19T14:30:44.509Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-19T14:30:44.597Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
