@@ -57,8 +57,9 @@ const AppointmentForm = ({
   const [frontCardFile, setFrontCardFile] = useState(null);
   const [backCardFile, setBackCardFile] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
+  const [showingInsuranceInfo, setShowingInsuranceInfo] = useState(false);
 
-  // Updated steps for 9-step form
+  // Updated steps for 10-step form
   const steps = [
     { label: 'Name', fields: ['firstName', 'lastName'] },
     { label: 'Date of Birth', fields: ['dateOfBirth'] },
@@ -67,17 +68,37 @@ const AppointmentForm = ({
     { label: 'Member ID', fields: ['memberId'] },
     { label: 'Insurance Front', fields: ['frontCardFile'] },
     { label: 'Insurance Back', fields: ['backCardFile'] },
-    { label: 'Medical History', fields: ['previousTherapy', 'takingMedication', 'mentalDiagnosis'] },
+    { label: 'Previous Therapy', fields: ['previousTherapy'] },
+    { label: 'Medication', fields: ['takingMedication', 'mentalDiagnosis'] },
     { label: 'Reason', fields: ['reason'] }
   ];
 
   const handleNext = () => {
-    if (currentStep < steps.length - 1) {
+    // For debugging
+    console.log('Next clicked', { currentStep, showingInsuranceInfo });
+    
+    // If we're on the insurance info screen, move to step 3 (Insurance Provider)
+    if (showingInsuranceInfo) {
+      setShowingInsuranceInfo(false);
+      setCurrentStep(3); // Move to Insurance Provider step
+      return;
+    }
+    
+    // Standard step progression
+    if (currentStep === 2) {
+      // After completing Contact info, show insurance info screen
+      setShowingInsuranceInfo(true);
+    } else if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     }
   };
 
   const handleBack = () => {
+    if (showingInsuranceInfo) {
+      setShowingInsuranceInfo(false);
+      return;
+    }
+    
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     }
@@ -607,6 +628,11 @@ const AppointmentForm = ({
     }
   };
 
+  const handleInsuranceInfoNext = () => {
+    setShowingInsuranceInfo(false);
+    setCurrentStep(3); // Move to Insurance Provider step
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -619,51 +645,90 @@ const AppointmentForm = ({
           {/* Simplified step indicator */}
           <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-medium text-gray-700">
-              Step {currentStep + 1}/{steps.length}
+              {!showingInsuranceInfo && `Step ${currentStep + 1}/${steps.length}`}
             </span>
             <span className="text-xs font-medium" style={{ color: primaryColor }}>
-              {steps[currentStep].label}
+              {!showingInsuranceInfo && steps[currentStep].label}
             </span>
           </div>
           
-          {/* Progress bar */}
-          <div className="w-full bg-gray-200 rounded-full h-1.5">
-            <div 
-              className="h-1.5 rounded-full transition-all duration-300"
-              style={{ 
-                width: `${((currentStep + 1) / steps.length) * 100}%`,
-                backgroundColor: primaryColor
-              }}
-            ></div>
-          </div>
-        </div>
-
-        <div className="bg-gray-50 p-3 rounded-lg">
-          {steps[currentStep].fields.map((field, index) => (
-            <div key={index} className="mb-3">
-              {renderField(field)}
+          {/* Progress bar - only show when not on insurance info screen */}
+          {!showingInsuranceInfo && (
+            <div className="w-full bg-gray-200 rounded-full h-1.5">
+              <div 
+                className="h-1.5 rounded-full transition-all duration-300"
+                style={{ 
+                  width: `${((currentStep + 1) / steps.length) * 100}%`,
+                  backgroundColor: primaryColor
+                }}
+              ></div>
             </div>
-          ))}
+          )}
         </div>
 
-        <div className="flex justify-between pt-2 gap-2">
-          <motion.button
-            whileHover={{ scale: 1.01 }}
-            whileTap={{ scale: 0.98 }}
-            type="button"
-            onClick={handleBack}
-            disabled={currentStep === 0}
-            className="px-3 py-1.5 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none font-medium text-xs flex-1"
+        {showingInsuranceInfo ? (
+          <div 
+            className="p-4 rounded-lg"
+            style={{ 
+              backgroundColor: `${primaryColor}10`,
+              border: `1px solid ${primaryColor}30`
+            }}
           >
-            Back
-          </motion.button>
+            <div className="flex items-start mb-3">
+              <svg 
+                className="w-5 h-5 mt-0.5 mr-2" 
+                fill="currentColor" 
+                viewBox="0 0 20 20" 
+                style={{ color: primaryColor }}
+              >
+                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clipRule="evenodd" />
+              </svg>
+              <h3 
+                className="text-sm font-medium" 
+                style={{ color: primaryColor }}
+              >
+                Insurance Information
+              </h3>
+            </div>
+            <p 
+              className="text-sm mb-1" 
+              style={{ color: `${primaryColor}DD` }}
+            >
+             You can add insurance information later, but it will be required before finalizing the appointment.
+            </p>
+            <div className="mt-4">
+              
+            </div>
+          </div>
+        ) : (
+          <div className="bg-gray-50 p-3 rounded-lg">
+            {steps[currentStep].fields.map((field, index) => (
+              <div key={index} className="mb-3">
+                {renderField(field)}
+              </div>
+            ))}
+          </div>
+        )}
 
-          {currentStep < steps.length - 1 ? (
+        <div className="flex items-center justify-between">
+          {currentStep > 0 && (
             <motion.button
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.98 }}
               type="button"
-              onClick={handleNext}
+              onClick={handleBack}
+              className="px-3 py-1.5 text-gray-700 bg-gray-200 rounded-md focus:outline-none transition-colors font-medium text-xs flex items-center justify-center flex-1 mr-2"
+            >
+              Back
+            </motion.button>
+          )}
+
+          {(currentStep < steps.length - 1 || showingInsuranceInfo) ? (
+            <motion.button
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.98 }}
+              type="button"
+              onClick={handleNext} // Make sure this is properly attached
               className="px-3 py-1.5 text-white rounded-md focus:outline-none transition-colors font-medium text-xs flex items-center justify-center flex-1"
               style={{ backgroundColor: primaryColor }}
             >
