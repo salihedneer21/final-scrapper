@@ -88,7 +88,7 @@ const AppointmentForm = ({
       case 'firstName':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               First Name
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -96,15 +96,15 @@ const AppointmentForm = ({
               type="text"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                formErrors.firstName ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.firstName ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
               }`}
             />
             {formErrors.firstName && (
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-0.5 text-xs text-red-600"
               >
                 {formErrors.firstName}
               </motion.p>
@@ -114,21 +114,21 @@ const AppointmentForm = ({
       case 'middleName':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Middle Name
             </label>
             <input
               type="text"
               value={middleName}
               onChange={(e) => setMiddleName(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-2 focus:ring-opacity-50"
+              className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
             />
           </div>
         );
       case 'lastName':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Last Name
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -136,15 +136,15 @@ const AppointmentForm = ({
               type="text"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                formErrors.lastName ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.lastName ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
               }`}
             />
             {formErrors.lastName && (
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-0.5 text-xs text-red-600"
               >
                 {formErrors.lastName}
               </motion.p>
@@ -154,7 +154,7 @@ const AppointmentForm = ({
       case 'dateOfBirth':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Date of Birth
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -168,8 +168,8 @@ const AppointmentForm = ({
               maxDate={new Date()}
               minDate={new Date(1900, 0, 1)}
               yearDropdownItemNumber={100}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                formErrors.dateOfBirth ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.dateOfBirth ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
               }`}
               placeholderText="MM/DD/YYYY"
             />
@@ -177,7 +177,7 @@ const AppointmentForm = ({
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-0.5 text-xs text-red-600"
               >
                 {formErrors.dateOfBirth}
               </motion.p>
@@ -187,7 +187,7 @@ const AppointmentForm = ({
       case 'email':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Email Address
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -195,15 +195,15 @@ const AppointmentForm = ({
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                formErrors.email ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.email ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
               }`}
             />
             {formErrors.email && (
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-0.5 text-xs text-red-600"
               >
                 {formErrors.email}
               </motion.p>
@@ -213,7 +213,7 @@ const AppointmentForm = ({
       case 'phone':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Phone Number
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -221,15 +221,15 @@ const AppointmentForm = ({
               type="tel"
               value={phone}
               onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                formErrors.phone ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.phone ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
               }`}
             />
             {formErrors.phone && (
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-0.5 text-xs text-red-600"
               >
                 {formErrors.phone}
               </motion.p>
@@ -239,13 +239,13 @@ const AppointmentForm = ({
       case 'insurance':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Insurance Provider
             </label>
             <select
               value={insurance}
               onChange={(e) => setInsurance(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-2 focus:ring-opacity-50"
+              className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
             >
               {insuranceOptions.map((option, index) => (
                 <option key={index} value={option.name}>{option.name}</option>
@@ -280,14 +280,14 @@ const AppointmentForm = ({
       case 'memberId':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Insurance Member ID
             </label>
             <input
               type="text"
               value={memberId}
               onChange={(e) => setMemberId(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-2 focus:ring-opacity-50"
+              className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
               placeholder="Enter your member ID (optional)"
             />
           </div>
@@ -295,7 +295,7 @@ const AppointmentForm = ({
       case 'frontCardFile':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Insurance Card - Front Side
             </label>
             <div className="flex items-center justify-center w-full">
@@ -304,10 +304,10 @@ const AppointmentForm = ({
                   <svg className="w-8 h-8 mb-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                   </svg>
-                  <p className="mb-2 text-sm text-gray-500">
+                  <p className="mb-2 text-xs text-gray-500">
                     <span className="font-semibold">Click to upload</span> or drag and drop
                   </p>
-                  <p className="text-xs text-gray-500">Upload the front of your insurance card (optional)</p>
+                  <p className="text-xxs text-gray-500">Upload the front of your insurance card (optional)</p>
                 </div>
                 <input
                   type="file"
@@ -319,7 +319,7 @@ const AppointmentForm = ({
             </div>
             {frontCardFile && (
               <div className="mt-4">
-                <div className="flex items-center justify-between text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                <div className="flex items-center justify-between text-xs text-gray-600 bg-gray-50 p-2 rounded">
                   <span>{frontCardFile.name}</span>
                   <button
                     type="button"
@@ -336,7 +336,7 @@ const AppointmentForm = ({
       case 'backCardFile':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Insurance Card - Back Side
             </label>
             <div className="flex items-center justify-center w-full">
@@ -345,10 +345,10 @@ const AppointmentForm = ({
                   <svg className="w-8 h-8 mb-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                   </svg>
-                  <p className="mb-2 text-sm text-gray-500">
+                  <p className="mb-2 text-xs text-gray-500">
                     <span className="font-semibold">Click to upload</span> or drag and drop
                   </p>
-                  <p className="text-xs text-gray-500">Upload the back of your insurance card (optional)</p>
+                  <p className="text-xxs text-gray-500">Upload the back of your insurance card (optional)</p>
                 </div>
                 <input
                   type="file"
@@ -360,7 +360,7 @@ const AppointmentForm = ({
             </div>
             {backCardFile && (
               <div className="mt-4">
-                <div className="flex items-center justify-between text-sm text-gray-600 bg-gray-50 p-2 rounded">
+                <div className="flex items-center justify-between text-xs text-gray-600 bg-gray-50 p-2 rounded">
                   <span>{backCardFile.name}</span>
                   <button
                     type="button"
@@ -377,15 +377,15 @@ const AppointmentForm = ({
       case 'previousTherapy':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Previous Therapy?
               <span className="text-red-500 ml-1">*</span>
             </label>
             <select
               value={previousTherapy}
               onChange={(e) => setPreviousTherapy(e.target.value)}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                formErrors.previousTherapy ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.previousTherapy ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
               }`}
             >
               <option value="">Please select</option>
@@ -396,7 +396,7 @@ const AppointmentForm = ({
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-0.5 text-xs text-red-600"
               >
                 {formErrors.previousTherapy}
               </motion.p>
@@ -406,15 +406,15 @@ const AppointmentForm = ({
       case 'takingMedication':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Taking Medication?
               <span className="text-red-500 ml-1">*</span>
             </label>
             <select
               value={takingMedication}
               onChange={(e) => setTakingMedication(e.target.value)}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                formErrors.takingMedication ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.takingMedication ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
               }`}
             >
               <option value="">Please select</option>
@@ -425,7 +425,7 @@ const AppointmentForm = ({
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-0.5 text-xs text-red-600"
               >
                 {formErrors.takingMedication}
               </motion.p>
@@ -435,14 +435,14 @@ const AppointmentForm = ({
       case 'mentalDiagnosis':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               If yes, what are they
             </label>
             <input
               type="text"
               value={mentalDiagnosis}
               onChange={(e) => setMentalDiagnosis(e.target.value)}
-              className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-2 focus:ring-opacity-50"
+              className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
               placeholder="Medication (Optional)"
             />
           </div>
@@ -450,7 +450,7 @@ const AppointmentForm = ({
       case 'reason':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-xs font-medium text-gray-700 mb-0.5">
               What brings you to therapy?
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -461,15 +461,15 @@ const AppointmentForm = ({
                 setMessage(e.target.value);
               }}
               rows={3}
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                formErrors.reason ? 'border-red-300' : 'border-gray-300 focus:ring-2 focus:ring-opacity-50'
+              className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                formErrors.reason ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
               }`}
             />
             {formErrors.reason && (
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="mt-1 text-sm text-red-600"
+                className="mt-0.5 text-xs text-red-600"
               >
                 {formErrors.reason}
               </motion.p>
@@ -614,39 +614,24 @@ const AppointmentForm = ({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="bg-white rounded-lg  p-4 sm:p-8 max-w-4xl mx-auto"
+      className="bg-white rounded-lg p-3 max-w-full mx-auto"
     >
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        className="mb-6 sm:mb-8 text-center"
-      >
-        <h2 className="text-2xl sm:text-3xl font-bold mb-2" style={{ color: primaryColor }}>Complete Your Appointment Request</h2>
-        <div className="bg-gray-100 inline-block px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base text-gray-700">
-          <span className="font-medium">{selectedProviderName}</span> • {' '}
-          <span>{selectedDate?.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}</span> • {' '}
-          <span>{selectedTimeSlot?.time}</span> • {' '}
-          <span>{selectedTimeSlot?.type === 'Telephone' ? 'Telephone' : 'In-person'}</span>
-        </div>
-      </motion.div>
-
-      <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
-        <div className="mb-4 sm:mb-6">
-          {/* Simplified step indicator for all screen sizes */}
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-sm sm:text-base font-medium text-gray-700">
-              Step {currentStep + 1} of {steps.length}
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="mb-2">
+          {/* Simplified step indicator */}
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-xs font-medium text-gray-700">
+              Step {currentStep + 1}/{steps.length}
             </span>
-            <span className="text-sm sm:text-base font-medium" style={{ color: primaryColor }}>
+            <span className="text-xs font-medium" style={{ color: primaryColor }}>
               {steps[currentStep].label}
             </span>
           </div>
           
           {/* Progress bar */}
-          <div className="w-full bg-gray-200 rounded-full h-2.5">
+          <div className="w-full bg-gray-200 rounded-full h-1.5">
             <div 
-              className="h-2.5 rounded-full transition-all duration-300"
+              className="h-1.5 rounded-full transition-all duration-300"
               style={{ 
                 width: `${((currentStep + 1) / steps.length) * 100}%`,
                 backgroundColor: primaryColor
@@ -655,49 +640,49 @@ const AppointmentForm = ({
           </div>
         </div>
 
-        <div className="bg-gray-50 p-4 sm:p-6 rounded-lg">
+        <div className="bg-gray-50 p-3 rounded-lg">
           {steps[currentStep].fields.map((field, index) => (
-            <div key={index} className="mb-5">
+            <div key={index} className="mb-3">
               {renderField(field)}
             </div>
           ))}
         </div>
 
-        <div className="flex justify-between pt-4 sm:pt-6 gap-3 sm:gap-4">
+        <div className="flex justify-between pt-2 gap-2">
           <motion.button
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.98 }}
             type="button"
             onClick={handleBack}
             disabled={currentStep === 0}
-            className="px-4 sm:px-5 py-2 sm:py-2.5 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none font-medium text-sm sm:text-base flex-1 sm:flex-none"
+            className="px-3 py-1.5 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 focus:outline-none font-medium text-xs flex-1"
           >
             Back
           </motion.button>
 
           {currentStep < steps.length - 1 ? (
             <motion.button
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.98 }}
               type="button"
               onClick={handleNext}
-              className="px-4 sm:px-6 py-2 sm:py-2.5 text-white rounded-md focus:outline-none transition-colors font-medium text-sm sm:text-base flex items-center justify-center flex-1 sm:flex-none"
+              className="px-3 py-1.5 text-white rounded-md focus:outline-none transition-colors font-medium text-xs flex items-center justify-center flex-1"
               style={{ backgroundColor: primaryColor }}
             >
               Next
             </motion.button>
           ) : (
             <motion.button
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.98 }}
               type="submit"
               disabled={isSubmitting || localSubmitting}
-              className="px-4 sm:px-6 py-2 sm:py-2.5 text-white rounded-md focus:outline-none transition-colors font-medium text-sm sm:text-base flex items-center justify-center flex-1 sm:flex-none"
+              className="px-3 py-1.5 text-white rounded-md focus:outline-none transition-colors font-medium text-xs flex items-center justify-center flex-1"
               style={{ backgroundColor: primaryColor }}
             >
               {(isSubmitting || localSubmitting) ? (
                 <>
-                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin -ml-1 mr-1 h-3 w-3 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
@@ -710,7 +695,7 @@ const AppointmentForm = ({
           )}
         </div>
 
-        <div className="text-center text-xs sm:text-sm text-gray-500 pt-2 sm:pt-4">
+        <div className="text-center text-xxs text-gray-500 pt-1">
           Fields marked with <span className="text-red-500">*</span> are required
         </div>
       </form>
