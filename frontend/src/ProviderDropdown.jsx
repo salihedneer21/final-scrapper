@@ -97,7 +97,7 @@ const ProviderDropdown = ({ doctors, selectedProvider, setSelectedProvider, sele
           pointerEvents: dropdownOpen ? "auto" : "none",
           transition: { duration: 0.2 }
         }}
-        className={`fixed ${dropdownPosition === 'bottom' ? 'top-auto' : 'bottom-auto'} left-auto z-50 rounded-md bg-white shadow-lg max-h-60 overflow-auto focus:outline-none`}
+        className={`fixed ${dropdownPosition === 'bottom' ? 'top-auto' : 'bottom-auto'} left-auto z-50 rounded-md bg-white max-h-60 overflow-auto focus:outline-none`}
         style={{ 
           boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
           borderRadius: '0.5rem',

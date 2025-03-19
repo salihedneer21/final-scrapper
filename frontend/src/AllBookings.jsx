@@ -219,7 +219,7 @@ function AllBookings() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-white rounded-lg shadow-lg p-8"
+            className="bg-white rounded-lg p-8"
           >
             <div className="flex flex-col items-center">
               <div className="mb-6 w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
@@ -262,7 +262,7 @@ function AllBookings() {
             </div>
           </motion.div>
         ) : isSubmitting ? (
-          <div className="bg-white rounded-lg shadow-lg p-8 flex flex-col items-center justify-center min-h-[300px]">
+          <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center min-h-[300px]">
             <div
               className="w-16 h-16 border-4 border-t-4 border-gray-200 rounded-full mb-4 animate-spin"
               style={{ borderTopColor: primaryColor }}
