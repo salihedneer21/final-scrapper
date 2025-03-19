@@ -254,9 +254,7 @@ const AppointmentForm = ({
             {insurance && insurance !== 'Any Insurance Provider' && (
               <div className="mt-3">
                 <div className="bg-emerald-50 border border-emerald-100 rounded-lg p-5">
-                  <div className="text-emerald-800 text-lg font-medium mb-3">
-                    Insurance Details
-                  </div>
+
                   <div className="flex justify-between mb-4">
                     <div>
                       <div className="text-gray-700 text-base">
@@ -270,7 +268,7 @@ const AppointmentForm = ({
                     </div>
                   </div>
                   <div className="text-gray-600 text-sm">
-                    For a personalized estimate, verify your insurance when you book a session.
+                    personalized estimate, verify insurance when you book a session.
                   </div>
                 </div>
               </div>
