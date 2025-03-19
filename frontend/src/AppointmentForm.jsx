@@ -633,6 +633,75 @@ const AppointmentForm = ({
     setCurrentStep(3); // Move to Insurance Provider step
   };
 
+  // Add this after your other handler functions
+const handleRefreshStep = () => {
+  // Reset only the fields for the current step
+  if (showingInsuranceInfo) {
+    // If on insurance info screen, just refresh that view
+    console.log('Refreshing insurance info');
+    return;
+  }
+  
+  const currentFields = steps[currentStep].fields;
+  
+  currentFields.forEach(field => {
+    switch (field) {
+      case 'firstName':
+        setFirstName('');
+        break;
+      case 'lastName':
+        setLastName('');
+        break;
+      case 'middleName':
+        setMiddleName('');
+        break;
+      case 'email':
+        setEmail('');
+        break;
+      case 'phone':
+        setPhone('');
+        break;
+      case 'dateOfBirth':
+        setDateOfBirth('');
+        break;
+      case 'insurance':
+        setInsurance('');
+        break;
+      case 'memberId':
+        setMemberId('');
+        break;
+      case 'frontCardFile':
+        setFrontCardFile(null);
+        break;
+      case 'backCardFile':
+        setBackCardFile(null);
+        break;
+      case 'previousTherapy':
+        setPreviousTherapy('');
+        break;
+      case 'takingMedication':
+        setTakingMedication('');
+        break;
+      case 'mentalDiagnosis':
+        setMentalDiagnosis('');
+        break;
+      case 'reason':
+        setReason('');
+        setMessage('');
+        break;
+      default:
+        break;
+    }
+  });
+  
+  // Also clear any form errors related to these fields
+  const newErrors = { ...formErrors };
+  currentFields.forEach(field => {
+    if (newErrors[field]) delete newErrors[field];
+  });
+  setFormErrors(newErrors);
+};
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -711,6 +780,21 @@ const AppointmentForm = ({
         )}
 
         <div className="flex items-center justify-between">
+          {/* Refresh button moved to leftmost position */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            type="button"
+            onClick={() => window.location.reload()} // This will refresh the entire page
+            className="p-1.5 text-gray-500 bg-gray-100 rounded-full focus:outline-none hover:bg-gray-200 mr-2 flex items-center justify-center"
+            title="Refresh page"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+          </motion.button>
+          
+          {/* Back button */}
           {currentStep > 0 && (
             <motion.button
               whileHover={{ scale: 1.01 }}
@@ -723,12 +807,13 @@ const AppointmentForm = ({
             </motion.button>
           )}
 
+          {/* Next or Submit button */}
           {(currentStep < steps.length - 1 || showingInsuranceInfo) ? (
             <motion.button
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.98 }}
               type="button"
-              onClick={handleNext} // Make sure this is properly attached
+              onClick={handleNext}
               className="px-3 py-1.5 text-white rounded-md focus:outline-none transition-colors font-medium text-xs flex items-center justify-center flex-1"
               style={{ backgroundColor: primaryColor }}
             >
