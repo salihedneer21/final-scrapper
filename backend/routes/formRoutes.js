@@ -615,7 +615,7 @@ router.post('/submit', upload.array('files', 2), async (req, res) => {
         appointment.previousTherapy,
         appointment.takingMedication,
         appointment.mentalHealthDiagnosis,
-        appointment.medicationHistory,  // Make sure this is here and matches the position in SHEET_HEADERShere and matches the position in SHEET_HEADERS
+        appointment.medicationHistory,  // Make sure this is position 20 (matches SHEET_HEADERS)
         appointment.reasonForTherapy,
         appointment.submittedAt,
         fileUrls.join(', ')

@@ -98,6 +98,10 @@ const AppointmentStatusSchema = new Schema({
         type: String,
         required: true
     },
+    medicationHistory: {
+        type: String,
+        required: false
+    },
     
     // Additional notes/comments
     comments: {
