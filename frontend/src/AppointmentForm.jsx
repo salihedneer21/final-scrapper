@@ -809,7 +809,7 @@ const AppointmentForm = ({
           'previous-therapy': previousTherapy,
           'taking-medication': takingMedication,
           'mental-diagnosis': mentalDiagnosis,
-          'medication-history': medicationHistory,
+          'medication-history': medicationHistory,  // Make sure this is here
           'reason': reason,
           'message': reason,
           'selectedProviderName': selectedProviderName,

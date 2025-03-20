@@ -615,10 +615,10 @@ router.post('/submit', upload.array('files', 2), async (req, res) => {
         appointment.previousTherapy,
         appointment.takingMedication,
         appointment.mentalHealthDiagnosis,
-        appointment.medicationHistory,  // Add this new field
+        appointment.medicationHistory,  // Make sure this is here and matches the position in SHEET_HEADERShere and matches the position in SHEET_HEADERS
         appointment.reasonForTherapy,
         appointment.submittedAt,
-        fileUrls.join(', ') // Add file URLs as the last column
+        fileUrls.join(', ')
       ];
       
       // Append data to Google Sheets

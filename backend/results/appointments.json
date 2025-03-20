@@ -1,0 +1,566 @@
+{
+  "17958": {
+    "name": "Elizabeth Jacobs-Pinson, Psy.D., Psychologist",
+    "status": "error",
+    "error": "Navigation timeout of 60000 ms exceeded"
+  },
+  "245461": {
+    "name": "Dev Rubenstein, LMSW, Licensed Master Social Worker",
+    "slots": [
+      {
+        "date": "Tue 3/25",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T14%3a00%3a00&clinician=245461&location=232866"
+      },
+      {
+        "date": "Thu 4/3",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-03T11%3a00%3a00&clinician=245461&location=232863"
+      }
+    ]
+  },
+  "424132": {
+    "name": "Jonathan Newman LMSW, Licensed Social Worker -Remote",
+    "status": "error",
+    "error": "Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded"
+  },
+  "432859": {
+    "name": "Cara Goldsmith, Counselor - Remote",
+    "slots": [
+      {
+        "date": "Mon 3/24",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-24T13%3a00%3a00&clinician=432859&location=172794"
+      },
+      {
+        "date": "Mon 3/24",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-24T14%3a00%3a00&clinician=432859&location=172794"
+      },
+      {
+        "date": "Tue 3/25",
+        "time": "5:30 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T17%3a30%3a00&clinician=432859&location=172794"
+      },
+      {
+        "date": "Thu 3/27",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T12%3a00%3a00&clinician=432859&location=172794"
+      },
+      {
+        "date": "Thu 3/27",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T14%3a00%3a00&clinician=432859&location=172794"
+      },
+      {
+        "date": "Mon 3/31",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T12%3a00%3a00&clinician=432859&location=172794"
+      },
+      {
+        "date": "Mon 3/31",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T13%3a00%3a00&clinician=432859&location=172794"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "5:30 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T17%3a30%3a00&clinician=432859&location=172794"
+      },
+      {
+        "date": "Thu 4/3",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-03T12%3a00%3a00&clinician=432859&location=172794"
+      },
+      {
+        "date": "Thu 4/3",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-03T14%3a00%3a00&clinician=432859&location=172794"
+      }
+    ]
+  },
+  "446171": {
+    "name": "Alyssa Appel, LMSW, Licensed Master Social Worker",
+    "status": "error",
+    "error": "Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded"
+  },
+  "479060": {
+    "name": "Leora Grunberger LMSW, Licensed Social Worker - Remote",
+    "status": "error",
+    "error": "Navigation timeout of 60000 ms exceeded"
+  },
+  "494375": {
+    "name": "Lea Zajac - Osdoba, Mental Health Counselor",
+    "status": "error",
+    "error": "Navigation timeout of 60000 ms exceeded"
+  },
+  "546636": {
+    "name": "Gavriel Velenski, Mental Health Counselor - Remote",
+    "slots": [
+      {
+        "date": "Mon 3/24",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-24T09%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Mon 3/24",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-24T10%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Tue 3/25",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T09%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T09%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T10%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T11%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Thu 3/27",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T09%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Thu 3/27",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T10%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Mon 3/31",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T09%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Mon 3/31",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T10%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T09%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T09%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T11%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Thu 4/3",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-03T09%3a00%3a00&clinician=546636&location=172794"
+      },
+      {
+        "date": "Thu 4/3",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-03T10%3a00%3a00&clinician=546636&location=172794"
+      }
+    ]
+  },
+  "547152": {
+    "name": "Efrat Shoshan, Counselor",
+    "status": "error",
+    "error": "Navigation timeout of 60000 ms exceeded"
+  },
+  "580038": {
+    "name": "Hannah Kraus, LMSW, Licensed Master Social Worker",
+    "slots": [
+      {
+        "date": "Thu 3/20",
+        "time": "7:00 PM",
+        "status": "listed",
+        "href": "#"
+      },
+      {
+        "date": "Fri 3/21",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-21T09%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Fri 3/21",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-21T10%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Sun 3/23",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-23T09%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Sun 3/23",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-23T10%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Sun 3/23",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-23T11%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Tue 3/25",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T09%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Tue 3/25",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T11%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Tue 3/25",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Tue 3/25",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T13%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T09%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T10%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T14%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T15%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Fri 3/28",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-28T09%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Fri 3/28",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-28T10%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Sun 3/30",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-30T09%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Sun 3/30",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-30T10%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Sun 3/30",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-30T11%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T09%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T11%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T12%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T13%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T14%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T09%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T10%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T14%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T15%3a00%3a00&clinician=580038&location=172794"
+      },
+      {
+        "date": "Thu 4/3",
+        "time": "7:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-03T19%3a00%3a00&clinician=580038&location=172794"
+      }
+    ]
+  },
+  "581304": {
+    "name": "Judy Leventhal, LMSW, Licensed Master Social Worker",
+    "slots": [
+      {
+        "date": "Mon 3/24",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-24T12%3a00%3a00&clinician=581304&location=172794"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T12%3a00%3a00&clinician=581304&location=250637"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "6:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T18%3a00%3a00&clinician=581304&location=250637"
+      },
+      {
+        "date": "Mon 3/31",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T12%3a00%3a00&clinician=581304&location=172794"
+      },
+      {
+        "date": "Mon 3/31",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T13%3a00%3a00&clinician=581304&location=172794"
+      },
+      {
+        "date": "Mon 3/31",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T14%3a00%3a00&clinician=581304&location=172794"
+      },
+      {
+        "date": "Mon 3/31",
+        "time": "4:15 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T16%3a15%3a00&clinician=581304&location=172794"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T12%3a00%3a00&clinician=581304&location=250637"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "6:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T18%3a00%3a00&clinician=581304&location=250637"
+      }
+    ]
+  },
+  "592414": {
+    "name": "Chanah Faygen, LMSW, Licensed Master Social Worker",
+    "slots": [
+      {
+        "date": "Tue 3/25",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T13%3a00%3a00&clinician=592414&location=232865"
+      },
+      {
+        "date": "Tue 3/25",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T15%3a00%3a00&clinician=592414&location=232865"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T10%3a00%3a00&clinician=592414&location=250637"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T11%3a00%3a00&clinician=592414&location=250637"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T12%3a00%3a00&clinician=592414&location=250637"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T13%3a00%3a00&clinician=592414&location=250637"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "2:30 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T14%3a30%3a00&clinician=592414&location=172794"
+      },
+      {
+        "date": "Wed 3/26",
+        "time": "3:30 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T15%3a30%3a00&clinician=592414&location=172794"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T13%3a00%3a00&clinician=592414&location=232865"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T14%3a00%3a00&clinician=592414&location=232865"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T15%3a00%3a00&clinician=592414&location=232865"
+      },
+      {
+        "date": "Tue 4/1",
+        "time": "4:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T16%3a00%3a00&clinician=592414&location=232865"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T09%3a00%3a00&clinician=592414&location=250637"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T10%3a00%3a00&clinician=592414&location=250637"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T11%3a00%3a00&clinician=592414&location=250637"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T12%3a00%3a00&clinician=592414&location=250637"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T13%3a00%3a00&clinician=592414&location=250637"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "2:30 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T14%3a30%3a00&clinician=592414&location=172794"
+      },
+      {
+        "date": "Wed 4/2",
+        "time": "3:30 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T15%3a30%3a00&clinician=592414&location=172794"
+      }
+    ]
+  }
+}
