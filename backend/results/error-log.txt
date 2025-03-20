@@ -2453,3 +2453,9 @@ undefined
 [2025-03-19T14:30:44.294Z] Fatal error in scraper: Unexpected server response: 407
 undefined
 
+[2025-03-19T15:00:00.805Z] Failed to create browser instance: Unexpected server response: 407
+undefined
+
+[2025-03-19T15:00:00.809Z] Fatal error in scraper: Unexpected server response: 407
+undefined
+

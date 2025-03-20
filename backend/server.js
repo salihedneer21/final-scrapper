@@ -71,13 +71,13 @@ async function runScraper() {
 }
 
 
-const cronJob = cron.schedule('0 */4 * * *', async () => {
+const cronJob = cron.schedule('0 */7 * * *', async () => {
    log('Running scheduled scraper job', 'info');
    await runScraper();
  });
 
-// New cron job to process unknown appointments every 20 minutes
-const processUnknownCronJob = cron.schedule('*/20 * * * *', async () => {
+// New cron job to process unknown appointments every 3 minutes
+const processUnknownCronJob = cron.schedule('*/3 * * * *', async () => {
   try {
     log('Running scheduled job to process unknown appointments', 'info');
     

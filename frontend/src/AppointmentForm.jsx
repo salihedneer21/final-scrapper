@@ -580,7 +580,7 @@ const AppointmentForm = ({
         return (
           <div>
             <label className="block text-xs font-medium text-gray-700 mb-0.5">
-              Previous Therapy?
+              Have you previously been to therapy ?
               <span className="text-red-500 ml-1">*</span>
             </label>
             <select
@@ -609,7 +609,7 @@ const AppointmentForm = ({
         return (
           <div>
             <label className="block text-xs font-medium text-gray-700 mb-0.5">
-              Taking Medication?
+              Are you currently taking any medications ?
               <span className="text-red-500 ml-1">*</span>
             </label>
             <select
