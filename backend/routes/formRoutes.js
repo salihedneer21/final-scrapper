@@ -501,8 +501,7 @@ router.post('/submit', upload.array('files', 2), async (req, res) => {
     // Validate required fields based on schema
     const requiredFields = [
       'firstName', 'lastName', 'dateOfBirth', 'phone', 'email',
-      'previousTherapy', 'takingMedication', 'medicationHistory', 'reasonForTherapy'
-      // insurance and memberId are optional
+      'previousTherapy', 'takingMedication', 'reasonForTherapy'
     ];
     
     const missingFields = requiredFields.filter(field => !appointmentData[field]);

@@ -604,13 +604,8 @@ const AppointmentForm = ({
       case 'previousTherapy':
         return (
           <div>
-<<<<<<< HEAD
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
-              Have you previously been to therapy ?
-=======
-            <label className="block text-md font-medium text-gray-700 mb-0.5">
-            Have you previously been to therapy?
->>>>>>> df3978c (UI Updates)
+<label className="block text-md font-medium text-gray-700 mb-0.5">
+  Have you previously been to therapy?
               <span className="text-red-500 ml-1">*</span>
             </label>
             <select
@@ -638,14 +633,10 @@ const AppointmentForm = ({
       case 'takingMedication':
         return (
           <div>
-<<<<<<< HEAD
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
-              Are you currently taking any medications ?
-=======
+            
             <label className="block text-md font-medium text-gray-700 mb-0.5">
             Do you have an existing mental health diagnosis?
 
->>>>>>> df3978c (UI Updates)
               <span className="text-red-500 ml-1">*</span>
             </label>
             <select
