@@ -1,5 +1,5 @@
 const CONFIG = {
-    connectionURL: 'wss://brd-customer-hl_17353673-zone-scrapper:zbiwjc5soz4r@brd.superproxy.io:9222',
+    connectionURL: 'wss://brd-customer-hl_913d1393-zone-scraping_browser1:iczrtesc61qd@brd.superproxy.io:9222',
     baseUrl: 'https://www.therapyportal.com/p/crownc/appointments/availability/',
     concurrentBrowsers: 2,
     cliniciansPerBatch: 4,
