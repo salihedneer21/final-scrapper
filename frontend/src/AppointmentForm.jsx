@@ -58,6 +58,24 @@ const AppointmentForm = ({
   const [backCardFile, setBackCardFile] = useState(null);
   const [currentStep, setCurrentStep] = useState(0);
   const [showingInsuranceInfo, setShowingInsuranceInfo] = useState(false);
+  const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
+
+  // First, add these new state variables at the beginning of your component:
+  const [dobMonth, setDobMonth] = useState('');
+  const [dobDay, setDobDay] = useState('');
+  const [dobYear, setDobYear] = useState('');
+
+  // Add this useEffect after your other state declarations
+  useEffect(() => {
+    if (dateOfBirth) {
+      const date = new Date(dateOfBirth);
+      if (!isNaN(date.getTime())) {
+        setDobMonth((date.getMonth() + 1).toString().padStart(2, '0'));
+        setDobDay(date.getDate().toString().padStart(2, '0'));
+        setDobYear(date.getFullYear().toString());
+      }
+    }
+  }, [dateOfBirth]);
 
   // Updated steps for 10-step form
   const steps = [
@@ -73,14 +91,125 @@ const AppointmentForm = ({
     { label: 'Reason', fields: ['reason'] }
   ];
 
+  // Add this new function to validate current step
+  const validateCurrentStep = () => {
+    const errors = {};
+    const currentFields = steps[currentStep].fields;
+
+    if (currentFields.includes('firstName') && !firstName.trim()) {
+      errors.firstName = "First name is required";
+    }
+    if (currentFields.includes('lastName') && !lastName.trim()) {
+      errors.lastName = "Last name is required";
+    }
+    if (currentFields.includes('dateOfBirth') && !dateOfBirth) {
+      errors.dateOfBirth = "Date of birth is required";
+    }
+    if (currentFields.includes('email') && !email.trim()) {
+      errors.email = "Email is required";
+    } else if (currentFields.includes('email') && email.trim() && !/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "Email address is invalid";
+    }
+    if (currentFields.includes('phone') && !phone.trim()) {
+      errors.phone = "Phone number is required";
+    } else if (currentFields.includes('phone') && phone.trim() && !isValidPhoneNumber(phone)) {
+      errors.phone = "Please enter a valid US phone number";
+    }
+    if (currentFields.includes('previousTherapy') && !previousTherapy) {
+      errors.previousTherapy = "Previous therapy information is required";
+    }
+    if (currentFields.includes('takingMedication') && !takingMedication) {
+      errors.takingMedication = "Medication information is required";
+    }
+    if (currentFields.includes('reason') && !reason.trim()) {
+      errors.reason = "Reason for therapy is required";
+    }
+
+    // Add to your validateCurrentStep function for date validation
+    if (currentFields.includes('dateOfBirth')) {
+      if (!dobMonth || !dobDay || !dobYear) {
+        errors.dateOfBirth = "Date of birth is required";
+      } else {
+        try {
+          const month = parseInt(dobMonth);
+          const day = parseInt(dobDay);
+          const year = parseInt(dobYear);
+          
+          // Validate month (1-12)
+          if (month < 1 || month > 12) {
+            errors.dateOfBirth = "Month must be between 1 and 12";
+          } 
+          // Validate day based on month
+          else {
+            const daysInMonth = new Date(year, month, 0).getDate();
+            if (day < 1 || day > daysInMonth) {
+              errors.dateOfBirth = `Invalid day for selected month (must be 1-${daysInMonth})`;
+            } 
+            // Validate year is reasonable
+            else if (year < 1900 || year > new Date().getFullYear()) {
+              errors.dateOfBirth = "Please enter a valid year";
+            }
+            // If all individual validations pass, construct and set the date
+            else {
+              // If we reach here, we have valid date components - update dateOfBirth directly
+              const formattedMonth = month.toString().padStart(2, '0');
+              const formattedDay = day.toString().padStart(2, '0');
+              const newDate = new Date(`${formattedMonth}/${formattedDay}/${year}`);
+              
+              if (isNaN(newDate.getTime()) || newDate > new Date()) {
+                errors.dateOfBirth = "Please enter a valid date of birth";
+              } else {
+                // Set the date synchronously for validation purposes
+                setDateOfBirth(newDate);
+              }
+            }
+          }
+        } catch (error) {
+          errors.dateOfBirth = "Please enter a valid date of birth";
+          console.error("Error validating date:", error);
+        }
+      }
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
   const handleNext = () => {
     // For debugging
     console.log('Next clicked', { currentStep, showingInsuranceInfo });
     
+    // Construct date first to ensure it's available for validation
+    if (dobMonth && dobDay && dobYear) {
+      try {
+        const month = parseInt(dobMonth);
+        const day = parseInt(dobDay);
+        const year = parseInt(dobYear);
+        
+        if (month > 0 && month <= 12 && day > 0 && day <= 31 && year >= 1900 && year <= new Date().getFullYear()) {
+          const formattedMonth = month.toString().padStart(2, '0');
+          const formattedDay = day.toString().padStart(2, '0');
+          const dateStr = `${formattedMonth}/${formattedDay}/${year}`;
+          const newDate = new Date(dateStr);
+          
+          if (!isNaN(newDate.getTime())) {
+            setDateOfBirth(newDate);
+          }
+        }
+      } catch (error) {
+        console.error("Error setting date:", error);
+      }
+    }
+    
     // If we're on the insurance info screen, move to step 3 (Insurance Provider)
     if (showingInsuranceInfo) {
       setShowingInsuranceInfo(false);
-      setCurrentStep(3); // Move to Insurance Provider step
+      setCurrentStep(3);
+      return;
+    }
+    
+    // Validate current step with updated date
+    if (!validateCurrentStep()) {
       return;
     }
     
@@ -179,21 +308,75 @@ const AppointmentForm = ({
               Date of Birth
               <span className="text-red-500 ml-1">*</span>
             </label>
-            <DatePicker
-              selected={dateOfBirth ? new Date(dateOfBirth) : null}
-              onChange={(date) => setDateOfBirth(date)}
-              dateFormat="MM/dd/yyyy"
-              showMonthDropdown
-              showYearDropdown
-              dropdownMode="select"
-              maxDate={new Date()}
-              minDate={new Date(1900, 0, 1)}
-              yearDropdownItemNumber={100}
-              className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
-                formErrors.dateOfBirth ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
-              }`}
-              placeholderText="MM/DD/YYYY"
-            />
+            <div className="flex space-x-2">
+              {/* Month input */}
+              <div className="w-1/4">
+                <input
+                  type="text"
+                  value={dobMonth}
+                  onChange={(e) => {
+                    // Allow free typing for numbers
+                    const value = e.target.value.replace(/\D/g, '');
+                    setDobMonth(value);
+                  }}
+                  onBlur={() => {
+                    // Only format on blur
+                    if (dobMonth && parseInt(dobMonth) > 0 && parseInt(dobMonth) <= 12) {
+                      // Pad with leading zero if needed
+                      setDobMonth(parseInt(dobMonth).toString().padStart(2, '0'));
+                    }
+                  }}
+                  placeholder="MM"
+                  maxLength={2}
+                  className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors text-center ${
+                    formErrors.dateOfBirth ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
+                  }`}
+                />
+              </div>
+              
+              {/* Day input */}
+              <div className="w-1/4">
+                <input
+                  type="text"
+                  value={dobDay}
+                  onChange={(e) => {
+                    // Allow free typing for numbers
+                    const value = e.target.value.replace(/\D/g, '');
+                    setDobDay(value);
+                  }}
+                  onBlur={() => {
+                    // Only format on blur
+                    if (dobDay && parseInt(dobDay) > 0 && parseInt(dobDay) <= 31) {
+                      // Pad with leading zero if needed
+                      setDobDay(parseInt(dobDay).toString().padStart(2, '0'));
+                    }
+                  }}
+                  placeholder="DD"
+                  maxLength={2}
+                  className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors text-center ${
+                    formErrors.dateOfBirth ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
+                  }`}
+                />
+              </div>
+              
+              {/* Year input */}
+              <div className="w-2/4">
+                <input
+                  type="text"
+                  value={dobYear}
+                  onChange={(e) => {
+                    // Allow free typing for numbers
+                    const value = e.target.value.replace(/\D/g, '');
+                    setDobYear(value);
+                  }}
+                  placeholder="YYYY"
+                  maxLength={4}
+                  className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors text-center ${
+                    formErrors.dateOfBirth ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
+                  }`}
+                />
+              </div>
+            </div>
             {formErrors.dateOfBirth && (
               <motion.p
                 initial={{ opacity: 0 }}
@@ -260,7 +443,7 @@ const AppointmentForm = ({
       case 'insurance':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-sm font-medium text-gray-700 mb-0.5">
               Insurance Provider
             </label>
             <select
@@ -613,6 +796,7 @@ const AppointmentForm = ({
             ...response,
             fileUrls: response.fileUrls || []
           });
+          setIsSubmitSuccess(true);
         } else {
           throw new Error(response.message || 'Form submission failed');
         }
@@ -761,6 +945,13 @@ const AppointmentForm = ({
           Fields marked with <span className="text-red-500">*</span> are required
         </div>
       </form>
+      {isSubmitSuccess && (
+        <SuccessMessage 
+          date={selectedDate?.toLocaleDateString()} 
+          time={selectedTimeSlot?.time} 
+          provider={selectedProviderName} 
+        />
+      )}
     </motion.div>
   );
 };
@@ -778,6 +969,26 @@ AppointmentForm.propTypes = {
   isSubmitting: PropTypes.bool,
   primaryColor: PropTypes.string
 };
+
+const SuccessMessage = ({ date, time, provider }) => (
+  <div className="bg-green-50 border border-green-100 rounded-md p-3 text-center">
+    <div className="flex items-center justify-center mb-1">
+      <svg className="w-4 h-4 text-green-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+      </svg>
+      <h3 className="text-sm font-medium text-green-900">Appointment Request Submitted</h3>
+    </div>
+    <p className="text-xs text-green-600 mb-1">
+      Your request for an appointment on {date} at {time} with {provider} has been submitted.
+    </p>
+    <p className="text-xs text-gray-500 italic">
+      This is not a confirmed appointment. Our team will review your request and send you an email confirmation.
+    </p>
+    <p className="text-xs text-gray-500 mt-1">
+      If no confirmation is received within 24 hours, please contact our office directly.
+    </p>
+  </div>
+);
 
 class AppointmentFormErrorBoundary extends React.Component {
   state = { hasError: false };
