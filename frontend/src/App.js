@@ -293,7 +293,7 @@ function App() {
                       {view === 'calendar' ? (
                         <>
                           <div>
-                            <h3 className="text-sm md:text-base font-medium">Select a date</h3>
+                            <h3 className="text-sm md:text-base font-medium"></h3>
                           </div>
                           <Calendar
                             currentWeekStart={currentWeekStart}

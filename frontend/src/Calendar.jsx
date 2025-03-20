@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Calendar = ({ currentWeekStart, setCurrentWeekStart, selectedDate, handleDateSelect, primaryColor, slots = [] }) => {
   const [errorMessage, setErrorMessage] = useState('');
+  const [autoAdvanceCount, setAutoAdvanceCount] = useState(0); // Track auto-advances to prevent infinite loops
   const today = new Date();
   today.setHours(0, 0, 0, 0); // Set to beginning of day for proper comparison
   
@@ -23,6 +24,22 @@ const Calendar = ({ currentWeekStart, setCurrentWeekStart, selectedDate, handleD
     return dates;
   }, [slots]);
   
+  // Check if current week has any available slots
+  const weekHasAvailableSlots = () => {
+    const days = generateCalendarDays();
+    return days.some(day => day.hasSlots);
+  };
+
+  // Auto-advance to next week if current week has no slots
+  useEffect(() => {
+    if (slots.length > 0 && !weekHasAvailableSlots() && autoAdvanceCount < 12) { // Limit to 12 weeks (3 months)
+      const nextWeek = new Date(currentWeekStart);
+      nextWeek.setDate(nextWeek.getDate() + 7);
+      setCurrentWeekStart(nextWeek);
+      setAutoAdvanceCount(prev => prev + 1);
+    }
+  }, [currentWeekStart, slots, autoAdvanceCount, setCurrentWeekStart, weekHasAvailableSlots]);
+
   const generateCalendarDays = () => {
     const days = [];
     const weekStart = new Date(currentWeekStart);
