@@ -76,8 +76,8 @@ const cronJob = cron.schedule('0 */4 * * *', async () => {
    await runScraper();
  });
 
-// New cron job to process unknown appointments every 1 minutes
-const processUnknownCronJob = cron.schedule('*/1 * * * *', async () => {
+// New cron job to process unknown appointments every 3 minutes
+const processUnknownCronJob = cron.schedule('*/3 * * * *', async () => {
   try {
     log('Running scheduled job to process unknown appointments', 'info');
     
