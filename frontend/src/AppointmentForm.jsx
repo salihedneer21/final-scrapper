@@ -65,6 +65,9 @@ const AppointmentForm = ({
   const [dobDay, setDobDay] = useState('');
   const [dobYear, setDobYear] = useState('');
 
+  // Add this with your other state variables
+  const [medicationHistory, setMedicationHistory] = useState('');
+
   // Add this useEffect after your other state declarations
   useEffect(() => {
     if (dateOfBirth) {
@@ -88,6 +91,7 @@ const AppointmentForm = ({
     { label: 'Insurance Back', fields: ['backCardFile'] },
     { label: 'Previous Therapy', fields: ['previousTherapy'] },
     { label: 'Medication', fields: ['takingMedication', 'mentalDiagnosis'] },
+    { label: 'Medication History', fields: ['medicationHistory'] },
     { label: 'Reason', fields: ['reason'] }
   ];
 
@@ -179,36 +183,59 @@ const AppointmentForm = ({
     // For debugging
     console.log('Next clicked', { currentStep, showingInsuranceInfo });
     
-    // Construct date first to ensure it's available for validation
-    if (dobMonth && dobDay && dobYear) {
-      try {
-        const month = parseInt(dobMonth);
-        const day = parseInt(dobDay);
-        const year = parseInt(dobYear);
-        
-        if (month > 0 && month <= 12 && day > 0 && day <= 31 && year >= 1900 && year <= new Date().getFullYear()) {
-          const formattedMonth = month.toString().padStart(2, '0');
-          const formattedDay = day.toString().padStart(2, '0');
-          const dateStr = `${formattedMonth}/${formattedDay}/${year}`;
-          const newDate = new Date(dateStr);
-          
-          if (!isNaN(newDate.getTime())) {
-            setDateOfBirth(newDate);
-          }
-        }
-      } catch (error) {
-        console.error("Error setting date:", error);
-      }
-    }
-    
-    // If we're on the insurance info screen, move to step 3 (Insurance Provider)
+    // Special handling for insurance info screen
     if (showingInsuranceInfo) {
       setShowingInsuranceInfo(false);
       setCurrentStep(3);
       return;
     }
     
-    // Validate current step with updated date
+    // If we're on the DOB step, validate and set the date directly rather than relying on state
+    if (currentStep === 1 && dobMonth && dobDay && dobYear) {
+      try {
+        const month = parseInt(dobMonth);
+        const day = parseInt(dobDay);
+        const year = parseInt(dobYear);
+        
+        if (month < 1 || month > 12) {
+          setFormErrors({dateOfBirth: "Month must be between 1 and 12"});
+          return;
+        }
+        
+        const daysInMonth = new Date(year, month, 0).getDate();
+        if (day < 1 || day > daysInMonth) {
+          setFormErrors({dateOfBirth: `Invalid day for selected month (must be 1-${daysInMonth})`});
+          return;
+        }
+        
+        if (year < 1900 || year > new Date().getFullYear()) {
+          setFormErrors({dateOfBirth: "Please enter a valid year"});
+          return;
+        }
+        
+        const formattedMonth = month.toString().padStart(2, '0');
+        const formattedDay = day.toString().padStart(2, '0');
+        const newDate = new Date(`${formattedMonth}/${formattedDay}/${year}`);
+        
+        if (isNaN(newDate.getTime()) || newDate > new Date()) {
+          setFormErrors({dateOfBirth: "Please enter a valid date of birth"});
+          return;
+        }
+        
+        // Set the date immediately
+        setDateOfBirth(newDate);
+        
+        // Move to next step directly since we've already validated
+        setCurrentStep(currentStep + 1);
+        return;
+      } catch (error) {
+        console.error("Error validating date:", error);
+        setFormErrors({dateOfBirth: "Please enter a valid date of birth"});
+        return;
+      }
+    }
+    
+    // For other steps, use regular validation
     if (!validateCurrentStep()) {
       return;
     }
@@ -238,7 +265,7 @@ const AppointmentForm = ({
       case 'firstName':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               First Name
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -264,7 +291,7 @@ const AppointmentForm = ({
       case 'middleName':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               Middle Name
             </label>
             <input
@@ -278,7 +305,7 @@ const AppointmentForm = ({
       case 'lastName':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               Last Name
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -304,7 +331,7 @@ const AppointmentForm = ({
       case 'dateOfBirth':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               Date of Birth
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -391,7 +418,7 @@ const AppointmentForm = ({
       case 'email':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               Email Address
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -417,7 +444,7 @@ const AppointmentForm = ({
       case 'phone':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               Phone Number
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -443,7 +470,7 @@ const AppointmentForm = ({
       case 'insurance':
         return (
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               Insurance Provider
             </label>
             <select
@@ -482,7 +509,7 @@ const AppointmentForm = ({
       case 'memberId':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               Insurance Member ID
             </label>
             <input
@@ -497,7 +524,7 @@ const AppointmentForm = ({
       case 'frontCardFile':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               Insurance Card - Front Side
             </label>
             <div className="flex items-center justify-center w-full">
@@ -509,7 +536,6 @@ const AppointmentForm = ({
                   <p className="mb-2 text-xs text-gray-500">
                     <span className="font-semibold">Click to upload</span> or drag and drop
                   </p>
-                  <p className="text-xxs text-gray-500">Upload the front of your insurance card (optional)</p>
                 </div>
                 <input
                   type="file"
@@ -538,7 +564,7 @@ const AppointmentForm = ({
       case 'backCardFile':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               Insurance Card - Back Side
             </label>
             <div className="flex items-center justify-center w-full">
@@ -550,7 +576,6 @@ const AppointmentForm = ({
                   <p className="mb-2 text-xs text-gray-500">
                     <span className="font-semibold">Click to upload</span> or drag and drop
                   </p>
-                  <p className="text-xxs text-gray-500">Upload the back of your insurance card (optional)</p>
                 </div>
                 <input
                   type="file"
@@ -579,8 +604,13 @@ const AppointmentForm = ({
       case 'previousTherapy':
         return (
           <div>
+<<<<<<< HEAD
             <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Have you previously been to therapy ?
+=======
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
+            Have you previously been to therapy?
+>>>>>>> df3978c (UI Updates)
               <span className="text-red-500 ml-1">*</span>
             </label>
             <select
@@ -608,8 +638,14 @@ const AppointmentForm = ({
       case 'takingMedication':
         return (
           <div>
+<<<<<<< HEAD
             <label className="block text-xs font-medium text-gray-700 mb-0.5">
               Are you currently taking any medications ?
+=======
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
+            Do you have an existing mental health diagnosis?
+
+>>>>>>> df3978c (UI Updates)
               <span className="text-red-500 ml-1">*</span>
             </label>
             <select
@@ -637,7 +673,7 @@ const AppointmentForm = ({
       case 'mentalDiagnosis':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               If yes, what are they
             </label>
             <input
@@ -649,10 +685,25 @@ const AppointmentForm = ({
             />
           </div>
         );
+      case 'medicationHistory':
+        return (
+          <div>
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
+             Do you have a history of taking psychotropic medication or psychiatric hospitalization? Please tell us more.
+            </label>
+            <textarea
+              value={medicationHistory}
+              onChange={(e) => setMedicationHistory(e.target.value)}
+              rows={3}
+              className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
+              
+            />
+          </div>
+        );
       case 'reason':
         return (
           <div>
-            <label className="block text-xs font-medium text-gray-700 mb-0.5">
+            <label className="block text-md font-medium text-gray-700 mb-0.5">
               What brings you to therapy?
               <span className="text-red-500 ml-1">*</span>
             </label>
@@ -767,6 +818,7 @@ const AppointmentForm = ({
           'previous-therapy': previousTherapy,
           'taking-medication': takingMedication,
           'mental-diagnosis': mentalDiagnosis,
+          'medication-history': medicationHistory,
           'reason': reason,
           'message': reason,
           'selectedProviderName': selectedProviderName,
@@ -827,14 +879,14 @@ const AppointmentForm = ({
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="mb-2">
           {/* Simplified step indicator */}
-          <div className="flex items-center justify-between mb-2">
+          {/* <div className="flex items-center justify-between mb-2">
             <span className="text-xs font-medium text-gray-700">
               {!showingInsuranceInfo && `Step ${currentStep + 1}/${steps.length}`}
             </span>
             <span className="text-xs font-medium" style={{ color: primaryColor }}>
               {!showingInsuranceInfo && steps[currentStep].label}
             </span>
-          </div>
+          </div> */}
           
           {/* Progress bar - only show when not on insurance info screen */}
           {!showingInsuranceInfo && (
