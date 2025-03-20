@@ -34,6 +34,19 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// Update the Express configuration to handle larger file uploads
+// Add these before your route declarations
+
+// Increase the limit for JSON bodies
+app.use(express.json({ limit: '10mb' }));
+
+// Increase the limit for URL-encoded bodies
+app.use(express.urlencoded({ 
+  extended: true,
+  limit: '10mb'
+}));
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -36,10 +36,11 @@ const SHEET_HEADERS = [
   'AppointmentTime',
   'Status',
   'Insurance',
-  'MemberID',  // Add this
+  'MemberID', 
   'PreviousTherapy',
   'TakingMedication',
   'MentalHealthDiagnosis',
+  'MedicationHistory', 
   'ReasonForTherapy',
   'SubmittedAt',
   'DocumentURLs'
@@ -472,6 +473,7 @@ router.post('/submit', upload.array('files', 2), async (req, res) => {
       takingMedication: formData['taking-medication'],
       mentalHealthDiagnosis: formData['mental-diagnosis'] || "",
       reasonForTherapy: formData['reason'],
+      medicationHistory: formData['medication-history'],
       
       // Additional notes
       comments: formData['message'] || "",
@@ -499,7 +501,7 @@ router.post('/submit', upload.array('files', 2), async (req, res) => {
     // Validate required fields based on schema
     const requiredFields = [
       'firstName', 'lastName', 'dateOfBirth', 'phone', 'email',
-      'previousTherapy', 'takingMedication', 'reasonForTherapy'
+      'previousTherapy', 'takingMedication', 'medicationHistory', 'reasonForTherapy'
       // insurance and memberId are optional
     ];
     
@@ -614,6 +616,7 @@ router.post('/submit', upload.array('files', 2), async (req, res) => {
         appointment.previousTherapy,
         appointment.takingMedication,
         appointment.mentalHealthDiagnosis,
+        appointment.medicationHistory,  // Add this new field
         appointment.reasonForTherapy,
         appointment.submittedAt,
         fileUrls.join(', ') // Add file URLs as the last column
