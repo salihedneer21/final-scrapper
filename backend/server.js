@@ -40,12 +40,12 @@ app.use(cors({
 // Add these before your route declarations
 
 // Increase the limit for JSON bodies
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json({ limit: '50mb' }));
 
 // Increase the limit for URL-encoded bodies
 app.use(express.urlencoded({ 
   extended: true,
-  limit: '10mb'
+  limit: '50mb'
 }));
 
 // Middleware
