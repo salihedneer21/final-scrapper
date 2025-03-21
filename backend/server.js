@@ -85,12 +85,22 @@ async function runScraper() {
 }
 
 
-const cronJob = cron.schedule('0 */7 * * *', async () => {
+const cronJob = cron.schedule('0 */12 * * *', async () => {
    log('Running scheduled scraper job', 'info');
    await runScraper();
  });
 
 
+// Add this near your other cron jobs
+const fetchAppointmentsCron = cron.schedule('*/20 * * * *', async () => {
+  try {
+    log('Running scheduled appointment fetch', 'info');
+    const response = await axios.get('http://3.225.223.236:3000/api/appointments/unknown');
+    log('Successfully fetched appointments from external API', 'success');
+  } catch (error) {
+    log(`Failed to fetch appointments in cron job: ${error.message}`, 'error');
+  }
+});
 
 // Manually trigger scraper endpoint (for testing)
 app.post('/api/run', async (req, res) => {
@@ -173,7 +183,10 @@ function gracefulShutdown() {
     cronJob.stop();
     log('Scraper cron job stopped', 'info');
   }
-  
+  if (fetchAppointmentsCron) {
+    fetchAppointmentsCron.stop();
+    log('Appointment fetch cron job stopped', 'info');
+  }
   
   // Close the server
   if (server) {
