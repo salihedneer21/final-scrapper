@@ -869,21 +869,15 @@ Have you been to therapy before?
           throw new Error('Missing appointment request URL');
         }
 
-        // Submit the appointment form
         const response = await submitAppointmentForm(formData, href);
         
         if (response.success) {
-          // After successful form submission, call the fetch-appointments API
+          // Call fetch-appointments API after successful form submission
           try {
-            await fetch('https://automate.crowncounseling.com/api/fetch-appointments', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json'
-              }
-            });
+            await fetch('https://automate.crowncounseling.com/api/fetch-appointments');
           } catch (fetchError) {
             console.error('Error calling fetch-appointments:', fetchError);
-            // Don't throw the error since the main submission was successful
+            // Continue with form submission even if this call fails
           }
 
           await handleSubmitAppointment(e, {

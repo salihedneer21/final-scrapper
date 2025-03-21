@@ -69,36 +69,36 @@ async function main() {
     await fs.mkdir(CONFIG.resultsDir, { recursive: true });
     
     // Always clear existing data before running
-    await clearExistingData();
+    //await clearExistingData();
     
     // Run scrapper.js without any flags
-    await runScript('./scrapper.js');
+    //await runScript('./scrapper.js');
     
     // Run error retry for any clinicians that had errors
     //log('Running error retry for failed clinicians...');
-    await runScript('./errorRetry.js');
+    //await runScript('./errorRetry.js');
 
-    await runScript('./errorRetry.js');
+    //await runScript('./errorRetry.js');
     
-    await runScript('./errorRetry.js');
+    //await runScript('./errorRetry.js');
     
     // Clean up empty href entries
     //log('Cleaning empty href entries from appointments data...');
-    await cleanAppointmentsData();
+    //await cleanAppointmentsData();
     
     // Continue with location mapper
-    await runScript('./cleaner/locationMapper.js');
+    //await runScript('./cleaner/locationMapper.js');
     
     // Clean clinician names
-    await cleanClinicianNames();
+    //await cleanClinicianNames();
     
     // Format dates using the new script
     //log('Formatting dates from URL timestamps...');
-    await runScript('./cleaner/dateFormatter.js');
+    //await runScript('./cleaner/dateFormatter.js');
     
     // Sync data with MongoDB
     // log('Synchronizing data with MongoDB...');
-    await syncWithMongoDB();
+    //await syncWithMongoDB();
     
     log('All tasks completed successfully', 'success');
   } catch (error) {
