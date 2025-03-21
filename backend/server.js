@@ -89,24 +89,7 @@ const cronJob = cron.schedule('0 */7 * * *', async () => {
    await runScraper();
  });
 
-// New cron job to process unknown appointments every 3 minutes
-const processUnknownCronJob = cron.schedule('*/3 * * * *', async () => {
-  try {
-    log('Running scheduled job to process unknown appointments', 'info');
-    
-    // Call the processUnknownAppointments function directly
-    const results = await formSubmitter.processUnknownAppointments();
-    
-    // Log the results
-    if (results.error) {
-      log(`Error in processing unknown appointments: ${results.error}`, 'error');
-    } else {
-      log(`Successfully processed unknown appointments. Success: ${results.success}, Failed: ${results.failed}, Total: ${results.total}`, 'success');
-    }
-  } catch (error) {
-    log(`Exception in appointment processing job: ${error.message}`, 'error');
-  }
-});
+
 
 // Manually trigger scraper endpoint (for testing)
 app.post('/api/run', async (req, res) => {
@@ -164,10 +147,6 @@ function gracefulShutdown() {
     log('Scraper cron job stopped', 'info');
   }
   
-  if (processUnknownCronJob) {
-    processUnknownCronJob.stop();
-    log('Process-unknown cron job stopped', 'info');
-  }
   
   // Close the server
   if (server) {
