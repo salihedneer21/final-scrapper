@@ -98,6 +98,11 @@ const AppointmentStatusSchema = new Schema({
         type: String,
         required: true
     },
+    hasMedicationHistory: {
+        type: String,
+        enum: ['yes', 'no'],
+        required: true
+    },
     medicationHistory: {
         type: String,
         required: false

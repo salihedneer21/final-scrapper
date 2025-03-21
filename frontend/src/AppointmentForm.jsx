@@ -67,6 +67,7 @@ const AppointmentForm = ({
 
   // Add this with your other state variables
   const [medicationHistory, setMedicationHistory] = useState('');
+  const [hasMedicationHistory, setHasMedicationHistory] = useState('');
 
   // Add this useEffect after your other state declarations
   useEffect(() => {
@@ -173,6 +174,10 @@ const AppointmentForm = ({
           console.error("Error validating date:", error);
         }
       }
+    }
+
+    if (currentFields.includes('medicationHistory') && !hasMedicationHistory) {
+      errors.hasMedicationHistory = "Please select Yes or No";
     }
 
     setFormErrors(errors);
@@ -605,7 +610,7 @@ const AppointmentForm = ({
         return (
           <div>
 <label className="block text-md font-medium text-gray-700 mb-0.5">
-  Have you previously been to therapy?
+Have you been to therapy before?
               <span className="text-red-500 ml-1">*</span>
             </label>
             <select
@@ -665,7 +670,7 @@ const AppointmentForm = ({
         return (
           <div>
             <label className="block text-md font-medium text-gray-700 mb-0.5">
-              If yes, what are they
+            If yes, what?
             </label>
             <input
               type="text"
@@ -678,17 +683,48 @@ const AppointmentForm = ({
         );
       case 'medicationHistory':
         return (
-          <div>
-            <label className="block text-md font-medium text-gray-700 mb-0.5">
-             Do you have a history of taking psychotropic medication or psychiatric hospitalization? Please tell us more.
-            </label>
-            <textarea
-              value={medicationHistory}
-              onChange={(e) => setMedicationHistory(e.target.value)}
-              rows={3}
-              className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
-              
-            />
+          <div className="space-y-4">
+            <div>
+              <label className="block text-md font-medium text-gray-700 mb-0.5">
+                Do you have a history of taking psychotropic medication or psychiatric hospitalization?
+                <span className="text-red-500 ml-1">*</span>
+              </label>
+              <select
+                value={hasMedicationHistory}
+                onChange={(e) => setHasMedicationHistory(e.target.value)}
+                className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
+                  formErrors.hasMedicationHistory ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
+                }`}
+              >
+                <option value="">Please select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              {formErrors.hasMedicationHistory && (
+                <motion.p
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="mt-0.5 text-xs text-red-600"
+                >
+                  {formErrors.hasMedicationHistory}
+                </motion.p>
+              )}
+            </div>
+            
+            {hasMedicationHistory === 'yes' && (
+              <div>
+                <label className="block text-md font-medium text-gray-700 mb-0.5">
+                  Please tell us more
+                </label>
+                <textarea
+                  value={medicationHistory}
+                  onChange={(e) => setMedicationHistory(e.target.value)}
+                  rows={3}
+                  className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
+                  placeholder="Please provide details about your medication history or hospitalizations"
+                />
+              </div>
+            )}
           </div>
         );
       case 'reason':
@@ -809,7 +845,8 @@ const AppointmentForm = ({
           'previous-therapy': previousTherapy,
           'taking-medication': takingMedication,
           'mental-diagnosis': mentalDiagnosis,
-          'medication-history': medicationHistory,  // Make sure this is here
+          'has-medication-history': hasMedicationHistory,
+          'medication-history': medicationHistory,
           'reason': reason,
           'message': reason,
           'selectedProviderName': selectedProviderName,

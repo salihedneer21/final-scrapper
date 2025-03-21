@@ -2615,3 +2615,27 @@ TimeoutError: Navigation timeout of 60000 ms exceeded
     at listOnTimeout (node:internal/timers:555:9)
     at process.processTimers (node:internal/timers:529:7)
 
+[2025-03-21T05:16:04.091Z] Failed to create browser instance: Unexpected server response: 403
+undefined
+
+[2025-03-21T05:16:04.093Z] Fatal error in scraper: Unexpected server response: 403
+undefined
+
+[2025-03-21T05:40:03.856Z] Failed to create browser instance: Unexpected server response: 403
+undefined
+
+[2025-03-21T05:40:03.859Z] Fatal error in scraper: Unexpected server response: 403
+undefined
+
+[2025-03-21T05:51:25.067Z] Failed to create browser instance: Unexpected server response: 403
+undefined
+
+[2025-03-21T05:51:25.068Z] Fatal error in scraper: Unexpected server response: 403
+undefined
+
+[2025-03-21T05:51:55.398Z] Failed to create browser instance: Unexpected server response: 403
+undefined
+
+[2025-03-21T05:51:55.400Z] Fatal error in scraper: Unexpected server response: 403
+undefined
+

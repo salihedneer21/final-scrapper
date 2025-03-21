@@ -163,3 +163,99 @@ Error: ENOENT: no such file or directory, open 'results/appointments.json'
     at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
     at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
 
+[2025-03-21T05:16:04.213Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:16:04.304Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:16:04.391Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:40:03.988Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:40:04.090Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:40:04.186Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:51:25.188Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:51:25.299Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:51:25.408Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:51:55.517Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:51:55.601Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-03-21T05:51:55.690Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+

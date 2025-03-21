@@ -40,6 +40,7 @@ const SHEET_HEADERS = [
   'PreviousTherapy',
   'TakingMedication',
   'MentalHealthDiagnosis',
+  'HasMedicationHistory', // This is correct
   'MedicationHistory', 
   'ReasonForTherapy',
   'SubmittedAt',
@@ -472,8 +473,9 @@ router.post('/submit', upload.array('files', 2), async (req, res) => {
       previousTherapy: formData['previous-therapy'],
       takingMedication: formData['taking-medication'],
       mentalHealthDiagnosis: formData['mental-diagnosis'] || "",
-      reasonForTherapy: formData['reason'],
+      hasMedicationHistory: formData['has-medication-history'], // Make sure this matches
       medicationHistory: formData['medication-history'],
+      reasonForTherapy: formData['reason'],
       
       // Additional notes
       comments: formData['message'] || "",
@@ -615,7 +617,8 @@ router.post('/submit', upload.array('files', 2), async (req, res) => {
         appointment.previousTherapy,
         appointment.takingMedication,
         appointment.mentalHealthDiagnosis,
-        appointment.medicationHistory,  // Make sure this is position 20 (matches SHEET_HEADERS)
+        appointment.hasMedicationHistory,
+        appointment.medicationHistory,
         appointment.reasonForTherapy,
         appointment.submittedAt,
         fileUrls.join(', ')
