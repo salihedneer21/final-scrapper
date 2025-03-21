@@ -672,8 +672,8 @@ Have you been to therapy before?
             <label className="block text-md font-medium text-gray-700 mb-0.5">
             If yes, what?
             </label>
-            <input
-              type="text"
+            <textarea
+              rows={3}
               value={mentalDiagnosis}
               onChange={(e) => setMentalDiagnosis(e.target.value)}
               className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
@@ -710,11 +710,9 @@ Have you been to therapy before?
                 </motion.p>
               )}
             </div>
-            
-            {hasMedicationHistory === 'yes' && (
               <div>
                 <label className="block text-md font-medium text-gray-700 mb-0.5">
-                  Please tell us more
+                  If yes please tell us more
                 </label>
                 <textarea
                   value={medicationHistory}
@@ -724,7 +722,6 @@ Have you been to therapy before?
                   placeholder="Please provide details about your medication history or hospitalizations"
                 />
               </div>
-            )}
           </div>
         );
       case 'reason':

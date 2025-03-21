@@ -22,9 +22,7 @@ const credentials = require('../jsonfiles/credentials.json');
 const SHEET_HEADERS = [
   'AppointmentID',
   'FirstName',
-  'MiddleName',
   'LastName',
-  'PreferredName',
   'DateOfBirth',
   'Phone',
   'Email',
@@ -40,8 +38,8 @@ const SHEET_HEADERS = [
   'PreviousTherapy',
   'TakingMedication',
   'MentalHealthDiagnosis',
-  'HasMedicationHistory', // This is correct
-  'MedicationHistory', 
+  'HasPsychiatricHospitalization', // This is correct
+  'PsychiatricHospitalization', 
   'ReasonForTherapy',
   'SubmittedAt',
   'DocumentURLs'
@@ -599,9 +597,7 @@ router.post('/submit', upload.array('files', 2), async (req, res) => {
       const sheetData = [
         appointment._id,
         appointment.firstName,
-        appointment.middleName,
         appointment.lastName,
-        appointment.preferredName,
         appointment.dateOfBirth,
         appointment.phone,
         appointment.email,
