@@ -11,6 +11,7 @@ require('./models/AppointmentStatus');
 require('./models/BookingsLogs'); // Make sure this exists as well
 const formSubmitter = require('./services/formSubmitter');
 const cors = require('cors'); // Add this line
+const axios = require('axios'); // Add axios to the top of your file with other imports
 
 
 // Initialize express app
@@ -101,7 +102,33 @@ app.post('/api/run', async (req, res) => {
   }
 });
 
+// Add this new API endpoint before the catch-all route
+app.get('/api/fetch-appointments', async (req, res) => {
+  try {
+    const response = await axios.get('http://3.225.223.236:3000/api/appointments/unknown', {
+      timeout: 30000 // 30 second timeout
+    });
 
+    // Log successful fetch
+    log('Successfully fetched appointments from external API', 'success');
+    
+    return res.json({
+      success: true,
+      data: response.data,
+      timestamp: new Date().toISOString()
+    });
+
+  } catch (error) {
+    // Log the error
+    log(`Error fetching appointments: ${error.message}`, 'error');
+    
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+      timestamp: new Date().toISOString()
+    });
+  }
+});
 
 // For all other routes, serve the React app
 app.get('*', (req, res) => {
