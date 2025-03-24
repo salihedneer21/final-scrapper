@@ -83,17 +83,18 @@ const AppointmentForm = ({
 
   // Updated steps for 10-step form
   const steps = [
-    { label: 'Name', fields: ['firstName', 'lastName'] },
-    { label: 'Date of Birth', fields: ['dateOfBirth'] },
-    { label: 'Contact', fields: ['email', 'phone'] },
-    { label: 'Insurance Provider', fields: ['insurance'] },
-    { label: 'Member ID', fields: ['memberId'] },
-    { label: 'Insurance Front', fields: ['frontCardFile'] },
-    { label: 'Insurance Back', fields: ['backCardFile'] },
-    { label: 'Previous Therapy', fields: ['previousTherapy'] },
-    { label: 'Medication', fields: ['takingMedication', 'mentalDiagnosis'] },
-    { label: 'Medication History', fields: ['medicationHistory'] },
-    { label: 'Reason', fields: ['reason'] }
+    { 
+      label: 'Personal Information', 
+      fields: ['firstName', 'lastName', 'dateOfBirth', 'email', 'phone'] 
+    },
+    { 
+      label: 'Insurance Information', 
+      fields: ['insurance', 'memberId', 'frontCardFile', 'backCardFile'] 
+    },
+    { 
+      label: 'Medical History', 
+      fields: ['previousTherapy', 'takingMedication', 'mentalDiagnosis', 'medicationHistory', 'reason'] 
+    }
   ];
 
   // Add this new function to validate current step
@@ -673,7 +674,7 @@ Have you been to therapy before?
             If yes, what?
             </label>
             <textarea
-              rows={3}
+              rows={2}
               value={mentalDiagnosis}
               onChange={(e) => setMentalDiagnosis(e.target.value)}
               className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
@@ -717,7 +718,7 @@ Have you been to therapy before?
                 <textarea
                   value={medicationHistory}
                   onChange={(e) => setMedicationHistory(e.target.value)}
-                  rows={3}
+                  rows={2}
                   className="w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors border-gray-300 focus:ring-1 focus:ring-opacity-50"
                   placeholder="Please provide details about your medication history or hospitalizations"
                 />
@@ -737,7 +738,7 @@ Have you been to therapy before?
                 setReason(e.target.value);
                 setMessage(e.target.value);
               }}
-              rows={3}
+              rows={2}
               className={`w-full px-2 py-1.5 border rounded-md shadow-sm focus:outline-none transition-colors ${
                 formErrors.reason ? 'border-red-300' : 'border-gray-300 focus:ring-1 focus:ring-opacity-50'
               }`}
