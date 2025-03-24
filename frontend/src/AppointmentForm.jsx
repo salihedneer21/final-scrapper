@@ -925,7 +925,7 @@ Have you been to therapy before?
         <div className="bg-gray-50 p-3 rounded-lg">
           {currentStep === 0 ? (
             <div className="space-y-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 xs:grid-cols-1">
                 <div>
                   {renderField('firstName')}
                 </div>
