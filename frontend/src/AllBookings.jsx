@@ -56,6 +56,7 @@ function AllBookings() {
     setSelectedTime(null);
     setTimeSlots([]);
     setSlotDetails(null);
+    setErrorMessage(''); // Clear any existing error messages
     
     const dateString = format(date, 'yyyy-MM-dd');
     if (bookings.slotsByDate && bookings.slotsByDate[dateString]) {
@@ -66,6 +67,10 @@ function AllBookings() {
       const timeMap = {};
       
       slots.forEach(slot => {
+        const slotDateTime = new Date(date);
+        const [hours, minutes] = slot.time.split(':');
+        slotDateTime.setHours(parseInt(hours), parseInt(minutes), 0);
+        
         if (!timeMap[slot.time]) {
           timeMap[slot.time] = true;
           uniqueTimes.push(slot.time);
@@ -94,6 +99,7 @@ function AllBookings() {
     ))
       .then(detailsArray => {
         setSlotDetails(detailsArray);
+        setErrorMessage('');
       })
       .catch(error => {
         console.error('Error fetching slot details:', error);
@@ -109,7 +115,6 @@ function AllBookings() {
   };
   
   const handleBookAppointment = (details) => {
-    // Check if details contains href property
     if (!details.href) {
       console.error("Missing href in appointment details:", details);
       setErrorMessage("Unable to book appointment: Missing appointment URL");
@@ -122,7 +127,7 @@ function AllBookings() {
       timeSlot: {
         time: details.time,
         location: details.location,
-        href: details.href // Use the actual href from the API response
+        href: details.href
       }
     });
     setShowAppointmentForm(true);
