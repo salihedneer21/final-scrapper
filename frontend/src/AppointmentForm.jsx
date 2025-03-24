@@ -83,9 +83,11 @@ const AppointmentForm = ({
 
   // Further simplified steps
   const steps = [
-    { label: 'Personal Information', fields: ['firstName', 'lastName', 'dateOfBirth', 'email', 'phone'] },
-    { label: 'Insurance', fields: ['insurance', 'memberId', 'frontCardFile', 'backCardFile'] },
-    { label: 'Medical History', fields: ['previousTherapy', 'takingMedication', 'mentalDiagnosis', 'medicationHistory', 'reason'] }
+    { label: 'Personal', fields: ['firstName', 'lastName', 'dateOfBirth', 'email', 'phone'] },
+    { label: 'Insurance', fields: ['insurance', 'memberId','insuranceNote'] },
+    { label: 'Insurance Upload', fields: ['frontCardFile', 'backCardFile','insuranceNote'] },
+    { label: 'History', fields: ['previousTherapy', 'takingMedication', 'mentalDiagnosis']},
+    { label: 'History Rem', fields: [ 'medicationHistory', 'reason'] }
   ];
 
   // Add this new function to validate current step
@@ -178,33 +180,29 @@ const AppointmentForm = ({
 
   const handleNext = () => {
     // For debugging
-    console.log('Next clicked', { currentStep, showingInsuranceInfo });
+    console.log('Next clicked', { currentStep });
     
-    // Special handling for insurance info screen
-    if (showingInsuranceInfo) {
-      setShowingInsuranceInfo(false);
-      setCurrentStep(3);
-      return;
-    }
-    
-    // If we're on the DOB step, validate and set the date directly rather than relying on state
-    if (currentStep === 1 && dobMonth && dobDay && dobYear) {
+    // If we're on the first step and DOB fields are filled
+    if (currentStep === 0 && dobMonth && dobDay && dobYear) {
       try {
         const month = parseInt(dobMonth);
         const day = parseInt(dobDay);
         const year = parseInt(dobYear);
         
+        // Validate month
         if (month < 1 || month > 12) {
           setFormErrors({dateOfBirth: "Month must be between 1 and 12"});
           return;
         }
         
+        // Validate day based on month
         const daysInMonth = new Date(year, month, 0).getDate();
         if (day < 1 || day > daysInMonth) {
           setFormErrors({dateOfBirth: `Invalid day for selected month (must be 1-${daysInMonth})`});
           return;
         }
         
+        // Validate year
         if (year < 1900 || year > new Date().getFullYear()) {
           setFormErrors({dateOfBirth: "Please enter a valid year"});
           return;
@@ -212,18 +210,19 @@ const AppointmentForm = ({
         
         const formattedMonth = month.toString().padStart(2, '0');
         const formattedDay = day.toString().padStart(2, '0');
-        const newDate = new Date(`${formattedMonth}/${formattedDay}/${year}`);
+        const newDate = new Date(`${year}-${formattedMonth}-${formattedDay}`);
         
         if (isNaN(newDate.getTime()) || newDate > new Date()) {
           setFormErrors({dateOfBirth: "Please enter a valid date of birth"});
           return;
         }
         
-        // Set the date immediately
+        // First set the date
         setDateOfBirth(newDate);
         
-        // Move to next step directly since we've already validated
+        // Then proceed directly to next step without checking validateCurrentStep()
         setCurrentStep(currentStep + 1);
+        setFormErrors({});
         return;
       } catch (error) {
         console.error("Error validating date:", error);
@@ -232,26 +231,18 @@ const AppointmentForm = ({
       }
     }
     
-    // For other steps, use regular validation
+    // For other fields/steps, use normal validation
     if (!validateCurrentStep()) {
       return;
     }
     
-    // Standard step progression
-    if (currentStep === 2) {
-      // After completing Contact info, show insurance info screen
-      setShowingInsuranceInfo(true);
-    } else if (currentStep < steps.length - 1) {
+    // If validation passes
+    if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     }
   };
 
   const handleBack = () => {
-    if (showingInsuranceInfo) {
-      setShowingInsuranceInfo(false);
-      return;
-    }
-    
     if (currentStep > 0) {
       setCurrentStep(currentStep - 1);
     }
@@ -745,6 +736,12 @@ Have you been to therapy before?
             )}
           </div>
         );
+      case 'insuranceNote':
+        return (
+          <div className="mb-4 text-sm" style={{ color: `${primaryColor}DD` }}>
+            <p>You can add insurance information later, but it will be required before finalizing the appointment.</p>
+          </div>
+        );
       default:
         return null;
     }
@@ -913,89 +910,51 @@ Have you been to therapy before?
             </span>
           </div> */}
           
-          {/* Progress bar - only show when not on insurance info screen */}
-          {!showingInsuranceInfo && (
-            <div className="w-full bg-gray-200 rounded-full h-1.5">
-              <div 
-                className="h-1.5 rounded-full transition-all duration-300"
-                style={{ 
-                  width: `${((currentStep + 1) / steps.length) * 100}%`,
-                  backgroundColor: primaryColor
-                }}
-              ></div>
-            </div>
-          )}
+          {/* Progress bar */}
+          <div className="w-full bg-gray-200 rounded-full h-1.5">
+            <div 
+              className="h-1.5 rounded-full transition-all duration-300"
+              style={{ 
+                width: `${((currentStep + 1) / steps.length) * 100}%`,
+                backgroundColor: primaryColor
+              }}
+            ></div>
+          </div>
         </div>
 
-        {showingInsuranceInfo ? (
-          <div 
-            className="p-4 rounded-lg"
-            style={{ 
-              backgroundColor: `${primaryColor}10`,
-              border: `1px solid ${primaryColor}30`
-            }}
-          >
-            <div className="flex items-start mb-3">
-              <svg 
-                className="w-5 h-5 mt-0.5 mr-2" 
-                fill="currentColor" 
-                viewBox="0 0 20 20" 
-                style={{ color: primaryColor }}
-              >
-                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2h-1V9a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-              <h3 
-                className="text-sm font-medium" 
-                style={{ color: primaryColor }}
-              >
-                Insurance Information
-              </h3>
-            </div>
-            <p 
-              className="text-sm mb-1" 
-              style={{ color: `${primaryColor}DD` }}
-            >
-             You can add insurance information later, but it will be required before finalizing the appointment.
-            </p>
-            <div className="mt-4">
-              
-            </div>
-          </div>
-        ) : (
-          <div className="bg-gray-50 p-3 rounded-lg">
-            {currentStep === 0 ? (
-              <div className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    {renderField('firstName')}
-                  </div>
-                  <div>
-                    {renderField('lastName')}
-                  </div>
-                </div>
-                
+        <div className="bg-gray-50 p-3 rounded-lg">
+          {currentStep === 0 ? (
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  {renderField('dateOfBirth')}
+                  {renderField('firstName')}
                 </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    {renderField('email')}
-                  </div>
-                  <div>
-                    {renderField('phone')}
-                  </div>
+                <div>
+                  {renderField('lastName')}
                 </div>
               </div>
-            ) : (
-              steps[currentStep].fields.map((field, index) => (
-                <div key={index} className="mb-3">
-                  {renderField(field)}
+              
+              <div>
+                {renderField('dateOfBirth')}
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  {renderField('email')}
                 </div>
-              ))
-            )}
-          </div>
-        )}
+                <div>
+                  {renderField('phone')}
+                </div>
+              </div>
+            </div>
+          ) : (
+            steps[currentStep].fields.map((field, index) => (
+              <div key={index} className="mb-3">
+                {renderField(field)}
+              </div>
+            ))
+          )}
+        </div>
 
         <div className="flex items-center justify-between">
           {/* Show back button on all steps */}
@@ -1009,7 +968,7 @@ Have you been to therapy before?
             Back
           </motion.button>
 
-          {(currentStep < steps.length - 1 || showingInsuranceInfo) ? (
+          {currentStep < steps.length - 1 ? (
             <motion.button
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.98 }}
