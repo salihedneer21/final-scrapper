@@ -26,6 +26,8 @@ function AllBookings() {
   const [selectedProviderName, setSelectedProviderName] = useState('');
   const [selectedStep, setSelectedStep] = useState('date'); // 'date', 'time', 'provider'
   const [loadingSlotDetails, setLoadingSlotDetails] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+  const providersPerPage = 4;
 
   // Using the original website color
   const primaryColor = 'rgb(119, 168, 195)';
@@ -138,6 +140,7 @@ function AllBookings() {
     // Reset slot details immediately and set loading state
     setSlotDetails(null);
     setLoadingSlotDetails(true);
+    setCurrentPage(0); // Reset to first page
     
     const matchingSlots = dailySlots.filter(slot => slot.time === time);
     
@@ -510,76 +513,106 @@ function AllBookings() {
                       <p className="text-gray-500">No provider options available</p>
                     </div>
                   ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {slotDetails.map((details, index) => (
-                        <motion.div 
-                          key={index}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.1 }}
-                          className="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow duration-300"
-                          style={{ border: `1px solid rgba(119, 168, 195, 0.2)` }}
-                        >
-                          <div className="h-2" style={{ backgroundColor: primaryColor }}></div>
-                          <div className="p-4">
-                            <div className="mb-3">
-                              <div className="flex justify-between items-center">
-                                <div className="font-medium text-gray-800">{details.doctorName}</div>
-                                <div className="text-sm font-medium px-2 py-1 rounded" 
+                    <div className="space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {slotDetails
+                          .slice(
+                            currentPage * providersPerPage, 
+                            (currentPage + 1) * providersPerPage
+                          )
+                          .map((details, index) => (
+                            <motion.div 
+                              key={index}
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: index * 0.1 }}
+                              className="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow duration-300"
+                              style={{ border: `1px solid rgba(119, 168, 195, 0.2)` }}
+                            >
+                              <div className="h-2" style={{ backgroundColor: primaryColor }}></div>
+                              <div className="p-4">
+                                <div className="mb-3">
+                                  <div className="flex justify-between items-center">
+                                    <div className="font-medium text-gray-800">{details.doctorName}</div>
+                                    <div className="text-sm font-medium px-2 py-1 rounded" 
+                                      style={{ 
+                                        backgroundColor: `${primaryColor}20`, 
+                                        color: primaryColor 
+                                      }}
+                                    >
+                                      {details.time}
+                                    </div>
+                                  </div>
+                                  <div className="text-sm text-gray-500 mt-1">
+                                    {format(parseISO(details.isoDate), 'EEEE, MMMM d, yyyy')}
+                                  </div>
+                                </div>
+                                
+                                <div className="space-y-3 mb-4">
+                                  {getAppointmentType(details.location) === "Telehealth" ? (
+                                    <div className="flex items-start">
+                                      <Video size={16} className="mr-2 mt-0.5" style={{ color: primaryColor }} />
+                                      <div>
+                                        <div className="text-sm text-gray-600 font-medium">Telehealth Appointment</div>
+                                      </div>
+                                    </div>
+                                  ) : (
+                                    <div className="flex items-center text-sm text-gray-600">
+                                      <MapPin size={16} className="mr-2" style={{ color: primaryColor }} />
+                                      <div className="flex items-center">
+                                        <span className="font-medium">In-Person</span>
+                                      </div>
+                                    </div>
+                                  )}
+                                  
+                                  {/* Within 24 hours message */}
+                                  {details.isWithin24Hours && (
+                                    <div className="bg-amber-50 rounded p-3 border-l-2 border-amber-400 text-sm text-amber-800">
+                                      <p>Cannot be booked within 24 hours. Please select a date next week.</p>
+                                    </div>
+                                  )}
+                                </div>
+                                
+                                <button
+                                  onClick={() => details.isWithin24Hours ? null : handleBookAppointment(details)}
+                                  disabled={details.isWithin24Hours}
+                                  className={`block w-full text-center px-4 py-2 rounded-md text-white font-medium transition-all duration-200 ${
+                                    details.isWithin24Hours ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
+                                  }`}
                                   style={{ 
-                                    backgroundColor: `${primaryColor}20`, 
-                                    color: primaryColor 
+                                    backgroundColor: primaryColor,
+                                    boxShadow: details.isWithin24Hours ? 'none' : '0 2px 4px rgba(119, 168, 195, 0.3)'
                                   }}
                                 >
-                                  {details.time}
-                                </div>
+                                  {details.isWithin24Hours ? 'Unavailable' : `Book with ${details.doctorName.split(' ')[0]}`}
+                                </button>
                               </div>
-                              <div className="text-sm text-gray-500 mt-1">
-                                {format(parseISO(details.isoDate), 'EEEE, MMMM d, yyyy')}
-                              </div>
-                            </div>
-                            
-                            <div className="space-y-3 mb-4">
-                              {getAppointmentType(details.location) === "Telehealth" ? (
-                                <div className="flex items-start">
-                                  <Video size={16} className="mr-2 mt-0.5" style={{ color: primaryColor }} />
-                                  <div>
-                                    <div className="text-sm text-gray-600 font-medium">Telehealth Appointment</div>
-                                  </div>
-                                </div>
-                              ) : (
-                                <div className="flex items-center text-sm text-gray-600">
-                                  <MapPin size={16} className="mr-2" style={{ color: primaryColor }} />
-                                  <div className="flex items-center">
-                                    <span className="font-medium">In-Person</span>
-                                  </div>
-                                </div>
-                              )}
-                              
-                              {/* Within 24 hours message */}
-                              {details.isWithin24Hours && (
-                                <div className="bg-amber-50 rounded p-3 border-l-2 border-amber-400 text-sm text-amber-800">
-                                  <p>Cannot be booked within 24 hours. Please select a date next week.</p>
-                                </div>
-                              )}
-                            </div>
-                            
+                            </motion.div>
+                          ))}
+                      </div>
+              
+                      {/* Pagination - only show if we have more than providersPerPage providers */}
+                      {slotDetails.length > providersPerPage && (
+                        <div className="flex justify-center items-center mt-6 space-x-2">
+                          {Array.from({ length: Math.ceil(slotDetails.length / providersPerPage) }).map((_, index) => (
                             <button
-                              onClick={() => details.isWithin24Hours ? null : handleBookAppointment(details)}
-                              disabled={details.isWithin24Hours}
-                              className={`block w-full text-center px-4 py-2 rounded-md text-white font-medium transition-all duration-200 ${
-                                details.isWithin24Hours ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
+                              key={index}
+                              onClick={() => setCurrentPage(index)}
+                              className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                                currentPage === index 
+                                  ? 'text-white' 
+                                  : 'text-gray-600 hover:bg-gray-100'
                               }`}
                               style={{ 
-                                backgroundColor: primaryColor,
-                                boxShadow: details.isWithin24Hours ? 'none' : '0 2px 4px rgba(119, 168, 195, 0.3)'
+                                backgroundColor: currentPage === index ? primaryColor : 'transparent',
+                                border: `1px solid ${currentPage === index ? primaryColor : '#E5E7EB'}`
                               }}
                             >
-                              {details.isWithin24Hours ? 'Unavailable' : `Book with ${details.doctorName.split(' ')[0]}`}
+                              {index + 1}
                             </button>
-                          </div>
-                        </motion.div>
-                      ))}
+                          ))}
+                        </div>
+                      )}
                     </div>
                   )}
                 </div>
