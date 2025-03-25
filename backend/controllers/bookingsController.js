@@ -53,7 +53,7 @@ exports.getAllBookings = async (req, res) => {
           
           // Date filtering based on isoDate
           if (startDate || endDate) {
-            const slotDate = new Date(slot.isoDate || slot.date);
+            const slotDate = new Date(slot.isoDate);
             
             if (startDate) {
               const startDateObj = new Date(startDate);
@@ -116,23 +116,6 @@ exports.getAllBookings = async (req, res) => {
         .map(slot => {
           // Ensure we have an isoDate format
           let isoDate = slot.isoDate;
-          
-          // If no isoDate exists, try to parse from date string
-          if (!isoDate) {
-            try {
-              const dateParts = slot.date.split(', ')[1].split(' ');
-              const month = getMonthNumber(dateParts[0]);
-              const day = parseInt(dateParts[1], 10);
-              const year = parseInt(dateParts[2], 10);
-              
-              // Format as ISO date (YYYY-MM-DD)
-              isoDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
-            } catch (err) {
-              console.error('Error parsing date:', slot.date, err);
-              isoDate = new Date().toISOString().split('T')[0]; // Default to today if parsing fails
-            }
-          }
-          
           // Create a more consistent shortDate from isoDate (YYYY-MM-DD)
           const shortDate = isoDate;
           
@@ -140,7 +123,6 @@ exports.getAllBookings = async (req, res) => {
             id: slot._id,
             doctorId: doctor.clinicianId,
             doctorName: doctor.cleanName || doctor.name,
-            date: slot.date,
             time: slot.time,
             location: slot.location,
             status: slot.status,
@@ -240,7 +222,6 @@ exports.getSlotDetails = async (req, res) => {
       doctorId: doctor.clinicianId,
       doctorName: doctor.cleanName || doctor.name,
       searchableName: doctor.searchableName,
-      date: slot.date,
       time: slot.time,
       isoDate: slot.isoDate,
       shortDate: slot.shortDate,

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import Calendar from './Calendar';
+import Calendar from './CalendarAll';
 import AppointmentForm from './AppointmentForm';
 import { format, parseISO } from 'date-fns';
 import { Clock, MapPin, Video, User, ChevronLeft, Calendar as CalendarIcon, Phone } from 'lucide-react';
@@ -24,6 +24,7 @@ function AllBookings() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submissionComplete, setSubmissionComplete] = useState(false);
   const [selectedProviderName, setSelectedProviderName] = useState('');
+  const [selectedStep, setSelectedStep] = useState('date'); // 'date', 'time', 'provider'
 
   // Using the original website color
   const primaryColor = 'rgb(119, 168, 195)';
@@ -37,7 +38,6 @@ function AllBookings() {
     try {
       const queryParams = new URLSearchParams();
       if (filters.status) queryParams.append('status', filters.status);
-      
       const response = await fetch(`https://automate.crowncounseling.com/api/allbookings?${queryParams}`);
       if (!response.ok) throw new Error('Network response was not ok');
       
@@ -57,6 +57,7 @@ function AllBookings() {
     setTimeSlots([]);
     setSlotDetails(null);
     setErrorMessage(''); // Clear any existing error messages
+    setSelectedStep('time'); // Move to time selection step
     
     const dateString = format(date, 'yyyy-MM-dd');
     if (bookings.slotsByDate && bookings.slotsByDate[dateString]) {
@@ -87,9 +88,20 @@ function AllBookings() {
 
   const handleTimeSelect = (time) => {
     setSelectedTime(time);
+    setSelectedStep('provider'); // Move to provider selection step
     
     const matchingSlots = dailySlots.filter(slot => slot.time === time);
     
+    // Check if appointment is within 24 hours
+    const slotDateTime = new Date(selectedDate);
+    const [hours, minutes] = time.split(':');
+    slotDateTime.setHours(parseInt(hours), parseInt(minutes), 0);
+    
+    const now = new Date();
+    const timeDifference = slotDateTime - now;
+    const isWithin24Hours = timeDifference > 0 && timeDifference < 24 * 60 * 60 * 1000;
+    
+    // Always fetch the provider details regardless of time constraint
     Promise.all(matchingSlots.map(slot => 
       fetch(`https://automate.crowncounseling.com/api/slots/${slot.id}`)
         .then(response => {
@@ -98,7 +110,12 @@ function AllBookings() {
         })
     ))
       .then(detailsArray => {
-        setSlotDetails(detailsArray);
+        // Add the isWithin24Hours flag to each detail object
+        const updatedDetailsArray = detailsArray.map(detail => ({
+          ...detail,
+          isWithin24Hours
+        }));
+        setSlotDetails(updatedDetailsArray);
         setErrorMessage('');
       })
       .catch(error => {
@@ -260,9 +277,6 @@ function AllBookings() {
                   <strong>Please note:</strong> This is not a confirmed appointment. Our team will review your request 
                   and send you an email confirmation once it has been approved and scheduled.
                 </p>
-                <p className="text-green-600 mt-4 text-sm">
-                  If you don't receive a confirmation within 24 hours, please contact our office directly.
-                </p>
               </div>
             </div>
           </motion.div>
@@ -282,19 +296,7 @@ function AllBookings() {
               transition={{ duration: 0.5 }}
               className="mb-6 text-center"
             >
-              <h1 className="text-3xl font-bold" style={{ color: primaryColor }}>
-                All Bookings Calendar
-              </h1>
-              <p className="mt-2 text-gray-600">
-                View all available slots across all providers
-              </p>
-              <Link 
-                to="/"
-                className="mt-4 inline-flex items-center px-4 py-2 text-sm font-medium rounded-md text-gray-600 hover:text-gray-800"
-              >
-                <ChevronLeft size={16} className="mr-1" />
-                Return to Main Booking Page
-              </Link>
+
             </motion.div>
             
             {errorMessage && (
@@ -317,7 +319,7 @@ function AllBookings() {
               {/* Calendar Section */}
               <motion.div 
                 variants={itemVariants}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+                className={`bg-white rounded-lg shadow-md overflow-hidden ${selectedStep !== 'date' ? 'hidden' : ''}`}
               >
                 <div className="p-6">
                   <div className="flex items-center space-x-2 mb-4">
@@ -330,7 +332,10 @@ function AllBookings() {
                       currentWeekStart={currentWeekStart}
                       setCurrentWeekStart={setCurrentWeekStart}
                       selectedDate={selectedDate}
-                      handleDateSelect={handleDateSelect}
+                      handleDateSelect={(date) => {
+                        handleDateSelect(date);
+                        setSelectedStep('time');
+                      }}
                       primaryColor={primaryColor}
                       slots={Object.values(bookings.slotsByDate).flat()}
                     />
@@ -341,45 +346,65 @@ function AllBookings() {
               {/* Time Slots Section */}
               <motion.div 
                 variants={itemVariants}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+                className={`bg-white rounded-lg shadow-md overflow-hidden ${selectedStep !== 'time' ? 'hidden' : ''}`}
               >
                 <div className="p-6">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <Clock size={20} style={{ color: primaryColor }} />
-                    <h2 className="text-xl font-medium" style={{ color: primaryColor }}>Available Times</h2>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-2">
+                      <button 
+                        onClick={() => setSelectedStep('date')}
+                        className="flex items-center text-gray-500 hover:text-gray-700"
+                      >
+                        <ChevronLeft size={16} />
+                        <span className="text-sm">Back to calendar</span>
+                      </button>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <Clock size={20} style={{ color: primaryColor }} />
+                      <h2 className="text-xl font-medium" style={{ color: primaryColor }}>Available Times</h2>
+                    </div>
                   </div>
                   
-                  {selectedDate ? (
-                    timeSlots.length > 0 ? (
-                      <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
-                        {timeSlots.map((time) => (
-                          <motion.div
-                            key={time}
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.97 }}
-                            onClick={() => handleTimeSelect(time)}
-                            className={`p-3 rounded-md text-center cursor-pointer transition-all duration-200`}
-                            style={{ 
-                              backgroundColor: selectedTime === time ? primaryColor : '#F9FAFB',
-                              color: selectedTime === time ? 'white' : '#4B5563',
-                              border: `1px solid ${selectedTime === time ? primaryColor : '#E5E7EB'}`,
-                              boxShadow: selectedTime === time ? '0 4px 6px -1px rgba(119, 168, 195, 0.3)' : 'none'
-                            }}
-                          >
-                            <div className="font-medium text-sm">{time}</div>
-                          </motion.div>
-                        ))}
+                  {selectedDate && (
+                    <div className="mb-4 px-2 py-1 bg-gray-50 rounded-md inline-block">
+                      <div className="text-sm text-gray-500">
+                        {selectedDate.toLocaleDateString('en-US', {
+                          weekday: 'short',
+                          month: 'short',
+                          day: 'numeric',
+                          year: 'numeric',
+                        })}
                       </div>
-                    ) : (
-                      <div className="flex flex-col items-center justify-center py-10 text-center">
-                        <Clock size={40} className="mb-3 text-gray-300" />
-                        <p className="text-gray-500">No slots available for this date</p>
-                      </div>
-                    )
+                    </div>
+                  )}
+                  
+                  {timeSlots.length > 0 ? (
+                    <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+                      {timeSlots.map((time) => (
+                        <motion.div
+                          key={time}
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.97 }}
+                          onClick={() => {
+                            handleTimeSelect(time);
+                            setSelectedStep('provider');
+                          }}
+                          className={`p-3 rounded-md text-center cursor-pointer transition-all duration-200`}
+                          style={{ 
+                            backgroundColor: selectedTime === time ? primaryColor : '#F9FAFB',
+                            color: selectedTime === time ? 'white' : '#4B5563',
+                            border: `1px solid ${selectedTime === time ? primaryColor : '#E5E7EB'}`,
+                            boxShadow: selectedTime === time ? '0 4px 6px -1px rgba(119, 168, 195, 0.3)' : 'none'
+                          }}
+                        >
+                          <div className="font-medium text-sm">{time}</div>
+                        </motion.div>
+                      ))}
+                    </div>
                   ) : (
                     <div className="flex flex-col items-center justify-center py-10 text-center">
-                      <CalendarIcon size={40} className="mb-3 text-gray-300" />
-                      <p className="text-gray-500">Please select a date to view available times</p>
+                      <Clock size={40} className="mb-3 text-gray-300" />
+                      <p className="text-gray-500">No slots available for this date</p>
                     </div>
                   )}
                 </div>
@@ -388,93 +413,117 @@ function AllBookings() {
               {/* Provider Options Section */}
               <motion.div 
                 variants={itemVariants}
-                className="bg-white rounded-lg shadow-md overflow-hidden"
+                className={`bg-white rounded-lg shadow-md overflow-hidden ${selectedStep !== 'provider' ? 'hidden' : ''}`}
               >
                 <div className="p-6">
-                  <div className="flex items-center space-x-2 mb-4">
-                    <User size={20} style={{ color: primaryColor }} />
-                    <h2 className="text-xl font-medium" style={{ color: primaryColor }}>Provider Options</h2>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-2">
+                      <button 
+                        onClick={() => setSelectedStep('time')}
+                        className="flex items-center text-gray-500 hover:text-gray-700"
+                      >
+                        <ChevronLeft size={16} />
+                        <span className="text-sm">Back to times</span>
+                      </button>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <User size={20} style={{ color: primaryColor }} />
+                      <h2 className="text-xl font-medium" style={{ color: primaryColor }}>Provider Options</h2>
+                    </div>
                   </div>
                   
-                  {selectedTime ? (
-                    slotDetails ? (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {slotDetails.map((details, index) => (
-                          <motion.div 
-                            key={index}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow duration-300"
-                            style={{ border: `1px solid rgba(119, 168, 195, 0.2)` }}
-                          >
-                            <div className="h-2" style={{ backgroundColor: primaryColor }}></div>
-                            <div className="p-4">
-                              <div className="mb-3">
-                                <div className="flex justify-between items-center">
-                                  <div className="font-medium text-gray-800">{details.doctorName}</div>
-                                  <div className="text-sm font-medium px-2 py-1 rounded" 
-                                    style={{ 
-                                      backgroundColor: `${primaryColor}20`, 
-                                      color: primaryColor 
-                                    }}
-                                  >
-                                    {details.time}
-                                  </div>
-                                </div>
-                                <div className="text-sm text-gray-500 mt-1">
-                                  {format(parseISO(details.isoDate), 'EEEE, MMMM d, yyyy')}
+                  {selectedDate && selectedTime && (
+                    <div className="mb-4 px-2 py-1 bg-gray-50 rounded-md inline-block">
+                      <div className="text-sm text-gray-500">
+                        {selectedDate.toLocaleDateString('en-US', {
+                          weekday: 'short',
+                          month: 'short',
+                          day: 'numeric',
+                        })} at {selectedTime}
+                      </div>
+                    </div>
+                  )}
+                  
+                  {slotDetails ? (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {slotDetails.map((details, index) => (
+                        <motion.div 
+                          key={index}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="bg-white rounded-lg shadow overflow-hidden hover:shadow-md transition-shadow duration-300"
+                          style={{ border: `1px solid rgba(119, 168, 195, 0.2)` }}
+                        >
+                          <div className="h-2" style={{ backgroundColor: primaryColor }}></div>
+                          <div className="p-4">
+                            <div className="mb-3">
+                              <div className="flex justify-between items-center">
+                                <div className="font-medium text-gray-800">{details.doctorName}</div>
+                                <div className="text-sm font-medium px-2 py-1 rounded" 
+                                  style={{ 
+                                    backgroundColor: `${primaryColor}20`, 
+                                    color: primaryColor 
+                                  }}
+                                >
+                                  {details.time}
                                 </div>
                               </div>
-                              
-                              <div className="space-y-3 mb-4">
-                                {getAppointmentType(details.location) === "Telehealth" ? (
-                                  <div className="flex items-start">
-                                    <Video size={16} className="mr-2 mt-0.5" style={{ color: primaryColor }} />
-                                    <div>
-                                      <div className="text-sm text-gray-600 font-medium">Telehealth Appointment</div>
-                                      <div className="mt-2 flex space-x-2">
-                                      </div>
-                                    </div>
-                                  </div>
-                                ) : (
-                                  <div className="flex items-center text-sm text-gray-600">
-                                    <MapPin size={16} className="mr-2" style={{ color: primaryColor }} />
-                                    <div className="flex items-center">
-                                      <span className="font-medium">In-Person</span>
-                                    </div>
-                                  </div>
-                                )}
+                              <div className="text-sm text-gray-500 mt-1">
+                                {format(parseISO(details.isoDate), 'EEEE, MMMM d, yyyy')}
                               </div>
-                              
-                              <button
-                                onClick={() => handleBookAppointment(details)}
-                                className="block w-full text-center px-4 py-2 rounded-md text-white font-medium transition-all duration-200 hover:opacity-90"
-                                style={{ 
-                                  backgroundColor: primaryColor,
-                                  boxShadow: '0 2px 4px rgba(119, 168, 195, 0.3)'
-                                }}
-                              >
-                                Book with {details.doctorName.split(' ')[0]}
-                              </button>
                             </div>
-                          </motion.div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="flex items-center justify-center py-10">
-                        <motion.div
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-                          className="w-10 h-10 rounded-full border-2 border-gray-200"
-                          style={{ borderTopColor: primaryColor }}
-                        />
-                      </div>
-                    )
+                            
+                            <div className="space-y-3 mb-4">
+                              {getAppointmentType(details.location) === "Telehealth" ? (
+                                <div className="flex items-start">
+                                  <Video size={16} className="mr-2 mt-0.5" style={{ color: primaryColor }} />
+                                  <div>
+                                    <div className="text-sm text-gray-600 font-medium">Telehealth Appointment</div>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div className="flex items-center text-sm text-gray-600">
+                                  <MapPin size={16} className="mr-2" style={{ color: primaryColor }} />
+                                  <div className="flex items-center">
+                                    <span className="font-medium">In-Person</span>
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {/* Within 24 hours message */}
+                              {details.isWithin24Hours && (
+                                <div className="bg-amber-50 rounded p-3 border-l-2 border-amber-400 text-sm text-amber-800">
+                                  <p>Cannot be booked within 24 hours. Please select a date next week.</p>
+                                </div>
+                              )}
+                            </div>
+                            
+                            <button
+                              onClick={() => details.isWithin24Hours ? null : handleBookAppointment(details)}
+                              disabled={details.isWithin24Hours}
+                              className={`block w-full text-center px-4 py-2 rounded-md text-white font-medium transition-all duration-200 ${
+                                details.isWithin24Hours ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'
+                              }`}
+                              style={{ 
+                                backgroundColor: primaryColor,
+                                boxShadow: details.isWithin24Hours ? 'none' : '0 2px 4px rgba(119, 168, 195, 0.3)'
+                              }}
+                            >
+                              {details.isWithin24Hours ? 'Unavailable' : `Book with ${details.doctorName.split(' ')[0]}`}
+                            </button>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
                   ) : (
-                    <div className="flex flex-col items-center justify-center py-10 text-center">
-                      <Clock size={40} className="mb-3 text-gray-300" />
-                      <p className="text-gray-500">Select a time to view available providers</p>
+                    <div className="flex items-center justify-center py-10">
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                        className="w-10 h-10 rounded-full border-2 border-gray-200"
+                        style={{ borderTopColor: primaryColor }}
+                      />
                     </div>
                   )}
                 </div>
