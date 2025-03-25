@@ -27,13 +27,22 @@ function AllBookings() {
   const [selectedStep, setSelectedStep] = useState('date'); // 'date', 'time', 'provider'
   const [loadingSlotDetails, setLoadingSlotDetails] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
-  const providersPerPage = 4;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const providersPerPage = windowWidth <= 640 ? 2 : 4; // Show 2 on mobile, 4 on larger screens
 
   // Using the original website color
   const primaryColor = 'rgb(119, 168, 195)';
 
   useEffect(() => {
     fetchAllBookings();
+    
+    // Add window resize listener to adjust providers per page dynamically
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const fetchAllBookings = async () => {

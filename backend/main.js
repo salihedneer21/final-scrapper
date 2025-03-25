@@ -87,18 +87,18 @@ async function main() {
     //await cleanAppointmentsData();
     
     // Continue with location mapper
-    // await runScript('./cleaner/locationMapper.js');
+     //await runScript('./cleaner/locationMapper.js');
     
     // Clean clinician names
-    // await cleanClinicianNames();
+    //await cleanClinicianNames();
     
     // Format dates using the new script
     //log('Formatting dates from URL timestamps...');
-    // await runScript('./cleaner/dateFormatter.js');
+    //await runScript('./cleaner/dateFormatter.js');
     
     // Sync data with MongoDB
     // log('Synchronizing data with MongoDB...');
-    // await syncWithMongoDB();
+    //await syncWithMongoDB();
     
     log('All tasks completed successfully', 'success');
   } catch (error) {

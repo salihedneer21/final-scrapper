@@ -3,106 +3,6 @@
     "name": "Elizabeth Jacobs-Pinson, Psy.D., Psychologist",
     "slots": [
       {
-        "date": "Monday, March 24, 2025",
-        "time": "9:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T09%3a00%3a00&clinician=17958&location=232864",
-        "locationId": "232864",
-        "location": "Main Office 4",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "10:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T10%3a00%3a00&clinician=17958&location=232864",
-        "locationId": "232864",
-        "location": "Main Office 4",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "11:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T11%3a00%3a00&clinician=17958&location=232864",
-        "locationId": "232864",
-        "location": "Main Office 4",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=17958&location=232864",
-        "locationId": "232864",
-        "location": "Main Office 4",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "1:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T13%3a00%3a00&clinician=17958&location=232864",
-        "locationId": "232864",
-        "location": "Main Office 4",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "2:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T14%3a00%3a00&clinician=17958&location=232864",
-        "locationId": "232864",
-        "location": "Main Office 4",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "3:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T15%3a00%3a00&clinician=17958&location=232864",
-        "locationId": "232864",
-        "location": "Main Office 4",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "4:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T16%3a00%3a00&clinician=17958&location=232864",
-        "locationId": "232864",
-        "location": "Main Office 4",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "7:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T19%3a00%3a00&clinician=17958&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "8:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T20%3a00%3a00&clinician=17958&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
         "date": "Tuesday, March 25, 2025",
         "time": "9:00 AM",
         "status": "listed",
@@ -261,16 +161,6 @@
         "location": "Main Office 1",
         "shortDate": "Thu 3/27",
         "isoDate": "2025-03-27"
-      },
-      {
-        "date": "Thursday, March 27, 2025",
-        "time": "9:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-28T09%3a00%3a00&clinician=17958&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Fri 3/28",
-        "isoDate": "2025-03-28"
       },
       {
         "date": "Thursday, March 27, 2025",
@@ -821,17 +711,109 @@
         "location": "Main Office 6",
         "shortDate": "Mon 4/7",
         "isoDate": "2025-04-07"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T09%3a00%3a00&clinician=17958&location=232864",
+        "locationId": "232864",
+        "location": "Main Office 4",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T10%3a00%3a00&clinician=17958&location=232864",
+        "locationId": "232864",
+        "location": "Main Office 4",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T11%3a00%3a00&clinician=17958&location=232864",
+        "locationId": "232864",
+        "location": "Main Office 4",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T12%3a00%3a00&clinician=17958&location=232864",
+        "locationId": "232864",
+        "location": "Main Office 4",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T13%3a00%3a00&clinician=17958&location=232864",
+        "locationId": "232864",
+        "location": "Main Office 4",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T14%3a00%3a00&clinician=17958&location=232864",
+        "locationId": "232864",
+        "location": "Main Office 4",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T15%3a00%3a00&clinician=17958&location=232864",
+        "locationId": "232864",
+        "location": "Main Office 4",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "4:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T16%3a00%3a00&clinician=17958&location=232864",
+        "locationId": "232864",
+        "location": "Main Office 4",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "7:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T19%3a00%3a00&clinician=17958&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "8:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T20%3a00%3a00&clinician=17958&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
-      {
-        "id": "232864",
-        "name": "Main Office 4"
-      },
-      {
-        "id": "172794",
-        "name": "Telehealth"
-      },
       {
         "id": "232862",
         "name": "Main Office 2"
@@ -841,8 +823,16 @@
         "name": "Main Office 1"
       },
       {
+        "id": "172794",
+        "name": "Telehealth"
+      },
+      {
         "id": "232866",
         "name": "Main Office 6"
+      },
+      {
+        "id": "232864",
+        "name": "Main Office 4"
       }
     ],
     "cleanName": "Elizabeth Jacobs-Pinson",
@@ -851,26 +841,6 @@
   "229383": {
     "name": "Sara Duato-Borenstein, LCSW, Licensed Clinical Social Worker - Remote",
     "slots": [
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "4:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T16%3a00%3a00&clinician=229383&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Tuesday, March 25, 2025",
-        "time": "1:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T13%3a00%3a00&clinician=229383&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Wed 3/26",
-        "isoDate": "2025-03-26"
-      },
       {
         "date": "Monday, March 31, 2025",
         "time": "4:00 PM",
@@ -890,16 +860,6 @@
         "location": "Telehealth",
         "shortDate": "Wed 4/2",
         "isoDate": "2025-04-02"
-      },
-      {
-        "date": "Wednesday, April 2, 2025",
-        "time": "1:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-03T13%3a00%3a00&clinician=229383&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Thu 4/3",
-        "isoDate": "2025-04-03"
       },
       {
         "date": "Wednesday, April 2, 2025",
@@ -980,6 +940,86 @@
         "location": "Telehealth",
         "shortDate": "Mon 4/7",
         "isoDate": "2025-04-07"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T09%3a00%3a00&clinician=229383&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T10%3a00%3a00&clinician=229383&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T11%3a00%3a00&clinician=229383&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T12%3a00%3a00&clinician=229383&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T13%3a00%3a00&clinician=229383&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T14%3a00%3a00&clinician=229383&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T15%3a00%3a00&clinician=229383&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "4:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T16%3a00%3a00&clinician=229383&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
@@ -995,16 +1035,6 @@
     "name": "Dev Rubenstein, LMSW, Licensed Master Social Worker",
     "slots": [
       {
-        "date": "Monday, March 24, 2025",
-        "time": "2:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T14%3a00%3a00&clinician=245461&location=232866",
-        "locationId": "232866",
-        "location": "Main Office 6",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
         "date": "Wednesday, April 2, 2025",
         "time": "11:00 AM",
         "status": "listed",
@@ -1017,10 +1047,6 @@
     ],
     "locations": [
       {
-        "id": "232866",
-        "name": "Main Office 6"
-      },
-      {
         "id": "232863",
         "name": "Main Office 3"
       }
@@ -1031,26 +1057,6 @@
   "308639": {
     "name": "Nili Shore, Counselor",
     "slots": [
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "9:30 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T09%3a30%3a00&clinician=308639&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Tuesday, March 25, 2025",
-        "time": "10:30 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T10%3a30%3a00&clinician=308639&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Wed 3/26",
-        "isoDate": "2025-03-26"
-      },
       {
         "date": "Tuesday, March 25, 2025",
         "time": "1:00 PM",
@@ -1080,6 +1086,16 @@
         "location": "Telehealth",
         "shortDate": "Wed 4/2",
         "isoDate": "2025-04-02"
+      },
+      {
+        "date": "Sunday, April 6, 2025",
+        "time": "9:30 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-07T09%3a30%3a00&clinician=308639&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Mon 4/7",
+        "isoDate": "2025-04-07"
       }
     ],
     "locations": [
@@ -1094,56 +1110,6 @@
   "374689": {
     "name": "Shulim Goldring, Psychologist Intern",
     "slots": [
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "11:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T11%3a00%3a00&clinician=374689&location=232863",
-        "locationId": "232863",
-        "location": "Main Office 3",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=374689&location=232863",
-        "locationId": "232863",
-        "location": "Main Office 3",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "4:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T16%3a00%3a00&clinician=374689&location=232863",
-        "locationId": "232863",
-        "location": "Main Office 3",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "5:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T17%3a00%3a00&clinician=374689&location=232863",
-        "locationId": "232863",
-        "location": "Main Office 3",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "8:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T20%3a00%3a00&clinician=374689&location=232863",
-        "locationId": "232863",
-        "location": "Main Office 3",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
       {
         "date": "Tuesday, March 25, 2025",
         "time": "1:00 PM",
@@ -1183,16 +1149,6 @@
         "location": "Main Office 3",
         "shortDate": "Wed 3/26",
         "isoDate": "2025-03-26"
-      },
-      {
-        "date": "Monday, March 31, 2025",
-        "time": "9:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T09%3a00%3a00&clinician=374689&location=232863",
-        "locationId": "232863",
-        "location": "Main Office 3",
-        "shortDate": "Tue 4/1",
-        "isoDate": "2025-04-01"
       },
       {
         "date": "Monday, March 31, 2025",
@@ -1263,6 +1219,66 @@
         "location": "Main Office 3",
         "shortDate": "Wed 4/2",
         "isoDate": "2025-04-02"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T09%3a00%3a00&clinician=374689&location=232863",
+        "locationId": "232863",
+        "location": "Main Office 3",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T10%3a00%3a00&clinician=374689&location=232863",
+        "locationId": "232863",
+        "location": "Main Office 3",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T11%3a00%3a00&clinician=374689&location=232863",
+        "locationId": "232863",
+        "location": "Main Office 3",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "4:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T16%3a00%3a00&clinician=374689&location=232863",
+        "locationId": "232863",
+        "location": "Main Office 3",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "7:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T19%3a00%3a00&clinician=374689&location=232863",
+        "locationId": "232863",
+        "location": "Main Office 3",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "8:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T20%3a00%3a00&clinician=374689&location=232863",
+        "locationId": "232863",
+        "location": "Main Office 3",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
@@ -1285,26 +1301,6 @@
   "392919": {
     "name": "Yocheved Newman, LCSW, Licensed Clinical Social Worker",
     "slots": [
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "8:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T08%3a00%3a00&clinician=392919&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=392919&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
       {
         "date": "Wednesday, March 26, 2025",
         "time": "8:00 AM",
@@ -1340,16 +1336,6 @@
         "time": "3:00 PM",
         "status": "listed",
         "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T15%3a00%3a00&clinician=392919&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Thu 3/27",
-        "isoDate": "2025-03-27"
-      },
-      {
-        "date": "Wednesday, March 26, 2025",
-        "time": "5:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T17%3a00%3a00&clinician=392919&location=172794",
         "locationId": "172794",
         "location": "Telehealth",
         "shortDate": "Thu 3/27",
@@ -1474,6 +1460,26 @@
         "location": "Telehealth",
         "shortDate": "Mon 4/7",
         "isoDate": "2025-04-07"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "8:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T08%3a00%3a00&clinician=392919&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T12%3a00%3a00&clinician=392919&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
@@ -1598,16 +1604,6 @@
   "432859": {
     "name": "Cara Goldsmith, Counselor - Remote",
     "slots": [
-      {
-        "date": "Wednesday, March 26, 2025",
-        "time": "2:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T14%3a00%3a00&clinician=432859&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Thu 3/27",
-        "isoDate": "2025-03-27"
-      },
       {
         "date": "Sunday, March 30, 2025",
         "time": "12:00 PM",
@@ -1755,26 +1751,6 @@
     "name": "Sara Korf LSW, Licensed Social Worker",
     "slots": [
       {
-        "date": "Monday, March 24, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=456529&location=232862",
-        "locationId": "232862",
-        "location": "Main Office 2",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Tuesday, March 25, 2025",
-        "time": "4:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T16%3a00%3a00&clinician=456529&location=250637",
-        "locationId": "250637",
-        "location": "Main Office 1",
-        "shortDate": "Wed 3/26",
-        "isoDate": "2025-03-26"
-      },
-      {
         "date": "Tuesday, March 25, 2025",
         "time": "6:00 PM",
         "status": "listed",
@@ -1823,16 +1799,26 @@
         "location": "Main Office 2",
         "shortDate": "Thu 4/3",
         "isoDate": "2025-04-03"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T12%3a00%3a00&clinician=456529&location=232862",
+        "locationId": "232862",
+        "location": "Main Office 2",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
       {
-        "id": "232862",
-        "name": "Main Office 2"
-      },
-      {
         "id": "250637",
         "name": "Main Office 1"
+      },
+      {
+        "id": "232862",
+        "name": "Main Office 2"
       }
     ],
     "cleanName": "Sara Korf",
@@ -1890,12 +1876,60 @@
         "location": "Main Office 2",
         "shortDate": "Mon 4/7",
         "isoDate": "2025-04-07"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "9:30 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T09%3a30%3a00&clinician=464937&location=232865",
+        "locationId": "232865",
+        "location": "Main Office 5",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "10:30 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T10%3a30%3a00&clinician=464937&location=232865",
+        "locationId": "232865",
+        "location": "Main Office 5",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "11:30 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T11%3a30%3a00&clinician=464937&location=232865",
+        "locationId": "232865",
+        "location": "Main Office 5",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "12:30 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T12%3a30%3a00&clinician=464937&location=250637",
+        "locationId": "250637",
+        "location": "Main Office 1",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
       {
         "id": "232862",
         "name": "Main Office 2"
+      },
+      {
+        "id": "232865",
+        "name": "Main Office 5"
+      },
+      {
+        "id": "250637",
+        "name": "Main Office 1"
       }
     ],
     "cleanName": "Raizel Schapiro",
@@ -1904,26 +1938,6 @@
   "475689": {
     "name": "Yonatan Schechter LMSW, Licensed Social Worker-Remote",
     "slots": [
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "10:45 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T10%3a45%3a00&clinician=475689&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "11:45 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T11%3a45%3a00&clinician=475689&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
       {
         "date": "Tuesday, March 25, 2025",
         "time": "6:00 AM",
@@ -2273,6 +2287,26 @@
         "location": "Telehealth",
         "shortDate": "Mon 4/7",
         "isoDate": "2025-04-07"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "10:45 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T10%3a45%3a00&clinician=475689&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "11:45 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T11%3a45%3a00&clinician=475689&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
@@ -2287,26 +2321,6 @@
   "479060": {
     "name": "Leora Grunberger LMSW, Licensed Social Worker - Remote",
     "slots": [
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=479060&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "3:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T15%3a00%3a00&clinician=479060&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
       {
         "date": "Tuesday, March 25, 2025",
         "time": "12:00 PM",
@@ -2546,6 +2560,26 @@
         "location": "Telehealth",
         "shortDate": "Mon 4/7",
         "isoDate": "2025-04-07"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T13%3a00%3a00&clinician=479060&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T15%3a00%3a00&clinician=479060&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
@@ -2560,66 +2594,6 @@
   "494375": {
     "name": "Lea Zajac - Osdoba, Mental Health Counselor",
     "slots": [
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "9:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T09%3a00%3a00&clinician=494375&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "11:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T11%3a00%3a00&clinician=494375&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=494375&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "1:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T13%3a00%3a00&clinician=494375&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "2:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T14%3a00%3a00&clinician=494375&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "4:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T16%3a00%3a00&clinician=494375&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
       {
         "date": "Tuesday, March 25, 2025",
         "time": "9:00 AM",
@@ -2919,6 +2893,66 @@
         "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-07T16%3a00%3a00&clinician=494375",
         "shortDate": "Mon 4/7",
         "isoDate": "2025-04-07"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T09%3a00%3a00&clinician=494375&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T11%3a00%3a00&clinician=494375&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T12%3a00%3a00&clinician=494375&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T13%3a00%3a00&clinician=494375&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T14%3a00%3a00&clinician=494375&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "4:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T16%3a00%3a00&clinician=494375&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
@@ -3078,16 +3112,6 @@
     "name": "Gavriel Velenski, Mental Health Counselor - Remote",
     "slots": [
       {
-        "date": "Monday, March 24, 2025",
-        "time": "9:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T09%3a00%3a00&clinician=546636&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
         "date": "Tuesday, March 25, 2025",
         "time": "9:00 AM",
         "status": "listed",
@@ -3156,16 +3180,6 @@
         "location": "Telehealth",
         "shortDate": "Mon 3/31",
         "isoDate": "2025-03-31"
-      },
-      {
-        "date": "Monday, March 31, 2025",
-        "time": "9:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T09%3a00%3a00&clinician=546636&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 4/1",
-        "isoDate": "2025-04-01"
       },
       {
         "date": "Tuesday, April 1, 2025",
@@ -3274,30 +3288,20 @@
     "name": "Efrat Shoshan, Counselor",
     "slots": [
       {
-        "date": "Monday, March 24, 2025",
-        "time": "2:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T14%3a00%3a00&clinician=547152&location=250637",
-        "locationId": "250637",
-        "location": "Main Office 1",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "6:15 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T18%3a15%3a00&clinician=547152&location=250637",
-        "locationId": "250637",
-        "location": "Main Office 1",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
         "date": "Wednesday, March 26, 2025",
         "time": "3:00 PM",
         "status": "listed",
         "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T15%3a00%3a00&clinician=547152&location=232865",
+        "locationId": "232865",
+        "location": "Main Office 5",
+        "shortDate": "Thu 3/27",
+        "isoDate": "2025-03-27"
+      },
+      {
+        "date": "Wednesday, March 26, 2025",
+        "time": "6:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T18%3a00%3a00&clinician=547152&location=232865",
         "locationId": "232865",
         "location": "Main Office 5",
         "shortDate": "Thu 3/27",
@@ -3314,6 +3318,16 @@
         "isoDate": "2025-04-01"
       },
       {
+        "date": "Monday, March 31, 2025",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T15%3a00%3a00&clinician=547152&location=250637",
+        "locationId": "250637",
+        "location": "Main Office 1",
+        "shortDate": "Tue 4/1",
+        "isoDate": "2025-04-01"
+      },
+      {
         "date": "Tuesday, April 1, 2025",
         "time": "7:15 PM",
         "status": "listed",
@@ -3322,16 +3336,36 @@
         "location": "Main Office 2",
         "shortDate": "Wed 4/2",
         "isoDate": "2025-04-02"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T14%3a00%3a00&clinician=547152&location=250637",
+        "locationId": "250637",
+        "location": "Main Office 1",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T15%3a00%3a00&clinician=547152&location=250637",
+        "locationId": "250637",
+        "location": "Main Office 1",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
       {
-        "id": "250637",
-        "name": "Main Office 1"
-      },
-      {
         "id": "232865",
         "name": "Main Office 5"
+      },
+      {
+        "id": "250637",
+        "name": "Main Office 1"
       },
       {
         "id": "232862",
@@ -3344,86 +3378,6 @@
   "572643": {
     "name": "Shaindy Brown, LMSW, Licensed Master Social Worker",
     "slots": [
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "10:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T10%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "11:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T11%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "1:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T13%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "2:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T14%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "3:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T15%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "4:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T16%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "5:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T17%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
       {
         "date": "Tuesday, March 25, 2025",
         "time": "10:00 AM",
@@ -3526,16 +3480,6 @@
       },
       {
         "date": "Wednesday, March 26, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T12%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Thu 3/27",
-        "isoDate": "2025-03-27"
-      },
-      {
-        "date": "Wednesday, March 26, 2025",
         "time": "1:00 PM",
         "status": "listed",
         "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-27T13%3a00%3a00&clinician=572643&location=172794",
@@ -3606,9 +3550,9 @@
       },
       {
         "date": "Sunday, March 30, 2025",
-        "time": "12:00 PM",
+        "time": "1:15 PM",
         "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T12%3a00%3a00&clinician=572643&location=172794",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T13%3a15%3a00&clinician=572643&location=172794",
         "locationId": "172794",
         "location": "Telehealth",
         "shortDate": "Mon 3/31",
@@ -3616,9 +3560,9 @@
       },
       {
         "date": "Sunday, March 30, 2025",
-        "time": "1:00 PM",
+        "time": "2:15 PM",
         "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T13%3a00%3a00&clinician=572643&location=172794",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T14%3a15%3a00&clinician=572643&location=172794",
         "locationId": "172794",
         "location": "Telehealth",
         "shortDate": "Mon 3/31",
@@ -3626,9 +3570,9 @@
       },
       {
         "date": "Sunday, March 30, 2025",
-        "time": "2:00 PM",
+        "time": "3:15 PM",
         "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T14%3a00%3a00&clinician=572643&location=172794",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T15%3a15%3a00&clinician=572643&location=172794",
         "locationId": "172794",
         "location": "Telehealth",
         "shortDate": "Mon 3/31",
@@ -3636,29 +3580,9 @@
       },
       {
         "date": "Sunday, March 30, 2025",
-        "time": "3:00 PM",
+        "time": "4:15 PM",
         "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T15%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Mon 3/31",
-        "isoDate": "2025-03-31"
-      },
-      {
-        "date": "Sunday, March 30, 2025",
-        "time": "4:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T16%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Mon 3/31",
-        "isoDate": "2025-03-31"
-      },
-      {
-        "date": "Sunday, March 30, 2025",
-        "time": "5:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T17%3a00%3a00&clinician=572643&location=172794",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-31T16%3a15%3a00&clinician=572643&location=172794",
         "locationId": "172794",
         "location": "Telehealth",
         "shortDate": "Mon 3/31",
@@ -3846,16 +3770,6 @@
       },
       {
         "date": "Wednesday, April 2, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-03T12%3a00%3a00&clinician=572643&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Thu 4/3",
-        "isoDate": "2025-04-03"
-      },
-      {
-        "date": "Wednesday, April 2, 2025",
         "time": "1:00 PM",
         "status": "listed",
         "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-03T13%3a00%3a00&clinician=572643&location=172794",
@@ -3983,6 +3897,86 @@
         "location": "Telehealth",
         "shortDate": "Mon 4/7",
         "isoDate": "2025-04-07"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T10%3a00%3a00&clinician=572643&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T11%3a00%3a00&clinician=572643&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T12%3a00%3a00&clinician=572643&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T13%3a00%3a00&clinician=572643&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T14%3a00%3a00&clinician=572643&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T15%3a00%3a00&clinician=572643&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "4:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T16%3a00%3a00&clinician=572643&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "5:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T17%3a00%3a00&clinician=572643&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
@@ -3998,60 +3992,20 @@
     "name": "Rachel Dembinsky, LMSW, Licensed Master Social Worker",
     "slots": [
       {
-        "date": "Monday, March 24, 2025",
-        "time": "8:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T08%3a00%3a00&clinician=573863&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "10:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T10%3a00%3a00&clinician=573863&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=573863&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "1:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T13%3a00%3a00&clinician=573863&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "3:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T15%3a00%3a00&clinician=573863&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
         "date": "Tuesday, March 25, 2025",
         "time": "8:00 AM",
         "status": "listed",
         "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T08%3a00%3a00&clinician=573863&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Wed 3/26",
+        "isoDate": "2025-03-26"
+      },
+      {
+        "date": "Tuesday, March 25, 2025",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T09%3a00%3a00&clinician=573863&location=172794",
         "locationId": "172794",
         "location": "Telehealth",
         "shortDate": "Wed 3/26",
@@ -4299,6 +4253,16 @@
       },
       {
         "date": "Tuesday, April 1, 2025",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T09%3a00%3a00&clinician=573863&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Wed 4/2",
+        "isoDate": "2025-04-02"
+      },
+      {
+        "date": "Tuesday, April 1, 2025",
         "time": "10:00 AM",
         "status": "listed",
         "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-02T10%3a00%3a00&clinician=573863&location=172794",
@@ -4476,6 +4440,56 @@
         "location": "Telehealth",
         "shortDate": "Mon 4/7",
         "isoDate": "2025-04-07"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "8:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T08%3a00%3a00&clinician=573863&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "10:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T10%3a00%3a00&clinician=573863&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T12%3a00%3a00&clinician=573863&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T13%3a00%3a00&clinician=573863&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T15%3a00%3a00&clinician=573863&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
@@ -4490,46 +4504,6 @@
   "580038": {
     "name": "Hannah Kraus, LMSW, Licensed Master Social Worker",
     "slots": [
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "9:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T09%3a00%3a00&clinician=580038&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "11:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T11%3a00%3a00&clinician=580038&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "12:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T12%3a00%3a00&clinician=580038&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "1:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T13%3a00%3a00&clinician=580038&location=172794",
-        "locationId": "172794",
-        "location": "Telehealth",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
       {
         "date": "Tuesday, March 25, 2025",
         "time": "9:00 AM",
@@ -4769,6 +4743,46 @@
         "location": "Telehealth",
         "shortDate": "Sun 4/6",
         "isoDate": "2025-04-06"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "9:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T09%3a00%3a00&clinician=580038&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "11:00 AM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T11%3a00%3a00&clinician=580038&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "12:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T12%3a00%3a00&clinician=580038&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T13%3a00%3a00&clinician=580038&location=172794",
+        "locationId": "172794",
+        "location": "Telehealth",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
@@ -4901,36 +4915,6 @@
     "name": "Chanah Faygen, LMSW, Licensed Master Social Worker",
     "slots": [
       {
-        "date": "Monday, March 24, 2025",
-        "time": "1:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T13%3a00%3a00&clinician=592414&location=232865",
-        "locationId": "232865",
-        "location": "Main Office 5",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Monday, March 24, 2025",
-        "time": "3:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-25T15%3a00%3a00&clinician=592414&location=232865",
-        "locationId": "232865",
-        "location": "Main Office 5",
-        "shortDate": "Tue 3/25",
-        "isoDate": "2025-03-25"
-      },
-      {
-        "date": "Tuesday, March 25, 2025",
-        "time": "10:00 AM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-03-26T10%3a00%3a00&clinician=592414&location=250637",
-        "locationId": "250637",
-        "location": "Main Office 1",
-        "shortDate": "Wed 3/26",
-        "isoDate": "2025-03-26"
-      },
-      {
         "date": "Tuesday, March 25, 2025",
         "time": "11:00 AM",
         "status": "listed",
@@ -4995,16 +4979,6 @@
         "time": "2:00 PM",
         "status": "listed",
         "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T14%3a00%3a00&clinician=592414&location=232865",
-        "locationId": "232865",
-        "location": "Main Office 5",
-        "shortDate": "Tue 4/1",
-        "isoDate": "2025-04-01"
-      },
-      {
-        "date": "Monday, March 31, 2025",
-        "time": "3:00 PM",
-        "status": "listed",
-        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-01T15%3a00%3a00&clinician=592414&location=232865",
         "locationId": "232865",
         "location": "Main Office 5",
         "shortDate": "Tue 4/1",
@@ -5089,13 +5063,49 @@
         "location": "Telehealth",
         "shortDate": "Wed 4/2",
         "isoDate": "2025-04-02"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "1:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T13%3a00%3a00&clinician=592414&location=232865",
+        "locationId": "232865",
+        "location": "Main Office 5",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "2:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T14%3a00%3a00&clinician=592414&location=232865",
+        "locationId": "232865",
+        "location": "Main Office 5",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "3:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T15%3a00%3a00&clinician=592414&location=232865",
+        "locationId": "232865",
+        "location": "Main Office 5",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
+      },
+      {
+        "date": "Monday, April 7, 2025",
+        "time": "4:00 PM",
+        "status": "listed",
+        "href": "https://www.therapyportal.com/p/crownc/appointments/requests/?isExistingPatient=false&appointmentType=0&timeSlot=2025-04-08T16%3a00%3a00&clinician=592414&location=232865",
+        "locationId": "232865",
+        "location": "Main Office 5",
+        "shortDate": "Tue 4/8",
+        "isoDate": "2025-04-08"
       }
     ],
     "locations": [
-      {
-        "id": "232865",
-        "name": "Main Office 5"
-      },
       {
         "id": "250637",
         "name": "Main Office 1"
@@ -5103,6 +5113,10 @@
       {
         "id": "172794",
         "name": "Telehealth"
+      },
+      {
+        "id": "232865",
+        "name": "Main Office 5"
       }
     ],
     "cleanName": "Chanah Faygen",
