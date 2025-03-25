@@ -25,6 +25,7 @@ function AllBookings() {
   const [submissionComplete, setSubmissionComplete] = useState(false);
   const [selectedProviderName, setSelectedProviderName] = useState('');
   const [selectedStep, setSelectedStep] = useState('date'); // 'date', 'time', 'provider'
+  const [loadingSlotDetails, setLoadingSlotDetails] = useState(false);
 
   // Using the original website color
   const primaryColor = 'rgb(119, 168, 195)';
@@ -55,7 +56,7 @@ function AllBookings() {
     setSelectedDate(date);
     setSelectedTime(null);
     setTimeSlots([]);
-    setSlotDetails(null);
+    setSlotDetails(null); // Ensure slot details are cleared
     setErrorMessage(''); // Clear any existing error messages
     setSelectedStep('time'); // Move to time selection step
     
@@ -78,7 +79,52 @@ function AllBookings() {
         }
       });
       
-      uniqueTimes.sort();
+      // Sort times by AM/PM, then by hour and minute
+      uniqueTimes.sort((a, b) => {
+        // Check if time contains AM or PM
+        const aHasAM = a.includes('AM');
+        const aHasPM = a.includes('PM');
+        const bHasAM = b.includes('AM');
+        const bHasPM = b.includes('PM');
+        
+        // If one has AM and one has PM, AM comes first
+        if (aHasAM && bHasPM) return -1;
+        if (aHasPM && bHasAM) return 1;
+        
+        // Extract hours and minutes
+        let aHours, aMinutes, bHours, bMinutes;
+        
+        if (aHasAM || aHasPM) {
+          // Time with AM/PM format
+          const timePart = a.replace(/(AM|PM)/, '').trim();
+          [aHours, aMinutes] = timePart.split(':').map(Number);
+          // Special case: 12 AM is earlier than other AM times
+          if (aHasAM && aHours === 12) aHours = 0;
+        } else {
+          // 24-hour format
+          [aHours, aMinutes] = a.split(':').map(Number);
+        }
+        
+        if (bHasAM || bHasPM) {
+          // Time with AM/PM format
+          const timePart = b.replace(/(AM|PM)/, '').trim();
+          [bHours, bMinutes] = timePart.split(':').map(Number);
+          // Special case: 12 AM is earlier than other AM times
+          if (bHasAM && bHours === 12) bHours = 0;
+        } else {
+          // 24-hour format
+          [bHours, bMinutes] = b.split(':').map(Number);
+        }
+        
+        // Compare hours first
+        if (aHours !== bHours) {
+          return aHours - bHours;
+        }
+        
+        // If hours are equal, compare minutes
+        return (aMinutes || 0) - (bMinutes || 0);
+      });
+      
       setTimeSlots(uniqueTimes);
     } else {
       setDailySlots([]);
@@ -88,7 +134,10 @@ function AllBookings() {
 
   const handleTimeSelect = (time) => {
     setSelectedTime(time);
-    setSelectedStep('provider'); // Move to provider selection step
+    setSelectedStep('provider');
+    // Reset slot details immediately and set loading state
+    setSlotDetails(null);
+    setLoadingSlotDetails(true);
     
     const matchingSlots = dailySlots.filter(slot => slot.time === time);
     
@@ -116,11 +165,13 @@ function AllBookings() {
           isWithin24Hours
         }));
         setSlotDetails(updatedDetailsArray);
+        setLoadingSlotDetails(false); // Turn off loading state
         setErrorMessage('');
       })
       .catch(error => {
         console.error('Error fetching slot details:', error);
         setErrorMessage('Failed to load slot details. Please try again.');
+        setLoadingSlotDetails(false); // Turn off loading state even on error
       });
   };
 
@@ -444,7 +495,21 @@ function AllBookings() {
                     </div>
                   )}
                   
-                  {slotDetails ? (
+                  {!slotDetails && loadingSlotDetails ? (
+                    <div className="flex items-center justify-center py-10">
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+                        className="w-10 h-10 rounded-full border-2 border-gray-200"
+                        style={{ borderTopColor: primaryColor }}
+                      />
+                    </div>
+                  ) : !slotDetails ? (
+                    <div className="flex flex-col items-center justify-center py-10 text-center">
+                      <User size={40} className="mb-3 text-gray-300" />
+                      <p className="text-gray-500">No provider options available</p>
+                    </div>
+                  ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {slotDetails.map((details, index) => (
                         <motion.div 
@@ -515,15 +580,6 @@ function AllBookings() {
                           </div>
                         </motion.div>
                       ))}
-                    </div>
-                  ) : (
-                    <div className="flex items-center justify-center py-10">
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-                        className="w-10 h-10 rounded-full border-2 border-gray-200"
-                        style={{ borderTopColor: primaryColor }}
-                      />
                     </div>
                   )}
                 </div>
