@@ -851,4 +851,125 @@ router.post('/check-availability', async (req, res) => {
   }
 });
 
+/**
+ * @route POST /api/forms/sync-sheet-statuses
+ * @desc Synchronize appointment statuses from database to Google Sheet
+ * @access Private
+ */
+router.post('/sync-sheet-statuses', async (req, res) => {
+  try {
+    const requestId = Date.now().toString();
+    console.log(`[${requestId}] Starting appointment status synchronization with Google Sheet...`);
+    
+    // Initialize Google Sheets API
+    const auth = new google.auth.GoogleAuth({
+      credentials,
+      scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+    });
+    const sheets = google.sheets({ version: 'v4', auth });
+    
+    // Get all data from the spreadsheet
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId,
+      range: `${range}!A:O`, // Get columns A through O which include ID and Status
+    });
+    
+    const rows = response.data.values;
+    if (!rows || rows.length <= 1) { // Check if there's data beyond the header row
+      return res.status(200).json({
+        success: true,
+        message: 'No appointment data found in spreadsheet',
+        updated: 0
+      });
+    }
+    
+    // First row is headers
+    const headers = rows[0];
+    const appointmentIdIndex = headers.indexOf('AppointmentID');
+    const statusIndex = headers.indexOf('Status');
+    
+    if (appointmentIdIndex === -1 || statusIndex === -1) {
+      return res.status(400).json({
+        success: false,
+        message: 'Required columns (AppointmentID or Status) not found in spreadsheet'
+      });
+    }
+    
+    // Return a response immediately, then continue processing
+    res.status(202).json({
+      success: true,
+      message: `Processing ${rows.length - 1} appointments for status synchronization`,
+      total: rows.length - 1
+    });
+    
+    // Process data starting from second row (after headers)
+    let updatedCount = 0;
+    let errorCount = 0;
+    
+    for (let i = 1; i < rows.length; i++) {
+      const row = rows[i];
+      
+      // Skip rows that don't have an appointment ID
+      if (!row[appointmentIdIndex]) {
+        console.log(`[${requestId}] Skipping row ${i+1}: No AppointmentID`);
+        continue;
+      }
+      
+      const appointmentId = row[appointmentIdIndex];
+      const sheetStatus = row[statusIndex] || 'unknown';
+      
+      try {
+        // Find the appointment in the database
+        const appointment = await AppointmentStatus.findById(appointmentId).exec();
+        
+        if (!appointment) {
+          console.log(`[${requestId}] Appointment with ID ${appointmentId} not found in database`);
+          continue;
+        }
+        
+        // If database status differs from sheet status, update the sheet
+        if (appointment.status !== sheetStatus) {
+          console.log(`[${requestId}] Updating row ${i+1}: Changing status from '${sheetStatus}' to '${appointment.status}'`);
+          
+          await sheets.spreadsheets.values.update({
+            spreadsheetId,
+            range: `${range}!${getColumnLetter(statusIndex + 1)}${i+1}`, // Convert to A1 notation
+            valueInputOption: 'RAW',
+            resource: {
+              values: [[appointment.status]]
+            }
+          });
+          
+          updatedCount++;
+        }
+      } catch (error) {
+        console.error(`[${requestId}] Error processing row ${i+1} (ID: ${appointmentId}): ${error.message}`);
+        errorCount++;
+      }
+      
+      // Add a small delay to avoid rate limits
+      if (i % 10 === 0) {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
+    }
+    
+    console.log(`[${requestId}] Synchronization complete: Updated ${updatedCount} rows, Errors: ${errorCount}`);
+    
+  } catch (error) {
+    console.error('Error synchronizing sheet statuses:', error);
+    // Response already sent, just log the error
+  }
+});
+
+// Helper function to convert column index to letter (e.g., 1 -> A, 2 -> B, 27 -> AA)
+function getColumnLetter(columnIndex) {
+  let letter = '';
+  while (columnIndex > 0) {
+    let remainder = (columnIndex - 1) % 26;
+    letter = String.fromCharCode(65 + remainder) + letter;
+    columnIndex = Math.floor((columnIndex - 1) / 26);
+  }
+  return letter;
+}
+
 module.exports = router;

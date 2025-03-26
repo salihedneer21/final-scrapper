@@ -102,6 +102,17 @@ const fetchAppointmentsCron = cron.schedule('*/20 * * * *', async () => {
   }
 });
 
+// Add this near your other cron jobs
+const syncSheetStatusesCron = cron.schedule('0 * * * *', async () => {
+  try {
+    log('Running scheduled sheet status synchronization', 'info');
+    const response = await axios.post('http://localhost:7777/api/forms/sync-sheet-statuses');
+    log('Successfully started Google Sheet status synchronization', 'success');
+  } catch (error) {
+    log(`Failed to sync sheet statuses in cron job: ${error.message}`, 'error');
+  }
+});
+
 // Manually trigger scraper endpoint (for testing)
 app.post('/api/run', async (req, res) => {
   try {
@@ -186,6 +197,10 @@ function gracefulShutdown() {
   if (fetchAppointmentsCron) {
     fetchAppointmentsCron.stop();
     log('Appointment fetch cron job stopped', 'info');
+  }
+  if (syncSheetStatusesCron) {
+    syncSheetStatusesCron.stop();
+    log('Sheet status sync cron job stopped', 'info');
   }
   
   // Close the server
