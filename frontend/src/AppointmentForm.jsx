@@ -837,7 +837,7 @@ Have you been to therapy before?
         setLocalSubmitting(true);
         
         // Track form submission with Fathom
-        Fathom.trackGoal('FORM_SUBMITTED', 0);
+        Fathom.trackEvent('FORM_SUBMITTED');
         
         const formFields = {
           'first-name': firstName,
