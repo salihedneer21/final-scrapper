@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import * as Fathom from 'fathom-client';
 
 const insuranceOptions = [
   { name: 'Any Insurance Provider', averageCopay: '', zeroCopayPercentage: '' },
@@ -80,6 +81,11 @@ const AppointmentForm = ({
       }
     }
   }, [dateOfBirth]);
+
+  // Initialize Fathom once when the app loads
+  useEffect(() => {
+    Fathom.load('MYFCGVKB');
+  }, []);
 
   // Further simplified steps
   const steps = [
@@ -829,6 +835,9 @@ Have you been to therapy before?
     if (validateForm()) {
       try {
         setLocalSubmitting(true);
+        
+        // Track form submission with Fathom
+        Fathom.trackGoal('FORM_SUBMITTED', 0);
         
         const formFields = {
           'first-name': firstName,
