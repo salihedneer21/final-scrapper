@@ -2808,3 +2808,155 @@ TimeoutError: Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 
     at async AppointmentScraper.processBatch (/Users/salih/Documents/scraper/backend/scrapper.js:398:7)
     at async AppointmentScraper.run (/Users/salih/Documents/scraper/backend/scrapper.js:477:9)
 
+[2025-03-26T07:06:52.548Z] Failed to initialize form: Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded
+TimeoutError: Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded
+    at new WaitTask (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:48:34)
+    at IsolatedWorld.waitForFunction (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:25:26)
+    at CSSQueryHandler.waitFor (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/QueryHandler.js:178:95)
+    at async CdpFrame.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:532:21)
+    at async CdpPage.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1373:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:174:7)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 2)
+    at async AppointmentScraper.processBatch (/Users/salih/Documents/scraper/backend/scrapper.js:398:7)
+    at async AppointmentScraper.run (/Users/salih/Documents/scraper/backend/scrapper.js:477:9)
+
+[2025-03-26T07:06:52.553Z] Error processing clinician (ID: 573863, Name: Rachel Dembinsky, LMSW, Licensed Master Social Worker): Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded
+TimeoutError: Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded
+    at new WaitTask (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:48:34)
+    at IsolatedWorld.waitForFunction (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:25:26)
+    at CSSQueryHandler.waitFor (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/QueryHandler.js:178:95)
+    at async CdpFrame.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:532:21)
+    at async CdpPage.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1373:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:174:7)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 2)
+    at async AppointmentScraper.processBatch (/Users/salih/Documents/scraper/backend/scrapper.js:398:7)
+    at async AppointmentScraper.run (/Users/salih/Documents/scraper/backend/scrapper.js:477:9)
+
+[2025-03-28T16:00:11.081Z] Failed to initialize form: Attempted to use detached Frame 'F2006FDC9892A3971534C928B660E8A6'.
+Error: Attempted to use detached Frame 'F2006FDC9892A3971534C928B660E8A6'.
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:107:23)
+    at CdpPage.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1373:43)
+    at AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:174:18)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 1)
+    at async AppointmentScraper.processBatch (/Users/salih/Documents/scraper/backend/scrapper.js:398:7)
+    at async AppointmentScraper.run (/Users/salih/Documents/scraper/backend/scrapper.js:477:9)
+    at async /Users/salih/Documents/scraper/backend/scrapper.js:506:5
+
+[2025-03-28T16:00:11.089Z] Error processing clinician (ID: 432859, Name: Cara Goldsmith, Counselor - Remote): Attempted to use detached Frame 'F2006FDC9892A3971534C928B660E8A6'.
+Error: Attempted to use detached Frame 'F2006FDC9892A3971534C928B660E8A6'.
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:107:23)
+    at CdpPage.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1373:43)
+    at AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:174:18)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 1)
+    at async AppointmentScraper.processBatch (/Users/salih/Documents/scraper/backend/scrapper.js:398:7)
+    at async AppointmentScraper.run (/Users/salih/Documents/scraper/backend/scrapper.js:477:9)
+    at async /Users/salih/Documents/scraper/backend/scrapper.js:506:5
+
+[2025-03-28T16:06:03.891Z] Failed to initialize form: Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:69:60)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:148:29)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:168:7)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 1)
+
+[2025-03-28T16:06:03.899Z] Error processing clinician (ID: 17958, Name: Elizabeth Jacobs-Pinson, Psy.D., Psychologist): Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:69:60)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:148:29)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:168:7)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 1)
+
+[2025-03-28T16:06:13.567Z] Failed to initialize form: Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:69:60)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:148:29)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:168:7)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 2)
+
+[2025-03-28T16:06:13.569Z] Error processing clinician (ID: 546636, Name: Gavriel Velenski, Mental Health Counselor - Remote): Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:69:60)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:148:29)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:168:7)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 2)
+
+[2025-03-28T16:06:42.477Z] Failed to initialize form: Protocol error (Page.navigate): Unexpected Status 502 (no_peers_cooling) (proxy_no_peers_cooling)
+ProtocolError: Protocol error (Page.navigate): Unexpected Status 502 (no_peers_cooling) (proxy_no_peers_cooling)
+    at <instance_members_initializer> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:101:14)
+    at new Callback (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:105:16)
+    at CallbackRegistry.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:23:26)
+    at Connection._rawSend (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Connection.js:99:26)
+    at CdpCDPSession.send (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:73:33)
+    at navigate (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:172:51)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:150:17)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+
+[2025-03-28T16:06:42.481Z] Error processing clinician (ID: 424132, Name: Jonathan Newman LMSW, Licensed Social Worker -Remote): Protocol error (Page.navigate): Unexpected Status 502 (no_peers_cooling) (proxy_no_peers_cooling)
+ProtocolError: Protocol error (Page.navigate): Unexpected Status 502 (no_peers_cooling) (proxy_no_peers_cooling)
+    at <instance_members_initializer> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:101:14)
+    at new Callback (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:105:16)
+    at CallbackRegistry.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:23:26)
+    at Connection._rawSend (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Connection.js:99:26)
+    at CdpCDPSession.send (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:73:33)
+    at navigate (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:172:51)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:150:17)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+
+[2025-03-28T16:06:45.064Z] Failed to initialize form: Protocol error (Page.navigate): Unexpected Status 502 (no_peers_cooling) (proxy_no_peers_cooling)
+ProtocolError: Protocol error (Page.navigate): Unexpected Status 502 (no_peers_cooling) (proxy_no_peers_cooling)
+    at <instance_members_initializer> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:101:14)
+    at new Callback (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:105:16)
+    at CallbackRegistry.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:23:26)
+    at Connection._rawSend (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Connection.js:99:26)
+    at CdpCDPSession.send (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:73:33)
+    at navigate (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:172:51)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:150:17)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+
+[2025-03-28T16:06:45.067Z] Error processing clinician (ID: 494375, Name: Lea Zajac - Osdoba, Mental Health Counselor): Protocol error (Page.navigate): Unexpected Status 502 (no_peers_cooling) (proxy_no_peers_cooling)
+ProtocolError: Protocol error (Page.navigate): Unexpected Status 502 (no_peers_cooling) (proxy_no_peers_cooling)
+    at <instance_members_initializer> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:101:14)
+    at new Callback (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:105:16)
+    at CallbackRegistry.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/CallbackRegistry.js:23:26)
+    at Connection._rawSend (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Connection.js:99:26)
+    at CdpCDPSession.send (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/CdpSession.js:73:33)
+    at navigate (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:172:51)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:150:17)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+

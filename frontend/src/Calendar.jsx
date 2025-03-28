@@ -10,17 +10,29 @@ const Calendar = ({ currentWeekStart, setCurrentWeekStart, selectedDate, handleD
   // Process available dates from slots
   const availableDates = React.useMemo(() => {
     const dates = {};
+    console.log("Processing slots:", slots);
+    
     slots.forEach(slot => {
       if (slot.isoDate) {
-        const slotDate = new Date(slot.isoDate);
+        // Create a date object but handle timezone explicitly
+        const slotDate = new Date(slot.isoDate + "T00:00:00");
+        
+        // Use toISOString().split('T')[0] to get date part consistently
+        const dateKey = slotDate.toISOString().split('T')[0];
+        
+        // Also store the dateString for debugging
         const dateString = slotDate.toDateString();
         
-        if (!dates[dateString]) {
-          dates[dateString] = [];
+        console.log(`Slot: ${slot.isoDate}, Created date: ${dateString}, Key: ${dateKey}`);
+        
+        if (!dates[dateKey]) {
+          dates[dateKey] = [];
         }
-        dates[dateString].push(slot);
+        dates[dateKey].push(slot);
       }
     });
+    
+    console.log("Processed dates:", dates);
     return dates;
   }, [slots]);
   
@@ -44,19 +56,29 @@ const Calendar = ({ currentWeekStart, setCurrentWeekStart, selectedDate, handleD
     const days = [];
     const weekStart = new Date(currentWeekStart);
     
+    // Get the current day of week (0 = Sunday, 1 = Monday, etc.)
     const dayOfWeek = weekStart.getDay();
+    
+    // Adjust to start the week on Sunday
     weekStart.setDate(weekStart.getDate() - dayOfWeek);
     
     for (let i = 0; i < 7; i++) {
+      // Create a new date object for each day
       const date = new Date(weekStart);
       date.setDate(weekStart.getDate() + i);
-      date.setHours(0, 0, 0, 0); // Set to beginning of day for proper comparison
       
-      const dateString = date.toDateString();
+      // Set to beginning of day
+      date.setHours(0, 0, 0, 0);
+      
+      // Use ISO format date for comparison with availableDates
+      const dateKey = date.toISOString().split('T')[0];
+      
       const isToday = today.getTime() === date.getTime();
       const isPastDate = date < today;
-      const hasSlots = availableDates[dateString] && availableDates[dateString].length > 0;
-      const slotCount = hasSlots ? availableDates[dateString].length : 0;
+      const hasSlots = availableDates[dateKey] && availableDates[dateKey].length > 0;
+      const slotCount = hasSlots ? availableDates[dateKey].length : 0;
+      
+      console.log(`Calendar day: ${date.toDateString()}, Key: ${dateKey}, Has slots: ${hasSlots}, Count: ${slotCount}`);
       
       days.push({
         date,

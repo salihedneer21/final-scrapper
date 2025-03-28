@@ -61,16 +61,13 @@ const AppointmentForm = ({
   const [showingInsuranceInfo, setShowingInsuranceInfo] = useState(false);
   const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
 
-  // First, add these new state variables at the beginning of your component:
   const [dobMonth, setDobMonth] = useState('');
   const [dobDay, setDobDay] = useState('');
   const [dobYear, setDobYear] = useState('');
 
-  // Add this with your other state variables
   const [medicationHistory, setMedicationHistory] = useState('');
   const [hasMedicationHistory, setHasMedicationHistory] = useState('');
 
-  // Add this useEffect after your other state declarations
   useEffect(() => {
     if (dateOfBirth) {
       const date = new Date(dateOfBirth);
@@ -82,12 +79,10 @@ const AppointmentForm = ({
     }
   }, [dateOfBirth]);
 
-  // Initialize Fathom once when the app loads
   useEffect(() => {
     Fathom.load('MYFCGVKB');
   }, []);
 
-  // Further simplified steps
   const steps = [
     { label: 'Personal', fields: ['firstName', 'lastName', 'dateOfBirth', 'email', 'phone'] },
     { label: 'Insurance', fields: ['insurance', 'memberId','insuranceNote'] },
@@ -96,7 +91,6 @@ const AppointmentForm = ({
     { label: 'History Rem', fields: [ 'medicationHistory', 'reason'] }
   ];
 
-  // Add this new function to validate current step
   const validateCurrentStep = () => {
     const errors = {};
     const currentFields = steps[currentStep].fields;
@@ -130,7 +124,6 @@ const AppointmentForm = ({
       errors.reason = "Reason for therapy is required";
     }
 
-    // Add to your validateCurrentStep function for date validation
     if (currentFields.includes('dateOfBirth')) {
       if (!dobMonth || !dobDay || !dobYear) {
         errors.dateOfBirth = "Date of birth is required";
@@ -140,23 +133,15 @@ const AppointmentForm = ({
           const day = parseInt(dobDay);
           const year = parseInt(dobYear);
           
-          // Validate month (1-12)
           if (month < 1 || month > 12) {
             errors.dateOfBirth = "Month must be between 1 and 12";
-          } 
-          // Validate day based on month
-          else {
+          } else {
             const daysInMonth = new Date(year, month, 0).getDate();
             if (day < 1 || day > daysInMonth) {
               errors.dateOfBirth = `Invalid day for selected month (must be 1-${daysInMonth})`;
-            } 
-            // Validate year is reasonable
-            else if (year < 1900 || year > new Date().getFullYear()) {
+            } else if (year < 1900 || year > new Date().getFullYear()) {
               errors.dateOfBirth = "Please enter a valid year";
-            }
-            // If all individual validations pass, construct and set the date
-            else {
-              // If we reach here, we have valid date components - update dateOfBirth directly
+            } else {
               const formattedMonth = month.toString().padStart(2, '0');
               const formattedDay = day.toString().padStart(2, '0');
               const newDate = new Date(`${formattedMonth}/${formattedDay}/${year}`);
@@ -164,7 +149,6 @@ const AppointmentForm = ({
               if (isNaN(newDate.getTime()) || newDate > new Date()) {
                 errors.dateOfBirth = "Please enter a valid date of birth";
               } else {
-                // Set the date synchronously for validation purposes
                 setDateOfBirth(newDate);
               }
             }
@@ -185,30 +169,25 @@ const AppointmentForm = ({
   };
 
   const handleNext = () => {
-    // For debugging
     console.log('Next clicked', { currentStep });
     
-    // If we're on the first step and DOB fields are filled
     if (currentStep === 0 && dobMonth && dobDay && dobYear) {
       try {
         const month = parseInt(dobMonth);
         const day = parseInt(dobDay);
         const year = parseInt(dobYear);
         
-        // Validate month
         if (month < 1 || month > 12) {
           setFormErrors({dateOfBirth: "Month must be between 1 and 12"});
           return;
         }
         
-        // Validate day based on month
         const daysInMonth = new Date(year, month, 0).getDate();
         if (day < 1 || day > daysInMonth) {
           setFormErrors({dateOfBirth: `Invalid day for selected month (must be 1-${daysInMonth})`});
           return;
         }
         
-        // Validate year
         if (year < 1900 || year > new Date().getFullYear()) {
           setFormErrors({dateOfBirth: "Please enter a valid year"});
           return;
@@ -223,10 +202,8 @@ const AppointmentForm = ({
           return;
         }
         
-        // First set the date
         setDateOfBirth(newDate);
         
-        // Then proceed directly to next step without checking validateCurrentStep()
         setCurrentStep(currentStep + 1);
         setFormErrors({});
         return;
@@ -237,12 +214,10 @@ const AppointmentForm = ({
       }
     }
     
-    // For other fields/steps, use normal validation
     if (!validateCurrentStep()) {
       return;
     }
     
-    // If validation passes
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1);
     }
@@ -330,20 +305,16 @@ const AppointmentForm = ({
               <span className="text-red-500 ml-1">*</span>
             </label>
             <div className="flex space-x-2">
-              {/* Month input */}
               <div className="w-1/4">
                 <input
                   type="text"
                   value={dobMonth}
                   onChange={(e) => {
-                    // Allow free typing for numbers
                     const value = e.target.value.replace(/\D/g, '');
                     setDobMonth(value);
                   }}
                   onBlur={() => {
-                    // Only format on blur
                     if (dobMonth && parseInt(dobMonth) > 0 && parseInt(dobMonth) <= 12) {
-                      // Pad with leading zero if needed
                       setDobMonth(parseInt(dobMonth).toString().padStart(2, '0'));
                     }
                   }}
@@ -354,21 +325,16 @@ const AppointmentForm = ({
                   }`}
                 />
               </div>
-              
-              {/* Day input */}
               <div className="w-1/4">
                 <input
                   type="text"
                   value={dobDay}
                   onChange={(e) => {
-                    // Allow free typing for numbers
                     const value = e.target.value.replace(/\D/g, '');
                     setDobDay(value);
                   }}
                   onBlur={() => {
-                    // Only format on blur
                     if (dobDay && parseInt(dobDay) > 0 && parseInt(dobDay) <= 31) {
-                      // Pad with leading zero if needed
                       setDobDay(parseInt(dobDay).toString().padStart(2, '0'));
                     }
                   }}
@@ -379,14 +345,11 @@ const AppointmentForm = ({
                   }`}
                 />
               </div>
-              
-              {/* Year input */}
               <div className="w-2/4">
                 <input
                   type="text"
                   value={dobYear}
                   onChange={(e) => {
-                    // Allow free typing for numbers
                     const value = e.target.value.replace(/\D/g, '');
                     setDobYear(value);
                   }}
@@ -798,7 +761,7 @@ Have you been to therapy before?
                `(${match[1]}) ${match[2]}-${match[3]}`;
       }
     }
-    return value.slice(0, 14); // Limit total length including formatting
+    return value.slice(0, 14);
   };
 
   const validateForm = () => {
@@ -815,6 +778,7 @@ Have you been to therapy before?
     if (!dateOfBirth) errors.dateOfBirth = "Date of birth is required";
     if (!previousTherapy) errors.previousTherapy = "Previous therapy information is required";
     if (!takingMedication) errors.takingMedication = "Medication information is required";
+    if (!hasMedicationHistory) errors.hasMedicationHistory = "Please select Yes or No for medication history";
     if (!reason.trim()) errors.reason = "Reason for therapy is required";
 
     setFormErrors(errors);
@@ -824,7 +788,7 @@ Have you been to therapy before?
   const debouncedValidateForm = useCallback(
     debounce(() => validateForm(), 300),
     [firstName, lastName, email, phone, dateOfBirth, insurance, memberId, previousTherapy, 
-     takingMedication, mentalDiagnosis, reason]
+     takingMedication, mentalDiagnosis, hasMedicationHistory, medicationHistory, reason]
   );
 
   const handleSubmit = async (e) => {
@@ -836,7 +800,6 @@ Have you been to therapy before?
       try {
         setLocalSubmitting(true);
         
-        // Track form submission with Fathom
         Fathom.trackEvent('FORM_SUBMITTED');
         
         const formFields = {
@@ -879,12 +842,10 @@ Have you been to therapy before?
         const response = await submitAppointmentForm(formData, href);
         
         if (response.success) {
-          // Call fetch-appointments API after successful form submission
           try {
             await fetch('https://automate.crowncounseling.com/api/fetch-appointments');
           } catch (fetchError) {
             console.error('Error calling fetch-appointments:', fetchError);
-            // Continue with form submission even if this call fails
           }
 
           await handleSubmitAppointment(e, {
@@ -909,7 +870,7 @@ Have you been to therapy before?
 
   const handleInsuranceInfoNext = () => {
     setShowingInsuranceInfo(false);
-    setCurrentStep(3); // Move to Insurance Provider step
+    setCurrentStep(3);
   };
 
   return (
@@ -921,17 +882,6 @@ Have you been to therapy before?
     >
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="mb-2">
-          {/* Simplified step indicator */}
-          {/* <div className="flex items-center justify-between mb-2">
-            <span className="text-xs font-medium text-gray-700">
-              {!showingInsuranceInfo && `Step ${currentStep + 1}/${steps.length}`}
-            </span>
-            <span className="text-xs font-medium" style={{ color: primaryColor }}>
-              {!showingInsuranceInfo && steps[currentStep].label}
-            </span>
-          </div> */}
-          
-          {/* Progress bar */}
           <div className="w-full bg-gray-200 rounded-full h-1.5">
             <div 
               className="h-1.5 rounded-full transition-all duration-300"
@@ -978,7 +928,6 @@ Have you been to therapy before?
         </div>
 
         <div className="flex items-center justify-between">
-          {/* Show back button on all steps */}
           <motion.button
             whileHover={{ scale: 1.01 }}
             whileTap={{ scale: 0.98 }}

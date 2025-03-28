@@ -106,9 +106,11 @@ function App() {
 
   // Handle date selection
   const handleDateSelect = (date) => {
-    const filteredSlots = slots.filter(
-      (slot) => new Date(slot.isoDate).toDateString() === date.toDateString()
-    );
+    // Get ISO date string for proper comparison with API data
+    const dateISO = date.toISOString().split('T')[0];
+    
+    // Filter slots using the ISO date string, not Date object comparison
+    const filteredSlots = slots.filter(slot => slot.isoDate === dateISO);
 
     if (filteredSlots.length === 0) {
       setErrorMessage('No available slots for this date. Please select another date.');

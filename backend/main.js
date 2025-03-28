@@ -6,6 +6,7 @@ const CONFIG = require('./config');
 const { syncWithMongoDB } = require('./mongoSync');
 const { cleanAppointmentsData } = require('./cleaner/cleanHrefs');
 const { cleanClinicianNames } = require('./cleaner/nameCleaner'); // Import the name cleaner
+const { fixDateConsistencies } = require('./cleaner/dateConsistencyFixer'); // Import the date consistency fixer
 
 // Helper function for formatted logging
 function log(message, type = 'info') {
@@ -93,8 +94,12 @@ async function main() {
     await cleanClinicianNames();
     
     // Format dates using the new script
-    //log('Formatting dates from URL timestamps...');
+    log('Formatting dates from URL timestamps...');
     await runScript('./cleaner/dateFormatter.js');
+    
+    // Fix any date inconsistencies
+    log('Checking and fixing date inconsistencies...');
+    await fixDateConsistencies();
     
     // Sync data with MongoDB
     // log('Synchronizing data with MongoDB...');
