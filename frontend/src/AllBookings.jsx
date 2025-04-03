@@ -109,7 +109,9 @@ function AllBookings() {
           // Time with AM/PM format
           const timePart = a.replace(/(AM|PM)/, '').trim();
           [aHours, aMinutes] = timePart.split(':').map(Number);
-          // Special case: 12 AM is earlier than other AM times
+          // Adjust hours for PM times (except 12 PM)
+          if (aHasPM && aHours !== 12) aHours += 12;
+          // Special case: 12 AM should be treated as 0
           if (aHasAM && aHours === 12) aHours = 0;
         } else {
           // 24-hour format
@@ -120,7 +122,9 @@ function AllBookings() {
           // Time with AM/PM format
           const timePart = b.replace(/(AM|PM)/, '').trim();
           [bHours, bMinutes] = timePart.split(':').map(Number);
-          // Special case: 12 AM is earlier than other AM times
+          // Adjust hours for PM times (except 12 PM)
+          if (bHasPM && bHours !== 12) bHours += 12;
+          // Special case: 12 AM should be treated as 0
           if (bHasAM && bHours === 12) bHours = 0;
         } else {
           // 24-hour format

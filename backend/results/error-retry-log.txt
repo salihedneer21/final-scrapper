@@ -259,3 +259,27 @@ Error: ENOENT: no such file or directory, open 'results/appointments.json'
     at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
     at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
 
+[2025-04-03T05:57:48.270Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-04-03T05:57:48.368Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+
+[2025-04-03T05:57:48.471Z] Failed to load appointments data: ENOENT: no such file or directory, open 'results/appointments.json'
+Error: ENOENT: no such file or directory, open 'results/appointments.json'
+    at async open (node:internal/fs/promises:638:25)
+    at async Object.readFile (node:internal/fs/promises:1242:14)
+    at async ErrorRetryScraper.findErrorClinicians (/Users/salih/Documents/scraper/backend/errorRetry.js:329:20)
+    at async ErrorRetryScraper.run (/Users/salih/Documents/scraper/backend/errorRetry.js:361:25)
+    at async /Users/salih/Documents/scraper/backend/errorRetry.js:411:5
+

@@ -2960,3 +2960,55 @@ ProtocolError: Protocol error (Page.navigate): Unexpected Status 502 (no_peers_c
     at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
     at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
 
+[2025-04-03T05:57:44.838Z] Failed to initialize form: Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:69:60)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:148:29)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:168:7)
+    at async AppointmentScraper.run (/Users/salih/Documents/scraper/backend/scrapper.js:425:7)
+    at async /Users/salih/Documents/scraper/backend/scrapper.js:506:5
+
+[2025-04-03T05:57:44.849Z] Fatal error in scraper: Navigation timeout of 60000 ms exceeded
+TimeoutError: Navigation timeout of 60000 ms exceeded
+    at new Deferred (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:60:34)
+    at Deferred.create (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/Deferred.js:21:16)
+    at new LifecycleWatcher (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/LifecycleWatcher.js:69:60)
+    at CdpFrame.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/cdp/Frame.js:148:29)
+    at CdpFrame.<anonymous> (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/util/decorators.js:109:27)
+    at CdpPage.goto (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:574:43)
+    at AppointmentScraper.navigateWithRetry (/Users/salih/Documents/scraper/backend/scrapper.js:143:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:168:7)
+    at async AppointmentScraper.run (/Users/salih/Documents/scraper/backend/scrapper.js:425:7)
+    at async /Users/salih/Documents/scraper/backend/scrapper.js:506:5
+
+[2025-04-03T07:59:57.850Z] Failed to initialize form: Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded
+TimeoutError: Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded
+    at new WaitTask (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:48:34)
+    at IsolatedWorld.waitForFunction (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:25:26)
+    at CSSQueryHandler.waitFor (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/QueryHandler.js:178:95)
+    at async CdpFrame.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:532:21)
+    at async CdpPage.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1373:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:174:7)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 2)
+    at async AppointmentScraper.processBatch (/Users/salih/Documents/scraper/backend/scrapper.js:398:7)
+    at async AppointmentScraper.run (/Users/salih/Documents/scraper/backend/scrapper.js:477:9)
+
+[2025-04-03T07:59:57.858Z] Error processing clinician (ID: 464937, Name: Raizel Schapiro, LMSW, Licensed Social Worker): Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded
+TimeoutError: Waiting for selector `#IsNewPatientInput` failed: Waiting failed: 10000ms exceeded
+    at new WaitTask (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/WaitTask.js:48:34)
+    at IsolatedWorld.waitForFunction (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Realm.js:25:26)
+    at CSSQueryHandler.waitFor (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/common/QueryHandler.js:178:95)
+    at async CdpFrame.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Frame.js:532:21)
+    at async CdpPage.waitForSelector (/Users/salih/Documents/scraper/backend/node_modules/puppeteer-core/lib/cjs/puppeteer/api/Page.js:1373:20)
+    at async AppointmentScraper.initializeForm (/Users/salih/Documents/scraper/backend/scrapper.js:174:7)
+    at async AppointmentScraper.processClinician (/Users/salih/Documents/scraper/backend/scrapper.js:244:7)
+    at async Promise.all (index 2)
+    at async AppointmentScraper.processBatch (/Users/salih/Documents/scraper/backend/scrapper.js:398:7)
+    at async AppointmentScraper.run (/Users/salih/Documents/scraper/backend/scrapper.js:477:9)
+
