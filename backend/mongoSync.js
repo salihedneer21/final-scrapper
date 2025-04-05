@@ -183,6 +183,40 @@ async function saveAppointmentsData(appointmentsData) {
     }
 }
 
+// Function to remove clinicians not in the clinician-map
+async function removeObsoleteClinicians(clinicianMapData) {
+    try {
+        // Create a set of valid clinician IDs from the clinician-map
+        const validClinicianIds = new Set(Object.keys(clinicianMapData));
+        
+        // Get all clinicians from the database
+        const allClinicians = await BookingsLogs.find({}, 'clinicianId name');
+        
+        let removedCount = 0;
+        
+        // Check each clinician in the database
+        for (const clinician of allClinicians) {
+            // If the clinician ID is not in the clinician-map, remove it
+            if (!validClinicianIds.has(clinician.clinicianId)) {
+                log(`Removing obsolete clinician ${clinician.clinicianId}: ${clinician.name}`, 'warning');
+                await BookingsLogs.deleteOne({ clinicianId: clinician.clinicianId });
+                removedCount++;
+            }
+        }
+        
+        if (removedCount > 0) {
+            log(`Removed ${removedCount} clinicians that are no longer in the clinician-map`, 'success');
+        } else {
+            log('No obsolete clinicians found in the database', 'info');
+        }
+        
+        return removedCount;
+    } catch (error) {
+        log(`Error removing obsolete clinicians: ${error.message}`, 'error');
+        throw error;
+    }
+}
+
 // Main function to sync data with MongoDB
 async function syncWithMongoDB() {
     try {
@@ -197,11 +231,20 @@ async function syncWithMongoDB() {
         // Read the appointments data
         const appointmentsFilePath = path.join(CONFIG.resultsDir, CONFIG.appointmentsFile);
         log(`Reading appointments data from ${appointmentsFilePath}`);
-
+        
         const data = await fs.readFile(appointmentsFilePath, 'utf8');
         const appointmentsData = JSON.parse(data);
-
-        // Save appointments data
+        
+        // Read the clinician-map data
+        const clinicianMapFilePath = path.join(CONFIG.resultsDir, 'clinician-map.json');
+        log(`Reading clinician-map data from ${clinicianMapFilePath}`);
+        
+        const clinicianMapData = JSON.parse(await fs.readFile(clinicianMapFilePath, 'utf8'));
+        
+        // First remove any clinicians not in the clinician-map
+        await removeObsoleteClinicians(clinicianMapData);
+        
+        // Then save appointments data
         await saveAppointmentsData(appointmentsData);
 
         log('MongoDB synchronization completed successfully', 'success');

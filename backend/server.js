@@ -85,7 +85,7 @@ async function runScraper() {
 }
 
 
-const cronJob = cron.schedule('0 */12 * * *', async () => {
+const cronJob = cron.schedule('0 */8 * * *', async () => {
    log('Running scheduled scraper job', 'info');
    await runScraper();
  });
